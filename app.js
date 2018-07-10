@@ -83,18 +83,18 @@ export default class App extends Component {
         trailLength,
         currentTime: time
       }),
-      // new PolygonLayer({
-      //   id: 'buildings',
-      //   data: buildings,
-      //   extruded: true,
-      //   wireframe: false,
-      //   fp64: true,
-      //   opacity: 0.5,
-      //   getPolygon: f => f.polygon,
-      //   getElevation: f => f.height,
-      //   getFillColor: [74, 80, 87],
-      //   lightSettings: LIGHT_SETTINGS
-      // })
+      new PolygonLayer({
+        id: 'buildings',
+        data: buildings,
+        extruded: true,
+        wireframe: false,
+        fp64: true,
+        opacity: 0.5,
+        getPolygon: f => f.polygon,
+        getElevation: f => f.height,
+        getFillColor: [74, 80, 87],
+        lightSettings: LIGHT_SETTINGS
+      })
     ];
   }
 
