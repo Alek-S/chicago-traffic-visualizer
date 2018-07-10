@@ -15,16 +15,17 @@ const CONFIG = {
 
   module: {
     rules: [
-      {
-        // Compile ES2015 using buble
-        test: /\.js$/,
-        loader: 'buble-loader',
-        include: [resolve('.')],
-        exclude: [/node_modules/],
-        options: {
-          objectAssign: 'Object.assign'
-        }
-      }
+      // {
+      //   // Compile ES2015 using buble
+      //   test: /\.js$/,
+      //   loader: 'buble-loader',
+      //   include: [resolve('.')],
+      //   exclude: [/node_modules/],
+      //   options: {
+      //     objectAssign: 'Object.assign'
+      //   }
+      // }
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
     ]
   },
 
