@@ -22,7 +22,8 @@ const CONFIG = {
         include: [resolve('.')],
         exclude: [/node_modules/],
         options: {
-          objectAssign: 'Object.assign'
+          objectAssign: 'Object.assign',
+          transforms: { templateString: false }
         }
       }
     ]

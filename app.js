@@ -4,6 +4,7 @@ import {render} from 'react-dom';
 import {StaticMap} from 'react-map-gl';
 import DeckGL, {PolygonLayer} from 'deck.gl';
 import TripsLayer from './trips-layer';
+import Header from './components/Header/Header';
 
 // Set your mapbox token here
 // pk.eyJ1IjoiYWxlay1zIiwiYSI6ImNqamVvd2t1dzFkcG8zcW9sdTA4dzRhcHQifQ.fLXqRUcg4KMyrP-gOQPB8Q
@@ -114,21 +115,24 @@ export default class App extends Component {
     const {viewState, controller = true, baseMap = true} = this.props;
 
     return (
-      <DeckGL
-        layers={this._renderLayers()}
-        initialViewState={INITIAL_VIEW_STATE}
-        viewState={viewState}
-        controller={controller}
-      >
-        {baseMap && (
-          <StaticMap
-            reuseMaps
-            mapStyle="mapbox://styles/mapbox/dark-v9"
-            preventStyleDiffing={true}
-            mapboxApiAccessToken={MAPBOX_TOKEN}
-          />
-        )}
-      </DeckGL>
+      <div>
+        < Header />
+        <DeckGL
+          layers={this._renderLayers()}
+          initialViewState={INITIAL_VIEW_STATE}
+          viewState={viewState}
+          controller={controller}
+        >
+          {baseMap && (
+            <StaticMap
+              reuseMaps
+              mapStyle="mapbox://styles/mapbox/dark-v9"
+              preventStyleDiffing={true}
+              mapboxApiAccessToken={MAPBOX_TOKEN}
+            />
+          )}
+        </DeckGL>
+      </ div>
     );
   }
 }
