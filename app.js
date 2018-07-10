@@ -49,8 +49,6 @@ const INITIAL_VIEW_STATE = {
   bearing: -15
 };
 
-
-
 export default class App extends Component {
   state = {
     controls: {
@@ -148,7 +146,7 @@ export default class App extends Component {
   }
 
   render() {
-    const {viewState, controller = true, baseMap = true} = this.props;
+    const { viewState, controller = true, baseMap = true} = this.props;
     const { controls } = this.state;
 
     return (
@@ -160,7 +158,7 @@ export default class App extends Component {
         />
         {controls.confetti &&
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-            <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={1000} gravity={0.05} />}
+            <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={1000} gravity={0.08} />}
           </div>
         }
         <DeckGL
