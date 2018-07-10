@@ -4,6 +4,12 @@ import {render} from 'react-dom';
 import {StaticMap} from 'react-map-gl';
 import DeckGL, {PolygonLayer} from 'deck.gl';
 import TripsLayer from './trips-layer';
+import Stats from './Stats.js';
+import { LIGHT_SETTINGS } from './Lights.js';
+
+const stats = new Stats();
+stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
+document.body.appendChild( stats.dom );
 
 // Set your mapbox token here
 // pk.eyJ1IjoiYWxlay1zIiwiYSI6ImNqamVvd2t1dzFkcG8zcW9sdTA4dzRhcHQifQ.fLXqRUcg4KMyrP-gOQPB8Q
@@ -27,22 +33,14 @@ const DATA_URL = {
     'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json' // eslint-disable-line
 };
 
-const LIGHT_SETTINGS = {
-  lightsPosition: [-87.05, 41.7, 8000, -86.5, 40, 5000],
-  ambientRatio: 0.05,
-  diffuseRatio: 0.6,
-  specularRatio: 0.8,
-  lightsStrength: [2.0, 0.0, 0.0, 0.0],
-  numberOfLights: 2
-};
-
 const INITIAL_VIEW_STATE = {
   longitude: -87.615,
   latitude: 41.8781,
   zoom: 13.25,
-  maxZoom: 15,
-  pitch: 45,
-  bearing: -15
+  maxZoom: 17,
+  minZoom: 11.5,
+  pitch: 40,
+  bearing: -1,
 };
 
 
@@ -66,6 +64,8 @@ export default class App extends Component {
   }
 
   _animate() {
+    stats.begin();
+
     const timestamp = Date.now();
     const loopLength = 1800;
     const loopTime = 60000;
@@ -73,7 +73,10 @@ export default class App extends Component {
     this.setState({
       time: ((timestamp % loopTime) / loopTime) * loopLength
     });
+
     this._animationFrame = window.requestAnimationFrame(this._animate.bind(this));
+
+    stats.end();
   }
 
   _renderLayers() {

@@ -19,7 +19,7 @@ Points should be sorted by timestamp.
 
 - Default: `d => d.color`
 
-Called for each data object to retreive stroke colors.
+Called for each data object to retrieve stroke colors.
 Returns an array in the form of `[r, g, b]`.
 
 ##### `currentTime` (Number, optional)
