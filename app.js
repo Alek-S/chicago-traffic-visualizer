@@ -10,15 +10,25 @@ import TripsLayer from './trips-layer';
 const MAPBOX_TOKEN = process.env.MapboxAccessToken; // eslint-disable-line
 
 // Source data CSV
+
+// parsing Raw building data 
+// TODO: do this somewhere else...
+const buildingsRaw = require('./chicago_buildings.json');
+let buildingsConverted = buildingsRaw;
+for (let i = 0; i < buildingsRaw.length; i++) {
+  const polygon = buildingsRaw[i].polygon.coordinates[0][0];
+  buildingsConverted[i].polygon = polygon;
+}
+
 const DATA_URL = {
   BUILDINGS:
-    'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/buildings.json', // eslint-disable-line
+    buildingsConverted, // eslint-disable-line
   TRIPS:
     'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json' // eslint-disable-line
 };
 
 const LIGHT_SETTINGS = {
-  lightsPosition: [-74.05, 40.7, 8000, -73.5, 41, 5000],
+  lightsPosition: [-87.05, 41.7, 8000, -86.5, 40, 5000],
   ambientRatio: 0.05,
   diffuseRatio: 0.6,
   specularRatio: 0.8,
@@ -27,13 +37,15 @@ const LIGHT_SETTINGS = {
 };
 
 const INITIAL_VIEW_STATE = {
-  longitude: -74,
-  latitude: 40.72,
-  zoom: 13,
-  maxZoom: 16,
+  longitude: -87.615,
+  latitude: 41.8781,
+  zoom: 13.25,
+  maxZoom: 15,
   pitch: 45,
-  bearing: 0
+  bearing: -15
 };
+
+
 
 export default class App extends Component {
   constructor(props) {
