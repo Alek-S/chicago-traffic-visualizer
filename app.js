@@ -11,13 +11,17 @@ import TripsLayer from './webgl/trips-layer';
 import ControlPanel from './components/ControlPanel';
 import Stats from './components/Stats.js';
 import { LIGHT_SETTINGS } from './webgl/lights.js';
+import animationData from './data/busAnimData.json';
+import {interpolateRgb} from "d3-interpolate";
+import { format, formatDistance, formatRelative, subDays } from 'date-fns'
 
 const stats = new Stats();
 stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
 document.body.appendChild(stats.dom);
 
+
 // Set your mapbox token here
-const MAPBOX_TOKEN = process.env.MapboxAccessToken; // eslint-disable-line
+const MAPBOX_TOKEN = process.env.MapboxAccessToken // eslint-disable-line
 
 // parsing Raw building data
 // TODO: do this somewhere else...
@@ -60,13 +64,14 @@ console.log(potholesConverted);
 
 
 const DATA_URL = {
-  BUILDINGS:
-    buildingsConverted,
-  TRIPS:
-    'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json', // eslint-disable-line
+  BUILDINGS: buildingsConverted, // eslint-disable-line
+    // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/buildings.json',
+  TRIPS: animationData,
+    // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json', // eslint-disable-line
   PEDESTRIANS: pedCountConverted,
   POTHOLES: potholesConverted,
 };
+// console.log(animationData)
 
 const INITIAL_VIEW_STATE = {
   longitude: -87.615,
@@ -78,17 +83,29 @@ const INITIAL_VIEW_STATE = {
   bearing: -1,
 };
 
+const redGreenInterplate = interpolateRgb('red', 'teal')
+
+// convert rgb string to array
+function rgbStringToArray(rgbString) {
+  let spliter = rgbString.split('(');
+  spliter = spliter[1].split(')');
+  spliter = spliter[0].split(',');
+  return spliter.map(x=> parseInt(x))
+}
+
 export default class App extends Component {
   state = {
     controls: {
+      showTrips: true,
+      showBuildingColors: false,
       showBuildings: false,
+      showPedestrians: true,
       mapType: 'dark',
       confetti: false,
       showPedestrians: false,
       showPotholes: true,
       buildingsSlice: buildingsConverted,
       yearSlice: 2018,
-      showBuildingColors: false,
     },
     time: 0,
   }
@@ -123,8 +140,8 @@ export default class App extends Component {
     stats.begin();
 
     const timestamp = Date.now();
-    const loopLength = 1800;
-    const loopTime = 60000;
+    const loopLength = 100000;
+    const loopTime = 300000;
 
     this.setState({
       time: ((timestamp % loopTime) / loopTime) * loopLength
@@ -140,7 +157,7 @@ export default class App extends Component {
     const {
       buildings = DATA_URL.BUILDINGS,
       trips = DATA_URL.TRIPS,
-      trailLength = 180,
+      trailLength = 480,
       time = this.state.time,
       pedestrians = DATA_URL.PEDESTRIANS,
       potholes = DATA_URL.POTHOLES
@@ -181,9 +198,11 @@ export default class App extends Component {
           id: 'trips',
           data: trips,
           getPath: d => d.segments,
-          getColor: d => (d.vendor === 0 ? [253, 128, 93] : [23, 184, 190]),
-          opacity: 0.3,
-          strokeWidth: 2,
+          // getColor: d => [253, 128, 93],
+          getColor: d => (d.speed < 20 ? [253, 128, 93] : [23, 184, 190]),
+          // getColor: d => (rgbStringToArray(redGreenInterplate(parseInt(d.speed/40)))),
+          opacity: 1.0,
+          strokeWidth: 22,
           trailLength,
           currentTime: time
         })
@@ -270,6 +289,8 @@ export default class App extends Component {
           viewState={viewState}
           controls={controls}
           update={this.update}
+          frameTime={this.state.time}
+          date={this.currentDate}
         />
         {controls.confetti &&
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
