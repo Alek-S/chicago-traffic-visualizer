@@ -7,7 +7,7 @@ var Stats = function () {
     var mode = 0;
 
     var container = document.createElement( 'div' );
-    container.style.cssText = 'position:fixed;top:0;left:0;cursor:pointer;opacity:0.9;z-index:10000';
+    container.style.cssText = 'position:fixed;top:0;left:0;cursor:pointer;opacity:0.85;z-index:10000;box-shadow: 0px 0px 50px rgba(0,0,0,0.4);';
     container.addEventListener( 'click', function ( event ) {
 
         event.preventDefault();
@@ -40,12 +40,12 @@ var Stats = function () {
 
     var beginTime = ( performance || Date ).now(), prevTime = beginTime, frames = 0;
 
-    var fpsPanel = addPanel( new Stats.Panel( 'FPS', '#0ff', '#002' ) );
-    var msPanel = addPanel( new Stats.Panel( 'MS', '#0f0', '#020' ) );
+    var fpsPanel = addPanel(new Stats.Panel('FPS', '#707d96', 'rgba(39, 44, 53, 0.9)' ) );
+    var msPanel = addPanel(new Stats.Panel('MS', '#1AB8C4', 'rgba(39, 44, 53, 0.9)' ) );
 
     if ( self.performance && self.performance.memory ) {
 
-        var memPanel = addPanel( new Stats.Panel( 'MB', '#f08', '#201' ) );
+        var memPanel = addPanel(new Stats.Panel('MB', '#ef3957', 'rgba(39, 44, 53, 0.9)' ) );
 
     }
 

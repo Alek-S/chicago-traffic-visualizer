@@ -12,7 +12,14 @@ import DatGui, {
   DatString,
 } from 'react-dat-gui';
 
-
+/** @class 
+ * @name ControlPanel
+ * Header and control panel option in upper right
+ * 
+ * @param {Object} props.controls - control option state from parent
+ * @param {Function} update - parent function to update state
+ * @returns {JSX}
+*/
 export default class ControlPanel extends Component {
   state = {
     isVisible: true,
@@ -35,6 +42,7 @@ export default class ControlPanel extends Component {
           <DatGui data={controls} onUpdate={update}>
             <DatBoolean path='showBuildings' label='Show Buildings? ' />
             {controls.showBuildings && <DatNumber path='yearSlice' label='Built Year ' min={1890} max={2018} step={5} />}
+            <DatBoolean path='showBuildingColors' label='Show Building Colors? ' />
             <DatBoolean path='showPedestrians' label='Show Pedestrians? ' />
             <DatSelect label="Map Type " path='mapType' options={['street', 'dark', 'light', 'outdoors', 'satellite', 'satellite-street']}/>
             <DatBoolean path='confetti' label='Confetti:' />
@@ -45,6 +53,7 @@ export default class ControlPanel extends Component {
   }
 }
 
+// props.controls.mapType
 const StyledControlPanel = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,700');
 
@@ -72,7 +81,7 @@ const StyledControlPanel = styled.div`
     font-weight: 100;
   }
   h1 {
-    background-color: #343b47;
+    background: linear-gradient(to bottom, #4c5566 0%, #343b47 100%);
     color: #1AB8C4;
     font-size: 18px;
     margin: 0;
@@ -98,7 +107,12 @@ const StyledControlPanel = styled.div`
     color: #1AB8C4;
     background-color: #343b47;
     box-shadow: 0px 0px 20px 0px rgba(114,124,140,0.2);
+
+    select {
+      background-color: #505a6d;
+    }
   }
+
 
   div {
     height: fit-content;
@@ -146,4 +160,15 @@ const StyledControlPanel = styled.div`
       display: none;
     }
   }
-`
+
+  select{
+    outline: none;
+    background-color: #343b47;
+    border: none;
+    color: #1AB8C4;
+    font-family: 'Quicksand', sans-serif;
+    font-size: .85rem;
+    font-weight: 400;
+    transition: .5s all;
+  }
+`;
