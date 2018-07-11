@@ -49,7 +49,7 @@ for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
 const DATA_URL = {
   BUILDINGS: buildingsConverted, // eslint-disable-line
     // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/buildings.json',
-  TRIPS: animationData
+  TRIPS: animationData,
     // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json', // eslint-disable-line
   PEDESTRIANS: pedCountConverted,
 };
