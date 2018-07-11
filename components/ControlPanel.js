@@ -3,7 +3,14 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import DatGui, { DatBoolean, DatSelect, DatNumber, DatString } from 'react-dat-gui';
 
-
+/** @class 
+ * @name ControlPanel
+ * Header and control panel option in upper right
+ * 
+ * @param {Object} props.controls - control option state from parent
+ * @param {Function} update - parent function to update state
+ * @returns {JSX}
+*/
 export default class ControlPanel extends Component {
   state = {
     isVisible: true,
@@ -34,6 +41,7 @@ export default class ControlPanel extends Component {
   }
 }
 
+// props.controls.mapType
 const StyledControlPanel = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,700');
 
@@ -61,7 +69,7 @@ const StyledControlPanel = styled.div`
     font-weight: 100;
   }
   h1 {
-    background-color: #343b47;
+    background: linear-gradient(to bottom, #4c5566 0%, #343b47 100%);
     color: #1AB8C4;
     font-size: 18px;
     margin: 0;
@@ -86,10 +94,27 @@ const StyledControlPanel = styled.div`
     color: #1AB8C4;
     background-color: #343b47;
     box-shadow: 0px 0px 20px 0px rgba(114,124,140,0.2);
+
+    select {
+      background-color: #505a6d;
+    }
   }
+
 
   div {
     height: 500px;
     transition: height: 1s linear;
   }
-`
+  
+
+  select{
+    outline: none;
+    background-color: #343b47;
+    border: none;
+    color: #1AB8C4;
+    font-family: 'Quicksand', sans-serif;
+    font-size: .85rem;
+    font-weight: 400;
+    transition: .5s all;
+  }
+`;
