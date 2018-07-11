@@ -84,10 +84,27 @@ const StyledControlPanel = styled.div`
     color: #1AB8C4;
     background-color: #343b47;
     box-shadow: 0px 0px 20px 0px rgba(114,124,140,0.2);
+
+    select {
+      background-color: #505a6d;
+    }
   }
+
 
   div {
     height: 500px;
     transition: height: 1s linear;
   }
-`
+  
+
+  select{
+    outline: none;
+    background-color: #343b47;
+    border: none;
+    color: #1AB8C4;
+    font-family: 'Quicksand', sans-serif;
+    font-size: .85rem;
+    font-weight: 400;
+    transition: .5s all;
+  }
+`;
