@@ -44,6 +44,7 @@ export default class ControlPanel extends Component {
             {controls.showBuildings && <DatNumber path='yearSlice' label='Built Year ' min={1890} max={2018} step={5} />}
             <DatBoolean path='showBuildingColors' label='Show Building Colors? ' />
             <DatBoolean path='showPedestrians' label='Show Pedestrians? ' />
+            <DatBoolean path='showPotholes' label='Show Potholes? ' />
             <DatSelect label="Map Type " path='mapType' options={['street', 'dark', 'light', 'outdoors', 'satellite', 'satellite-street']}/>
             <DatBoolean path='confetti' label='Confetti:' />
           </DatGui>
