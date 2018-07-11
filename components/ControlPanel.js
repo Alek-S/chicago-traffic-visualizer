@@ -13,13 +13,15 @@ export default class ControlPanel extends Component {
     this.setState({ isVisible: !isVisible })
   }
   render() {
-    const { update, controls } = this.props;
+    const { update, controls, frameTime, date } = this.props;
     const { isVisible } = this.state;
     return (
       <StyledControlPanel>
         <h1>Chicago Traffic Visualizer
         {/* <FontAwesomeIcon icon="coffee" onClick={this.togglePanel} /> */}
         </h1>
+        <p>frame {frameTime}</p>
+        <p>Date {date}</p>
         {isVisible &&
           <DatGui data={controls} onUpdate={update}>
             <DatBoolean path='showBuildings' label='Show Buildings? ' />

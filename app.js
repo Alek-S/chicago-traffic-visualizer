@@ -12,6 +12,7 @@ import Stats from './Stats.js';
 import { LIGHT_SETTINGS } from './Lights.js';
 import animationData from './data/busAnimData.json';
 import {interpolateRgb} from "d3-interpolate";
+import { format, formatDistance, formatRelative, subDays } from 'date-fns'
 
 const stats = new Stats();
 stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -88,8 +89,8 @@ export default class App extends Component {
     stats.begin();
 
     const timestamp = Date.now();
-    const loopLength = 500;
-    const loopTime = 100000;
+    const loopLength = 100000;
+    const loopTime = 300000;
 
     this.setState({
       time: ((timestamp % loopTime) / loopTime) * loopLength
@@ -105,7 +106,7 @@ export default class App extends Component {
     const {
       buildings = DATA_URL.BUILDINGS,
       trips = DATA_URL.TRIPS,
-      trailLength = 180,
+      trailLength = 480,
       time = this.state.time
     } = this.props;
 
@@ -136,8 +137,8 @@ export default class App extends Component {
           // getColor: d => [253, 128, 93],
           getColor: d => (d.speed < 20 ? [253, 128, 93] : [23, 184, 190]),
           // getColor: d => (rgbStringToArray(redGreenInterplate(parseInt(d.speed/40)))),
-          opacity: 0.6,
-          strokeWidth: 12,
+          opacity: 1.0,
+          strokeWidth: 22,
           trailLength,
           currentTime: time
         })
@@ -175,6 +176,8 @@ export default class App extends Component {
           viewState={viewState}
           controls={controls}
           update={this.update}
+          frameTime={this.state.time}
+          date={this.currentDate}
         />
         {controls.confetti &&
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
