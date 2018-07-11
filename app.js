@@ -10,14 +10,16 @@ import TripsLayer from './trips-layer';
 import ControlPanel from './components/ControlPanel';
 import Stats from './Stats.js';
 import { LIGHT_SETTINGS } from './Lights.js';
+import animationData from './data/busAnimData.json';
 
 const stats = new Stats();
 stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
 document.body.appendChild( stats.dom );
 
+
 // Set your mapbox token here
 // pk.eyJ1IjoiYWxlay1zIiwiYSI6ImNqamVvd2t1dzFkcG8zcW9sdTA4dzRhcHQifQ.fLXqRUcg4KMyrP-gOQPB8Q
-const MAPBOX_TOKEN = process.env.MapboxAccessToken; // eslint-disable-line
+const MAPBOX_TOKEN = 'pk.eyJ1IjoibWZhbGtvd3NraSIsImEiOiJjamplc241c3U0cWdyM3FvZ2lhbnRpMWNqIn0.IoccaoYEVuGJZjvsADuwAg'; // eslint-disable-line
 
 // Source data CSV
 
@@ -31,11 +33,12 @@ for (let i = 0; i < buildingsRaw.length; i++) {
 }
 
 const DATA_URL = {
-  BUILDINGS:
-    buildingsConverted, // eslint-disable-line
-  TRIPS:
-    'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json' // eslint-disable-line
+  BUILDINGS: buildingsConverted, // eslint-disable-line
+    // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/buildings.json', // eslint-disable-line
+  TRIPS: animationData
+    // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json' // eslint-disable-line
 };
+console.log(animationData)
 
 const INITIAL_VIEW_STATE = {
   longitude: -87.615,
@@ -51,6 +54,7 @@ export default class App extends Component {
   state = {
     controls: {
       showBuildings: true,
+      showTrips: true,
       mapType: 'dark',
       confetti: false,
     },
@@ -118,7 +122,8 @@ export default class App extends Component {
           id: 'trips',
           data: trips,
           getPath: d => d.segments,
-          getColor: d => (d.vendor === 0 ? [253, 128, 93] : [23, 184, 190]),
+          getColor: d => [253, 128, 93],
+          // getColor: d => (d.vendor === 0 ? [253, 128, 93] : [23, 184, 190]),
           opacity: 0.3,
           strokeWidth: 2,
           trailLength,
