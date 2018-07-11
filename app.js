@@ -157,7 +157,7 @@ export default class App extends Component {
     const { controls } = this.state;
 
     return (
-      <div>
+      <div onContextMenu={this.handleRightClick}>
         <ControlPanel
           viewState={viewState}
           controls={controls}
