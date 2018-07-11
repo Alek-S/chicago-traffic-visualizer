@@ -31,7 +31,7 @@ for (let i = 0; i < buildingsRaw.length; i++) {
   buildingsConverted[i].polygon = polygon;
 }
 
-const pedCountRaw = require('./chicago_ped_count.json');
+const pedCountRaw = require('./data/chicago_ped_count.json');
 let pedCountConverted = pedCountRaw;
 for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
   const polygon = [
@@ -54,6 +54,8 @@ const DATA_URL = {
   PEDESTRIANS: pedCountConverted,
 };
 
+// TODO: Is this doing anything?
+/*
 const colorRange = [
   [1, 152, 189],
   [73, 227, 206],
@@ -62,6 +64,7 @@ const colorRange = [
   [254, 173, 84],
   [209, 55, 78]
 ];
+*/
 
 const elevationScale = {min: 1, max: 50};
 
@@ -139,11 +142,11 @@ export default class App extends Component {
           getPolygon: f => f.polygon,
           getElevation: f => f.height,
           getFillColor: f => {
-              const yearScaled = (f.year_built - 1870) / 2.1666;
-              const centerColor = 150;
-              const colorRange = 30;
-              const greenBasis = centerColor + colorRange;
-              const blueBasis = centerColor - colorRange;
+              const yearScaled = f.year_built === "0" ? 30 : (f.year_built - 1870) / 1.5;
+              const centerColor = 110;
+              const colorSpread = 60;
+              const greenBasis = centerColor + colorSpread;
+              const blueBasis = centerColor - colorSpread;
               return [70, greenBasis - yearScaled, blueBasis + yearScaled]
           },
           lightSettings: LIGHT_SETTINGS
