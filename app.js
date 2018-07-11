@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import styled from 'styled-components';
 import { StaticMap } from 'react-map-gl';
 import DeckGL, { PolygonLayer } from 'deck.gl';
+import { setParameters } from 'luma.gl';
 import Confetti from 'react-confetti';
 
 import TripsLayer from './webgl/trips-layer';
@@ -102,11 +103,19 @@ export default class App extends Component {
           data: buildings,
           extruded: true,
           wireframe: false,
+          stroked: false,
           fp64: true,
-          opacity: 0.5,
+          opacity: 1.0, // buildings will clip if (opacity < 1.0)
           getPolygon: f => f.polygon,
           getElevation: f => f.height,
-          getFillColor: f => [f.height % 255, 100, f.year_built - 1888],
+          getFillColor: f => {
+              const yearScaled = (f.year_built - 1870) / 2.1666;
+              const centerColor = 130;
+              const colorRange = 30;
+              const greenBasis = centerColor + colorRange;
+              const blueBasis = centerColor - colorRange;
+              return [centerColor, greenBasis - yearScaled, blueBasis + yearScaled]
+          },
           lightSettings: LIGHT_SETTINGS
         })
       )
@@ -128,6 +137,17 @@ export default class App extends Component {
     }
 
     return layers;
+  }
+
+  _onWebGLInitialized(gl) {
+    setParameters(gl, {
+      depthTest: true,
+      [gl.DEPTH_FUNC]: gl.LEQUAL,
+      // [gl.POLYGON_OFFSET_FILL]: true,
+      // polygonOffset: [3, 3],
+      // [gl.CULL_FACE]: true,
+      // [gl.FRONT_FACE]: gl.CW,
+    });
   }
 
   getMapStyle = () => {
@@ -169,6 +189,7 @@ export default class App extends Component {
           initialViewState={INITIAL_VIEW_STATE}
           viewState={viewState}
           controller={controller}
+          onWebGLInitialized={this._onWebGLInitialized.bind(this)}
         >
           {baseMap && (
             <StaticMap
