@@ -23,8 +23,9 @@ export default class ControlPanel extends Component {
         {isVisible &&
           <DatGui data={controls} onUpdate={update}>
             <DatBoolean path='showBuildings' label='Show Buildings? ' />
+            <DatBoolean path='showPedestrians' label='Show Pedestrians? ' />
             <DatSelect label="Map Type " path='mapType' options={['street', 'dark', 'light', 'outdoors', 'satellite', 'satellite-street']}/>
-            <DatBoolean path='confetti' label='Confetti?' />
+            <DatBoolean path='confetti' label='Confetti:' />
           </DatGui>
         }
       </StyledControlPanel>
@@ -33,24 +34,59 @@ export default class ControlPanel extends Component {
 }
 
 const StyledControlPanel = styled.div`
+  @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,700');
+
+  background: rgba(39, 44, 53, 0.85);
+  /* border-radius: 6px; */
+  box-shadow: 0px 0px 50px rgba(0,0,0,0.4);
   box-sizing: border-box;
-  font-family: 'menlo';
-  z-index: 99;
-  background: #555;
-  border-radius: 6px;
-  box-shadow: 0px 0px 50px rgba(0,0,0,0.6);
-  width: 400px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+  padding: 0;
   position: fixed;
-  right: 30px;
-  top: 30px;
-  padding: 20px;
+  right: 0rem;
+  top: 0rem;
+  height: 15.5rem;
+  width: 18rem;
+  z-index: 99;
+
+  & .react-dat-gui{
+    position: relative;
+    right: 1rem;
+  }
+
   h1, h2, h3, p, span, ul, li {
-    color: #ccc;
+    color: #C5C6C7;
     font-weight: 100;
   }
   h1 {
+    background-color: #343b47;
+    color: #1AB8C4;
     font-size: 18px;
+    margin: 0;
+    padding: 1rem 0 1rem 0;
+    text-align: center;
   }
+
+
+  li{
+    list-style: none;
+    line-height: 2.5;
+    margin: 0;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    transition: .5s all;
+  }
+  li:before{
+    content: '»';
+    padding-right: .5rem;
+  }
+  li:hover{
+    color: #1AB8C4;
+    background-color: #343b47;
+    box-shadow: 0px 0px 20px 0px rgba(114,124,140,0.2);
+  }
+
   div {
     height: 500px;
     transition: height: 1s linear;
