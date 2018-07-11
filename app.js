@@ -6,10 +6,10 @@ import { StaticMap } from 'react-map-gl';
 import DeckGL, { PolygonLayer } from 'deck.gl';
 import Confetti from 'react-confetti';
 
-import TripsLayer from './trips-layer';
+import TripsLayer from './webgl/trips-layer';
 import ControlPanel from './components/ControlPanel';
-import Stats from './Stats.js';
-import { LIGHT_SETTINGS } from './Lights.js';
+import Stats from './components/Stats.js';
+import { LIGHT_SETTINGS } from './webgl/lights.js';
 
 const stats = new Stats();
 stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -23,7 +23,7 @@ const MAPBOX_TOKEN = process.env.MapboxAccessToken; // eslint-disable-line
 
 // parsing Raw building data
 // TODO: do this somewhere else...
-const buildingsRaw = require('./chicago_buildings.json');
+const buildingsRaw = require('./data/chicago_buildings.json');
 let buildingsConverted = buildingsRaw;
 for (let i = 0; i < buildingsRaw.length; i++) {
   const polygon = buildingsRaw[i].polygon.coordinates[0][0];
@@ -106,7 +106,7 @@ export default class App extends Component {
           opacity: 0.5,
           getPolygon: f => f.polygon,
           getElevation: f => f.height,
-          getFillColor: [74, 80, 87],
+          getFillColor: f => [f.height % 255, 100, f.year_built - 1888],
           lightSettings: LIGHT_SETTINGS
         })
       )
