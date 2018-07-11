@@ -55,7 +55,7 @@ const StyledControlPanel = styled.div`
   position: fixed;
   right: 0rem;
   top: 0rem;
-  height: 18.5rem;
+  height: 17.5rem;
   width: 18rem;
   z-index: 99;
 
