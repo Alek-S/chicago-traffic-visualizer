@@ -11,6 +11,7 @@ import ControlPanel from './components/ControlPanel';
 import Stats from './Stats.js';
 import { LIGHT_SETTINGS } from './Lights.js';
 import animationData from './data/busAnimData.json';
+import {interpolateRgb} from "d3-interpolate";
 
 const stats = new Stats();
 stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -50,6 +51,16 @@ const INITIAL_VIEW_STATE = {
   bearing: -1,
 };
 
+const redGreenInterplate = interpolateRgb('red', 'teal')
+
+// convert rgb string to array
+function rgbStringToArray(rgbString) {
+  let spliter = rgbString.split('(');
+  spliter = spliter[1].split(')');
+  spliter = spliter[0].split(',');
+  return spliter.map(x=> parseInt(x))
+}
+
 export default class App extends Component {
   state = {
     controls: {
@@ -77,8 +88,8 @@ export default class App extends Component {
     stats.begin();
 
     const timestamp = Date.now();
-    const loopLength = 1800;
-    const loopTime = 60000;
+    const loopLength = 500;
+    const loopTime = 100000;
 
     this.setState({
       time: ((timestamp % loopTime) / loopTime) * loopLength
@@ -122,10 +133,11 @@ export default class App extends Component {
           id: 'trips',
           data: trips,
           getPath: d => d.segments,
-          getColor: d => [253, 128, 93],
-          // getColor: d => (d.vendor === 0 ? [253, 128, 93] : [23, 184, 190]),
-          opacity: 0.3,
-          strokeWidth: 2,
+          // getColor: d => [253, 128, 93],
+          getColor: d => (d.speed < 20 ? [253, 128, 93] : [23, 184, 190]),
+          // getColor: d => (rgbStringToArray(redGreenInterplate(parseInt(d.speed/40)))),
+          opacity: 0.6,
+          strokeWidth: 12,
           trailLength,
           currentTime: time
         })
