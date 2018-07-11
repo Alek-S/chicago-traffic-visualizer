@@ -20,8 +20,6 @@ document.body.appendChild( stats.dom );
 // pk.eyJ1IjoiYWxlay1zIiwiYSI6ImNqamVvd2t1dzFkcG8zcW9sdTA4dzRhcHQifQ.fLXqRUcg4KMyrP-gOQPB8Q
 const MAPBOX_TOKEN = process.env.MapboxAccessToken; // eslint-disable-line
 
-// Source data CSV
-
 // parsing Raw building data
 // TODO: do this somewhere else...
 const buildingsRaw = require('./data/chicago_buildings.json');
@@ -43,30 +41,15 @@ for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
   ];
   pedCountConverted.pedcount[i].polygon = polygon;
   pedCountConverted.pedcount[i].count = pedCountRaw.pedcount[i].count/75;
-
 }
 
 const DATA_URL = {
   BUILDINGS:
-    buildingsConverted, // eslint-disable-line
+    buildingsConverted,
   TRIPS:
     'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json', // eslint-disable-line
   PEDESTRIANS: pedCountConverted,
 };
-
-// TODO: Is this doing anything?
-/*
-const colorRange = [
-  [1, 152, 189],
-  [73, 227, 206],
-  [216, 254, 181],
-  [254, 237, 177],
-  [254, 173, 84],
-  [209, 55, 78]
-];
-*/
-
-const elevationScale = {min: 1, max: 50};
 
 const INITIAL_VIEW_STATE = {
   longitude: -87.615,
@@ -85,9 +68,10 @@ export default class App extends Component {
       mapType: 'dark',
       confetti: false,
       showPedestrians: true,
+      buildingsSlice: buildingsConverted,
+      yearSlice: 2018,
     },
     time: 0,
-    elevationScale: elevationScale.min
   }
 
   componentDidMount() {
@@ -100,7 +84,21 @@ export default class App extends Component {
     }
   }
 
-  update = controls => this.setState({ controls })
+  update = controls => {
+    if(this.state.controls.yearSlice === controls.yearSlice){
+      this.setState({ controls });
+    } else {
+      let newBuildings = [];
+      for (let i = 0; i < buildingsConverted.length; i++) {
+        const building = buildingsConverted[i];
+        if (building.year_built <= controls.yearSlice){
+          newBuildings.push(building);
+        }
+      }
+      controls.buildingsSlice = newBuildings;
+      this.setState({ controls });
+    }
+  }
 
   _animate() {
     stats.begin();
@@ -133,7 +131,7 @@ export default class App extends Component {
       layers.push(
         new PolygonLayer({
           id: 'buildings',
-          data: buildings,
+          data: controls.buildingsSlice,
           extruded: true,
           wireframe: false,
           stroked: false,

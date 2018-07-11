@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import DatGui, { DatBoolean, DatSelect, DatNumber, DatString } from 'react-dat-gui';
+import DatGui, {
+  DatBoolean,
+  DatButton,
+  DatColor,
+  DatFolder,
+  DatNumber,
+  DatPresets,
+  DatSelect,
+  DatString,
+} from 'react-dat-gui';
 
 
 export default class ControlPanel extends Component {
   state = {
     isVisible: true,
+    minMaxNumber: 60,
   }
   togglePanel = () => {
     const { isVisible } = this.state;
     this.setState({ isVisible: !isVisible })
   }
+  
   render() {
     const { update, controls } = this.props;
     const { isVisible } = this.state;
@@ -23,6 +34,7 @@ export default class ControlPanel extends Component {
         {isVisible &&
           <DatGui data={controls} onUpdate={update}>
             <DatBoolean path='showBuildings' label='Show Buildings? ' />
+            {controls.showBuildings && <DatNumber path='yearSlice' label='Built Year ' min={1890} max={2018} step={5} />}
             <DatBoolean path='showPedestrians' label='Show Pedestrians? ' />
             <DatSelect label="Map Type " path='mapType' options={['street', 'dark', 'light', 'outdoors', 'satellite', 'satellite-street']}/>
             <DatBoolean path='confetti' label='Confetti:' />
@@ -46,7 +58,7 @@ const StyledControlPanel = styled.div`
   position: fixed;
   right: 0rem;
   top: 0rem;
-  height: 15.5rem;
+  height: fit-content;
   width: 18rem;
   z-index: 99;
 
@@ -76,6 +88,7 @@ const StyledControlPanel = styled.div`
     padding-left: .25rem;
     padding-right: .25rem;
     transition: .5s all;
+    width: 100%
   }
   li:before{
     content: '»';
@@ -88,7 +101,49 @@ const StyledControlPanel = styled.div`
   }
 
   div {
-    height: 500px;
+    height: fit-content;
     transition: height: 1s linear;
+  }
+
+  li.number{
+    display: flex;
+  }
+  li.number label{
+    display: flex;
+    align-items: center;
+    width: calc(100% - 1rem);
+  }
+  .slider {
+    display: block;
+    position: relative;
+    border: 1px solid #1a1a1a;
+    border-right-width: 1px;
+    background-color: lighten(#1a1a1a, 8.5%);;
+    background-image: linear-gradient(90deg, #2FA1D6, #2FA1D6);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    cursor: ew-resize;
+    height: 1.5625rem;
+  }
+  input[type=text], input[type=number] {
+    background: #1a1a1a;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    height: 1.5625rem;
+    outline: none;
+    font-size: .75rem;
+    color: #eee;
+    text-align: right;
+    &:hover {
+      background: lighten(#1a1a1a, 5%);
+    }
+    &:focus {
+      background: lighten(#1a1a1a, 10%);
+      color: #fff;
+    }
+    &::-ms-clear {
+      display: none;
+    }
   }
 `
