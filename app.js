@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import styled from 'styled-components';
 import { StaticMap } from 'react-map-gl';
-import DeckGL, { PolygonLayer } from 'deck.gl';
+import DeckGL, { PolygonLayer, HexagonLayer } from 'deck.gl';
+import { setParameters } from 'luma.gl';
 import Confetti from 'react-confetti';
 
-import TripsLayer from './trips-layer';
+import TripsLayer from './webgl/trips-layer';
 import ControlPanel from './components/ControlPanel';
-import Stats from './Stats.js';
-import { LIGHT_SETTINGS } from './Lights.js';
+import Stats from './components/Stats.js';
+import { LIGHT_SETTINGS } from './webgl/lights.js';
 
 const stats = new Stats();
 stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -22,19 +23,49 @@ const MAPBOX_TOKEN = process.env.MapboxAccessToken; // eslint-disable-line
 
 // parsing Raw building data
 // TODO: do this somewhere else...
-const buildingsRaw = require('./chicago_buildings.json');
+const buildingsRaw = require('./data/chicago_buildings.json');
 let buildingsConverted = buildingsRaw;
 for (let i = 0; i < buildingsRaw.length; i++) {
   const polygon = buildingsRaw[i].polygon.coordinates[0][0];
   buildingsConverted[i].polygon = polygon;
 }
 
+const pedCountRaw = require('./data/chicago_ped_count.json');
+let pedCountConverted = pedCountRaw;
+for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
+  const polygon = [
+    [+pedCountRaw.pedcount[i].lat + 0.0002, +pedCountRaw.pedcount[i].lon + 0.0002],
+    [+pedCountRaw.pedcount[i].lat + 0.0002, +pedCountRaw.pedcount[i].lon - 0.0002],
+    [+pedCountRaw.pedcount[i].lat - 0.0002, +pedCountRaw.pedcount[i].lon - 0.0002],
+    [+pedCountRaw.pedcount[i].lat - 0.0002, +pedCountRaw.pedcount[i].lon + 0.0002],
+    [+pedCountRaw.pedcount[i].lat + 0.0002, +pedCountRaw.pedcount[i].lon + 0.0002]
+  ];
+  pedCountConverted.pedcount[i].polygon = polygon;
+  pedCountConverted.pedcount[i].count = pedCountRaw.pedcount[i].count/75;
+
+}
+
 const DATA_URL = {
   BUILDINGS:
     buildingsConverted, // eslint-disable-line
   TRIPS:
-    'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json' // eslint-disable-line
+    'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json', // eslint-disable-line
+  PEDESTRIANS: pedCountConverted,
 };
+
+// TODO: Is this doing anything?
+/*
+const colorRange = [
+  [1, 152, 189],
+  [73, 227, 206],
+  [216, 254, 181],
+  [254, 237, 177],
+  [254, 173, 84],
+  [209, 55, 78]
+];
+*/
+
+const elevationScale = {min: 1, max: 50};
 
 const INITIAL_VIEW_STATE = {
   longitude: -87.615,
@@ -49,11 +80,14 @@ const INITIAL_VIEW_STATE = {
 export default class App extends Component {
   state = {
     controls: {
-      showBuildings: true,
+      showBuildings: false,
       mapType: 'dark',
       confetti: false,
+      showPedestrians: true,
+      showBuildingColors: false,
     },
     time: 0,
+    elevationScale: elevationScale.min
   }
 
   componentDidMount() {
@@ -90,7 +124,8 @@ export default class App extends Component {
       buildings = DATA_URL.BUILDINGS,
       trips = DATA_URL.TRIPS,
       trailLength = 180,
-      time = this.state.time
+      time = this.state.time,
+      pedestrians= DATA_URL.PEDESTRIANS,
     } = this.props;
 
     const layers = [];
@@ -101,11 +136,22 @@ export default class App extends Component {
           data: buildings,
           extruded: true,
           wireframe: false,
+          stroked: false,
           fp64: true,
-          opacity: 0.5,
+          opacity: 1.0, // buildings will clip if (opacity < 1.0)
           getPolygon: f => f.polygon,
           getElevation: f => f.height,
-          getFillColor: [74, 80, 87],
+          getFillColor: f => {
+            if (controls.showBuildingColors) {
+              const yearScaled = f.year_built === "0" ? 30 : (f.year_built - 1870) / 1.5;
+              const centerColor = 110;
+              const colorSpread = 60;
+              const greenBasis = centerColor + colorSpread;
+              const blueBasis = centerColor - colorSpread;
+              return [70, greenBasis - yearScaled, blueBasis + yearScaled];
+            }
+            return [74, 80, 87];
+          },
           lightSettings: LIGHT_SETTINGS
         })
       )
@@ -125,8 +171,34 @@ export default class App extends Component {
         })
       )
     }
-
+    if (controls.showPedestrians){
+      layers.push(
+       new PolygonLayer({
+          id: 'pedestrians',
+          data: pedestrians.pedcount,
+          extruded: true,
+          wireframe: false,
+          fp64: true,
+          opacity: .5,
+          getPolygon: f => f.polygon,
+          getElevation: f => f.count,
+          getFillColor: f => [f.count, 150, 25],
+          lightSettings: LIGHT_SETTINGS
+        })
+      )
+    }
     return layers;
+  }
+
+  _onWebGLInitialized(gl) {
+    setParameters(gl, {
+      depthTest: true,
+      [gl.DEPTH_FUNC]: gl.LEQUAL,
+      // [gl.POLYGON_OFFSET_FILL]: true,
+      // polygonOffset: [3, 3],
+      // [gl.CULL_FACE]: true,
+      // [gl.FRONT_FACE]: gl.CW,
+    });
   }
 
   getMapStyle = () => {
@@ -172,6 +244,7 @@ export default class App extends Component {
           initialViewState={INITIAL_VIEW_STATE}
           viewState={viewState}
           controller={controller}
+          onWebGLInitialized={this._onWebGLInitialized.bind(this)}
           onContextMenu={this.handleRightClick}
         >
           {baseMap && (
