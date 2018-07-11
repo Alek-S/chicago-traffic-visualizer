@@ -110,11 +110,11 @@ export default class App extends Component {
           getElevation: f => f.height,
           getFillColor: f => {
               const yearScaled = (f.year_built - 1870) / 2.1666;
-              const centerColor = 130;
+              const centerColor = 150;
               const colorRange = 30;
               const greenBasis = centerColor + colorRange;
               const blueBasis = centerColor - colorRange;
-              return [centerColor, greenBasis - yearScaled, blueBasis + yearScaled]
+              return [70, greenBasis - yearScaled, blueBasis + yearScaled]
           },
           lightSettings: LIGHT_SETTINGS
         })
