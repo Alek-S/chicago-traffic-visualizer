@@ -23,6 +23,7 @@ export default class ControlPanel extends Component {
         {isVisible &&
           <DatGui data={controls} onUpdate={update}>
             <DatBoolean path='showBuildings' label='Show Buildings? ' />
+            <DatBoolean path='showBuildingColors' label='Show Building Colors? ' />
             <DatBoolean path='showPedestrians' label='Show Pedestrians? ' />
             <DatSelect label="Map Type " path='mapType' options={['street', 'dark', 'light', 'outdoors', 'satellite', 'satellite-street']}/>
             <DatBoolean path='confetti' label='Confetti:' />

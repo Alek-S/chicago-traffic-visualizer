@@ -85,6 +85,7 @@ export default class App extends Component {
       mapType: 'dark',
       confetti: false,
       showPedestrians: true,
+      showBuildingColors: false,
     },
     time: 0,
     elevationScale: elevationScale.min
@@ -142,12 +143,15 @@ export default class App extends Component {
           getPolygon: f => f.polygon,
           getElevation: f => f.height,
           getFillColor: f => {
+            if (controls.showBuildingColors) {
               const yearScaled = f.year_built === "0" ? 30 : (f.year_built - 1870) / 1.5;
               const centerColor = 110;
               const colorSpread = 60;
               const greenBasis = centerColor + colorSpread;
               const blueBasis = centerColor - colorSpread;
-              return [70, greenBasis - yearScaled, blueBasis + yearScaled]
+              return [70, greenBasis - yearScaled, blueBasis + yearScaled];
+            }
+            return [74, 80, 87];
           },
           lightSettings: LIGHT_SETTINGS
         })
