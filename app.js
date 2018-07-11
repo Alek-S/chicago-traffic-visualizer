@@ -44,7 +44,6 @@ for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
   pedCountConverted.pedcount[i].count = pedCountRaw.pedcount[i].count/75;
 
 }
-console.log(pedCountConverted);
 
 const DATA_URL = {
   BUILDINGS:
