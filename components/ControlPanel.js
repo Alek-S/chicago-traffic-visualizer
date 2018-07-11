@@ -22,7 +22,8 @@ export default class ControlPanel extends Component {
         </h1>
         {isVisible &&
           <DatGui data={controls} onUpdate={update}>
-            <DatBoolean path='showBuildings' label='Show Buildings: '/>
+            <DatBoolean path='showBuildings' label='Show Buildings? ' />
+            <DatBoolean path='showPedestrians' label='Show Pedestrians? ' />
             <DatSelect label="Map Type " path='mapType' options={['street', 'dark', 'light', 'outdoors', 'satellite', 'satellite-street']}/>
             <DatBoolean path='confetti' label='Confetti:' />
           </DatGui>
@@ -45,7 +46,7 @@ const StyledControlPanel = styled.div`
   position: fixed;
   right: 0rem;
   top: 0rem;
-  height: 13rem;
+  height: 15.5rem;
   width: 18rem;
   z-index: 99;
 

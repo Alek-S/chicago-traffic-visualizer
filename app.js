@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import styled from 'styled-components';
 import { StaticMap } from 'react-map-gl';
-import DeckGL, { PolygonLayer } from 'deck.gl';
+import DeckGL, { PolygonLayer, HexagonLayer } from 'deck.gl';
 import Confetti from 'react-confetti';
 
 import TripsLayer from './trips-layer';
@@ -30,12 +30,40 @@ for (let i = 0; i < buildingsRaw.length; i++) {
   buildingsConverted[i].polygon = polygon;
 }
 
+const pedCountRaw = require('./chicago_ped_count.json');
+let pedCountConverted = pedCountRaw;
+for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
+  const polygon = [
+    [+pedCountRaw.pedcount[i].lat + 0.0002, +pedCountRaw.pedcount[i].lon + 0.0002],
+    [+pedCountRaw.pedcount[i].lat + 0.0002, +pedCountRaw.pedcount[i].lon - 0.0002],
+    [+pedCountRaw.pedcount[i].lat - 0.0002, +pedCountRaw.pedcount[i].lon - 0.0002],
+    [+pedCountRaw.pedcount[i].lat - 0.0002, +pedCountRaw.pedcount[i].lon + 0.0002],
+    [+pedCountRaw.pedcount[i].lat + 0.0002, +pedCountRaw.pedcount[i].lon + 0.0002]
+  ];
+  pedCountConverted.pedcount[i].polygon = polygon;
+  pedCountConverted.pedcount[i].count = pedCountRaw.pedcount[i].count/75;
+
+}
+console.log(pedCountConverted);
+
 const DATA_URL = {
   BUILDINGS:
     buildingsConverted, // eslint-disable-line
   TRIPS:
-    'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json' // eslint-disable-line
+    'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json', // eslint-disable-line
+  PEDESTRIANS: pedCountConverted,
 };
+
+const colorRange = [
+  [1, 152, 189],
+  [73, 227, 206],
+  [216, 254, 181],
+  [254, 237, 177],
+  [254, 173, 84],
+  [209, 55, 78]
+];
+
+const elevationScale = {min: 1, max: 50};
 
 const INITIAL_VIEW_STATE = {
   longitude: -87.615,
@@ -50,11 +78,13 @@ const INITIAL_VIEW_STATE = {
 export default class App extends Component {
   state = {
     controls: {
-      showBuildings: true,
+      showBuildings: false,
       mapType: 'dark',
       confetti: false,
+      showPedestrians: true,
     },
     time: 0,
+    elevationScale: elevationScale.min
   }
 
   componentDidMount() {
@@ -91,7 +121,8 @@ export default class App extends Component {
       buildings = DATA_URL.BUILDINGS,
       trips = DATA_URL.TRIPS,
       trailLength = 180,
-      time = this.state.time
+      time = this.state.time,
+      pedestrians= DATA_URL.PEDESTRIANS,
     } = this.props;
 
     const layers = [];
@@ -126,7 +157,23 @@ export default class App extends Component {
         })
       )
     }
-
+    if (controls.showPedestrians){
+      layers.push(
+       new PolygonLayer({
+          id: 'pedestrians',
+          data: pedestrians.pedcount,
+          extruded: true,
+          wireframe: false,
+          fp64: true,
+          opacity: .5,
+          getPolygon: f => f.polygon,
+          getElevation: f => f.count,
+          getFillColor: f => [f.count, 150, 25],
+          lightSettings: LIGHT_SETTINGS
+        })
+      )
+    }
+    console.log(layers);
     return layers;
   }
 
