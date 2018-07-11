@@ -16,8 +16,8 @@ import {interpolateRgb} from "d3-interpolate";
 import { format, formatDistance, formatRelative, subDays } from 'date-fns'
 
 const stats = new Stats();
-stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
-document.body.appendChild( stats.dom );
+stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
+document.body.appendChild(stats.dom);
 
 
 // Set your mapbox token here
@@ -43,8 +43,25 @@ for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
     [+pedCountRaw.pedcount[i].lat + 0.0002, +pedCountRaw.pedcount[i].lon + 0.0002]
   ];
   pedCountConverted.pedcount[i].polygon = polygon;
-  pedCountConverted.pedcount[i].count = pedCountRaw.pedcount[i].count/75;
+  pedCountConverted.pedcount[i].count = pedCountRaw.pedcount[i].count / 75;
 }
+
+const potholesRaw = require('./data/potholes.json');
+let potholesConverted = potholesRaw;
+for (let i = 0; i < potholesConverted.potholeCount.length; i++) {
+  const potholePolygon = [
+    [+potholesRaw.potholeCount[i].lat + 0.0002, +potholesRaw.potholeCount[i].lon + 0.0002],
+    [+potholesRaw.potholeCount[i].lat + 0.0002, +potholesRaw.potholeCount[i].lon - 0.0002],
+    [+potholesRaw.potholeCount[i].lat - 0.0002, +potholesRaw.potholeCount[i].lon - 0.0002],
+    [+potholesRaw.potholeCount[i].lat - 0.0002, +potholesRaw.potholeCount[i].lon + 0.0002],
+    [+potholesRaw.potholeCount[i].lat + 0.0002, +potholesRaw.potholeCount[i].lon + 0.0002]
+  ];
+  potholesConverted.potholeCount[i].polygon = potholePolygon;
+  potholesConverted.potholeCount[i].count = potholesRaw.potholeCount[i].count / 75;
+}
+console.log(pedCountConverted);
+console.log(potholesConverted);
+
 
 const DATA_URL = {
   BUILDINGS: buildingsConverted, // eslint-disable-line
@@ -52,6 +69,7 @@ const DATA_URL = {
   TRIPS: animationData,
     // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json', // eslint-disable-line
   PEDESTRIANS: pedCountConverted,
+  POTHOLES: potholesConverted,
 };
 // console.log(animationData)
 
@@ -84,6 +102,8 @@ export default class App extends Component {
       showPedestrians: true,
       mapType: 'dark',
       confetti: false,
+      showPedestrians: false,
+      showPotholes: true,
       buildingsSlice: buildingsConverted,
       yearSlice: 2018,
     },
@@ -101,13 +121,13 @@ export default class App extends Component {
   }
 
   update = controls => {
-    if(this.state.controls.yearSlice === controls.yearSlice){
+    if (this.state.controls.yearSlice === controls.yearSlice) {
       this.setState({ controls });
     } else {
       let newBuildings = [];
       for (let i = 0; i < buildingsConverted.length; i++) {
         const building = buildingsConverted[i];
-        if (building.year_built <= controls.yearSlice){
+        if (building.year_built <= controls.yearSlice) {
           newBuildings.push(building);
         }
       }
@@ -139,7 +159,8 @@ export default class App extends Component {
       trips = DATA_URL.TRIPS,
       trailLength = 480,
       time = this.state.time,
-      pedestrians= DATA_URL.PEDESTRIANS,
+      pedestrians = DATA_URL.PEDESTRIANS,
+      potholes = DATA_URL.POTHOLES
     } = this.props;
 
     const layers = [];
@@ -187,9 +208,27 @@ export default class App extends Component {
         })
       )
     }
-    if (controls.showPedestrians){
+
+    if (controls.showPotholes) {
       layers.push(
-       new PolygonLayer({
+        new PolygonLayer({
+          id: 'potholes',
+          data: potholes.potholeCount,
+          extruded: true,
+          wireframe: false,
+          fp64: true,
+          opacity: .5,
+          getPolygon: f => f.polygon,
+          getElevation: f => f.count,
+          getFillColor: f => [f.count,150, 250],
+          lightSettings: LIGHT_SETTINGS
+        })
+      )
+    }
+
+    if (controls.showPedestrians) {
+      layers.push(
+        new PolygonLayer({
           id: 'pedestrians',
           data: pedestrians.pedcount,
           extruded: true,
@@ -203,6 +242,7 @@ export default class App extends Component {
         })
       )
     }
+
     return layers;
   }
 
@@ -240,7 +280,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { viewState, controller = true, baseMap = true} = this.props;
+    const { viewState, controller = true, baseMap = true } = this.props;
     const { controls } = this.state;
 
     return (
@@ -280,7 +320,7 @@ export default class App extends Component {
 }
 
 // NOTE: EXPORTS FOR DECK.GL WEBSITE DEMO LAUNCHER - CAN BE REMOVED IN APPS
-export {App, INITIAL_VIEW_STATE};
+export { App, INITIAL_VIEW_STATE };
 
 if (!window.demoLauncherActive) {
   render(<App />, document.body.appendChild(document.createElement('div')));
