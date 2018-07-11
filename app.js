@@ -148,12 +148,17 @@ export default class App extends Component {
     }
   }
 
+  handleRightClick = e => {
+    e.preventDefault();
+    console.log('click');
+  }
+
   render() {
     const { viewState, controller = true, baseMap = true} = this.props;
     const { controls } = this.state;
 
     return (
-      <div>
+      <div onContextMenu={this.handleRightClick}>
         <ControlPanel
           viewState={viewState}
           controls={controls}
