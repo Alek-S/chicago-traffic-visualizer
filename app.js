@@ -389,6 +389,7 @@ const Tooltip = styled.div`
   border-radius: 6px;
   padding: 0px 20px;
   color: #fff;
+  font-family: 'Quicksand', sans-serif;
   p {
     line-height: 1em;
   }
