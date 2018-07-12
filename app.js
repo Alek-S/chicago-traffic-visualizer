@@ -25,14 +25,14 @@ const MAPBOX_TOKEN = process.env.MapboxAccessToken // eslint-disable-line
 
 // parsing Raw building data
 // TODO: do this somewhere else...
-const buildingsRaw = require('./data/chicago_buildings.json');
+const buildingsRaw = require('./data/chicago_buildings.min.json');
 let buildingsConverted = buildingsRaw;
 for (let i = 0; i < buildingsRaw.length; i++) {
   const polygon = buildingsRaw[i].polygon.coordinates[0][0];
   buildingsConverted[i].polygon = polygon;
 }
 
-const pedCountRaw = require('./data/chicago_ped_count.json');
+const pedCountRaw = require('./data/chicago_ped_count.min.json');
 let pedCountConverted = pedCountRaw;
 for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
   const polygon = [
@@ -46,7 +46,7 @@ for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
   pedCountConverted.pedcount[i].count = pedCountRaw.pedcount[i].count / 75;
 }
 
-const potholesRaw = require('./data/potholes.json');
+const potholesRaw = require('./data/potholes.min.json');
 let potholesConverted = potholesRaw;
 for (let i = 0; i < potholesConverted.potholeCount.length; i++) {
   const potholePolygon = [
@@ -59,9 +59,6 @@ for (let i = 0; i < potholesConverted.potholeCount.length; i++) {
   potholesConverted.potholeCount[i].polygon = potholePolygon;
   potholesConverted.potholeCount[i].count = potholesRaw.potholeCount[i].count / 75;
 }
-console.log(pedCountConverted);
-console.log(potholesConverted);
-
 
 const DATA_URL = {
   BUILDINGS: buildingsConverted, // eslint-disable-line
