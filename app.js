@@ -71,12 +71,12 @@ const INITIAL_VIEW_STATE = {
 const redGreenInterplate = interpolateRgb('red', 'teal')
 
 function getTheColor(d) {
-  let color = [253, 128, 93];
+  let color = [253, 128, 253];
   if (d.speed < 10) {
-    color = [255, 0, 0];
+    color = [255, 0, 255];
   } else if (d.speed > 35) {
-    color = [63, 255, 0];
-  } else if (d.speed >= 23 && d.speed <= 35) {
+    color = [63, 255, 63];
+  } else if (d.speed >= 20 && d.speed <= 35) {
     color = [23, 184, 190];
   }
   return color;
@@ -165,18 +165,14 @@ export default class App extends Component {
           extruded: true,
           wireframe: false,
           stroked: false,
-          fp64: true,
+          fp64: false,
           opacity: 1.0, // buildings will clip if (opacity < 1.0)
           getPolygon: f => f.polygon,
           getElevation: f => f.height,
           getFillColor: f => {
             if (controls.showBuildingColors) {
               const yearScaled = f.year_built === "0" ? 30 : (f.year_built - 1870) / 1.5;
-              const centerColor = 110;
-              const colorSpread = 60;
-              const greenBasis = centerColor + colorSpread;
-              const blueBasis = centerColor - colorSpread;
-              return [70, greenBasis - yearScaled, blueBasis + yearScaled];
+              return [20 + yearScaled / 3, 20 + yearScaled / 3, 20 + yearScaled];
             }
             return [74, 80, 87];
           },
@@ -196,7 +192,8 @@ export default class App extends Component {
           // getColor: d => (rgbStringToArray(redGreenInterplate(parseInt(d.speed/40)))),
           opacity: 1.0,
           trailLength,
-          currentTime: time
+          currentTime: time,
+          fp64: false,
         })
       )
     }
@@ -207,7 +204,7 @@ export default class App extends Component {
           data: pedestrians.pedcount,
           extruded: true,
           wireframe: false,
-          fp64: true,
+          fp64: false,
           opacity: .5,
           getPolygon: f => f.polygon,
           getElevation: f => f.count,
