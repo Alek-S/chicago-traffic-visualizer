@@ -11,19 +11,21 @@ import DatGui, {
   DatSelect,
   DatString,
 } from 'react-dat-gui';
+import Key from './Key';
 
 /** @class 
  * @name ControlPanel
  * Header and control panel option in upper right
  * 
  * @param {Object} props.controls - control option state from parent
- * @param {Function} update - parent function to update state
+ * @param {Function} props.update - parent function to update state
  * @returns {JSX}
 */
 export default class ControlPanel extends Component {
   state = {
     isVisible: true,
     minMaxNumber: 60,
+    selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
   }
   togglePanel = () => {
     const { isVisible } = this.state;
@@ -34,29 +36,31 @@ export default class ControlPanel extends Component {
     const { update, controls, frameTime, date } = this.props;
     const { isVisible } = this.state;
     return (
-      <StyledControlPanel>
-        <h1>Chicago Traffic Visualizer
-        {/* <FontAwesomeIcon icon="coffee" onClick={this.togglePanel} /> */}
-        </h1>
-        <p>frame {Math.floor(frameTime)}</p>
-        <p>Date {date}</p>
-        {isVisible &&
-          <DatGui data={controls} onUpdate={update}>
-            <DatBoolean path='showBuildings' label='Show Buildings? ' />
-            {controls.showBuildings && <DatNumber path='yearSlice' label='Built Year ' min={1890} max={2018} step={5} />}
-            <DatBoolean path='showBuildingColors' label='Show Building Colors? ' />
-            <DatBoolean path='showPedestrians' label='Show Pedestrians? ' />
-            <DatBoolean path='showPotholes' label='Show Potholes? ' />
-            <DatSelect label="Map Type " path='mapType' options={['street', 'dark', 'light', 'outdoors', 'satellite', 'satellite-street']}/>
-            <DatBoolean path='confetti' label='Confetti:' />
-          </DatGui>
-        }
-      </StyledControlPanel>
+      <React.Fragment>
+        <StyledControlPanel>
+          <h1>Chicago Traffic Visualizer
+          {/* <FontAwesomeIcon icon="coffee" onClick={this.togglePanel} /> */}
+          </h1>
+          <p>frame {Math.floor(frameTime)}</p>
+          <p>Date {date}</p>
+          {isVisible &&
+            <DatGui data={controls} onUpdate={update}>
+              <DatBoolean path='showBuildings' label='Show Buildings? ' />
+              {controls.showBuildings && <DatNumber path='yearSlice' label='Built Year ' min={1890} max={2018} step={5} />}
+              <DatBoolean path='showBuildingColors' label='Show Building Colors? ' />
+              <DatBoolean path='showPedestrians' label='Show Pedestrians? ' />
+              <DatBoolean path='showPotholes' label='Show Potholes? ' />
+              <DatSelect label="Map Type " path='mapType' options={['street', 'dark', 'light', 'outdoors', 'satellite', 'satellite-street']}/>
+              <DatBoolean path='confetti' label='Confetti:' />
+            </DatGui>
+          }
+        </StyledControlPanel>
+        <Key keyEntries={this.state.selections}/>
+      </ React.Fragment>
     )
   }
 }
 
-// props.controls.mapType
 const StyledControlPanel = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,700');
 
