@@ -49,7 +49,7 @@ for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
 const DATA_URL = {
   BUILDINGS: buildingsConverted, // eslint-disable-line
     // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/buildings.json',
-  TRIPS: animationData
+  TRIPS: animationData,
     // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json', // eslint-disable-line
   PEDESTRIANS: pedCountConverted,
 };
@@ -119,9 +119,10 @@ export default class App extends Component {
   _animate() {
     stats.begin();
 
-    const timestamp = Date.now();
-    const loopLength = 100000;
-    const loopTime = 300000;
+    const timestamp = Date.now() / 1000;
+    const loopLength = 101000;
+    const fps = 60;
+    const loopTime = loopLength / 10 / fps;
 
     this.setState({
       time: ((timestamp % loopTime) / loopTime) * loopLength
