@@ -30,6 +30,10 @@ let buildingsConverted = buildingsRaw;
 for (let i = 0; i < buildingsRaw.length; i++) {
   const polygon = buildingsRaw[i].polygon.coordinates[0][0];
   buildingsConverted[i].polygon = polygon;
+  if(buildingsRaw[i].year_built < 1000){
+    buildingsConverted[i].year_built = 1965;
+  }
+  buildingsConverted[i].height = buildingsRaw[i].stories * 3.3;
 }
 
 const pedCountRaw = require('./data/chicago_ped_count.min.json');
@@ -302,7 +306,7 @@ export default class App extends Component {
           onWebGLInitialized={this._onWebGLInitialized.bind(this)}
           onContextMenu={this.handleRightClick}
         >
-          {baseMap && (
+          {baseMap && MAPBOX_TOKEN && (
             <StaticMap
               reuseMaps
               mapStyle={this.getMapStyle()}
