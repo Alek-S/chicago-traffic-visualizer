@@ -9,6 +9,7 @@ import Confetti from 'react-confetti';
 
 import TripsLayer from './webgl/trips-layer';
 import ControlPanel from './components/ControlPanel';
+import Key from './components/Key';
 import Stats from './components/Stats.js';
 import { LIGHT_SETTINGS } from './webgl/lights.js';
 import animationData from './data/busAnimData.json';
@@ -107,6 +108,7 @@ export default class App extends Component {
       showPotholes: false,
       buildingsSlice: buildingsConverted,
       yearSlice: 2018,
+      selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
     },
     time: 0,
     hoveredObject: null,
@@ -363,6 +365,10 @@ export default class App extends Component {
             />
           )}
         </DeckGL>
+        <Key 
+          keyEntries={this.state.selections}
+          controls={this.state.controls}
+        />
       </StyledContainer>
     );
   }

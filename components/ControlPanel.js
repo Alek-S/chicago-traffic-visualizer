@@ -18,7 +18,7 @@ import DatGui, {
  * Header and control panel option in upper right
  *
  * @param {Object} props.controls - control option state from parent
- * @param {Function} update - parent function to update state
+ * @param {Function} props.update - parent function to update state
  * @returns {JSX}
 */
 export default class ControlPanel extends Component {
@@ -43,11 +43,11 @@ export default class ControlPanel extends Component {
           // <p>frame {Math.floor(frameTime)}</p>
           // <p>Date {date}</p>
           <DatGui data={controls} onUpdate={update}>
-            <DatBoolean path='showBuildings' label='Show Buildings? ' />
+            <DatBoolean path='showBuildings' label='Show Buildings: ' />
             {controls.showBuildings && <DatNumber path='yearSlice' label='Year Built ' min={1890} max={2018} step={5} />}
-            {controls.showBuildings && <DatBoolean path='showBuildingColors' label='Show Building Colors? ' />}
-            <DatBoolean path='showPedestrians' label='Show Pedestrians? ' />
-            <DatBoolean path='showPotholes' label='Show Potholes? ' />
+            {controls.showBuildings && <DatBoolean path='showBuildingColors' label='Show Building Colors: ' />}
+            <DatBoolean path='showPedestrians' label='Show Pedestrians: ' />
+            <DatBoolean path='showPotholes' label='Show Potholes: ' />
             <DatSelect label="Map Type " path='mapType' options={['street', 'dark', 'light', 'outdoors', 'satellite', 'satellite-street']}/>
             <DatBoolean path='confetti' label='Confetti? ' />
 
