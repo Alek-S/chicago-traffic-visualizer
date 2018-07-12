@@ -1,4802 +1,3362 @@
 {
     "pedcount": [
         {
-            "address_id": "19083",
             "count": "9021",
             "address": "100 E Chicago Ave",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6246581816",
             "lon": "41.8968235218"
         },
         {
-            "address_id": "8021",
             "count": "4945",
             "address": "200 W Wacker Dr",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6347805008",
             "lon": "41.8867874301"
         },
         {
-            "address_id": "12054",
             "count": "1655",
             "address": "500 N Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6308675001",
             "lon": "41.8910825627"
         },
         {
-            "address_id": "2031",
             "count": "11167",
             "address": "150 W Adams St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6330216017",
             "lon": "41.879241685"
         },
         {
-            "address_id": "12094",
             "count": "16848",
             "address": "500 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6238799471",
             "lon": "41.8912664756"
         },
         {
-            "address_id": "D-W",
             "count": "4662",
             "address": "928 N Rush St",
             "block_face": "West",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6275043586",
             "lon": "41.9004166382"
         },
         {
-            "address_id": "H-W",
             "count": "1637",
             "address": "700 N Wells St",
             "block_face": "West",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6343180965",
             "lon": "41.8953593747"
         },
         {
-            "address_id": "7033",
             "count": "8865",
             "address": "150 W Randolph St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6332366473",
             "lon": "41.8845983765"
         },
         {
-            "address_id": "13082",
             "count": "21195",
             "address": "530 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6244173188",
             "lon": "41.892107535"
         },
         {
-            "address_id": "7074",
             "count": "11636",
             "address": "150 N State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6277373306",
             "lon": "41.8854376328"
         },
         {
-            "address_id": "13094",
             "count": "22255",
             "address": "530 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.623871332",
             "lon": "41.8920449927"
         },
         {
-            "address_id": "10074",
             "count": "4296",
             "address": "400 N State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6277548711",
             "lon": "41.8895447581"
         },
         {
-            "address_id": "18082",
             "count": "24076",
             "address": "730 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6244830483",
             "lon": "41.8960827443"
         },
         {
-            "address_id": "18094",
             "count": "24259",
             "address": "730 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6240060796",
             "lon": "41.8962342994"
         },
         {
-            "address_id": "11062",
             "count": "3660",
             "address": "430 N State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6281628002",
             "lon": "41.8904200893"
         },
         {
-            "address_id": "4094",
             "count": "6437",
             "address": "2 S Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6240131025",
             "lon": "41.8813580197"
         },
         {
-            "address_id": "11094",
             "count": "22476",
             "address": "408 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6238417987",
             "lon": "41.8899344752"
         },
         {
-            "address_id": "6072",
             "count": "7254",
             "address": "100 N Wabash Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6264173378",
             "lon": "41.8840053457"
         },
         {
-            "address_id": "S1W",
             "count": "6206",
             "address": "500 S Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6243683633",
             "lon": "41.8752819525"
         },
         {
-            "address_id": "5014",
             "count": "8401",
             "address": "2 N Wacker Dr",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.636620878",
             "lon": "41.8826536948"
         },
         {
-            "address_id": "1024",
             "count": "3907",
             "address": "300 S Franklin St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6349173485",
             "lon": "41.8773197662"
         },
         {
-            "address_id": "8073",
             "count": "10264",
             "address": "2 E Lake St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6272575249",
             "lon": "41.8858604785"
         },
         {
-            "address_id": "4043",
             "count": "10857",
             "address": "100 W Monroe St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6315941362",
             "lon": "41.8807702229"
         },
         {
-            "address_id": "1012",
             "count": "2528",
             "address": "300 S Franklin St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6353218181",
             "lon": "41.8775591368"
         },
         {
-            "address_id": "6053",
             "count": "17376",
             "address": "50 W Washington St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6302380032",
             "lon": "41.8833453156"
         },
         {
-            "address_id": "1031",
             "count": "15483",
             "address": "160 W Jackson Blvd",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6332826522",
             "lon": "41.8779378286"
         },
         {
-            "address_id": "2051",
             "count": "8978",
             "address": "50 W Adams St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6301612584",
             "lon": "41.879257868"
         },
         {
-            "address_id": "1042",
             "count": "14053",
             "address": "300 S LaSalle St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6318634762",
             "lon": "41.877776817"
         },
         {
-            "address_id": "2074",
             "count": "10642",
             "address": "200 S State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6275010892",
             "lon": "41.8790485203"
         },
         {
-            "address_id": "1013",
             "count": "3293",
             "address": "300 W Van Buren St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6358958243",
             "lon": "41.8769619128"
         },
         {
-            "address_id": "2001",
             "count": "29336",
             "address": "350 W Adams St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6373051892",
             "lon": "41.8791935055"
         },
         {
-            "address_id": "6081",
             "count": "16065",
             "address": "50 E Randolph St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6254862933",
             "lon": "41.884326728"
         },
         {
-            "address_id": "3062",
             "count": "13142",
             "address": "100 S State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6279085213",
             "lon": "41.8802247056"
         },
         {
-            "address_id": "2021",
             "count": "15084",
             "address": "200 W Adams St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6345871652",
             "lon": "41.8792091446"
         },
         {
-            "address_id": "93",
             "count": "2012",
             "address": "50 E Congress Pkwy",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6251305029",
             "lon": "41.8757909435"
         },
         {
-            "address_id": "1034",
             "count": "4195",
             "address": "300 S Wells St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6334967385",
             "lon": "41.8774605727"
         },
         {
-            "address_id": "6082",
             "count": "14137",
             "address": "100 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6246254258",
             "lon": "41.8838816479"
         },
         {
-            "address_id": "2064",
             "count": "7262",
             "address": "200 S Dearborn St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.629121151",
             "lon": "41.8786537734"
         },
         {
-            "address_id": "1011",
             "count": "8053",
             "address": "300 W Jackson Blvd",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6359850803",
             "lon": "41.8779290243"
         },
         {
-            "address_id": "7011",
             "count": "4341",
             "address": "300 W Lake St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6361354205",
             "lon": "41.885556088"
         },
         {
-            "address_id": "92",
             "count": "5282",
             "address": "400 S Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.624414227",
             "lon": "41.8763912669"
         },
         {
-            "address_id": "6071",
             "count": "14890",
             "address": "2 E Randolph St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6271924376",
             "lon": "41.8843288164"
         },
         {
-            "address_id": "74.1",
             "count": "971",
             "address": "500 S Dearborn St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6290077752",
             "lon": "41.8748662616"
         },
         {
-            "address_id": "2062",
             "count": "12631",
             "address": "200 S State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6279010742",
             "lon": "41.8788541521"
         },
         {
-            "address_id": "1003",
             "count": "2650",
             "address": "350 W Van Buren St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6373115756",
             "lon": "41.8769432453"
         },
         {
-            "address_id": "9083",
             "count": "5946",
             "address": "50 E Wacker Dr",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6257484604",
             "lon": "41.888018717"
         },
         {
-            "address_id": "1051",
             "count": "15573",
             "address": "100 W Jackson Blvd",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6313797489",
             "lon": "41.8779669265"
         },
         {
-            "address_id": "11",
             "count": "1130",
             "address": "300 W Van Buren St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.635936077",
             "lon": "41.8766740623"
         },
         {
-            "address_id": "20081",
             "count": "3350",
             "address": "100 E Chestnut St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6255644025",
             "lon": "41.8982513524"
         },
         {
-            "address_id": "5024",
             "count": "6377",
             "address": "2 N Franklin St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6350849228",
             "lon": "41.8821041073"
         },
         {
-            "address_id": "21083",
             "count": "1668",
             "address": "100 E Chestnut St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6252930198",
             "lon": "41.8984391102"
         },
         {
-            "address_id": "12032",
             "count": "1861",
             "address": "500 N LaSalle Dr",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6327436562",
             "lon": "41.8913013368"
         },
         {
-            "address_id": "1043",
             "count": "5703",
             "address": "140 W Van Buren St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6322583196",
             "lon": "41.8770070873"
         },
         {
-            "address_id": "73.1",
             "count": "1959",
             "address": "2 W Congress Pkwy",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6283637322",
             "lon": "41.8754061532"
         },
         {
-            "address_id": "12044",
             "count": "2063",
             "address": "500 N LaSalle Dr",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.632293938",
             "lon": "41.8911999749"
         },
         {
-            "address_id": "8032",
             "count": "7819",
             "address": "200 N LaSalle St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6326258825",
             "lon": "41.8864863848"
         },
         {
-            "address_id": "9012",
             "count": "2412",
             "address": "300 N LaSalle Dr",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6327083936",
             "lon": "41.8874398753"
         },
         {
-            "address_id": "4074",
             "count": "13123",
             "address": "2 S State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6275282558",
             "lon": "41.8815019824"
         },
         {
-            "address_id": "7062",
             "count": "14781",
             "address": "150 N State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6281444109",
             "lon": "41.8852337763"
         },
         {
-            "address_id": "9032",
             "count": "3036",
             "address": "300 N Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6297400849",
             "lon": "41.88731019"
         },
         {
-            "address_id": "7054",
             "count": "8974",
             "address": "150 N Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.630746413",
             "lon": "41.8853789649"
         },
         {
-            "address_id": "2034",
             "count": "7652",
             "address": "200 S Wells St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6335299433",
             "lon": "41.8788799462"
         },
         {
-            "address_id": "7081",
             "count": "7757",
             "address": "50 E Lake St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6254873949",
             "lon": "41.8855778294"
         },
         {
-            "address_id": "18072",
             "count": "2788",
             "address": "726 N Wabash Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6269375827",
             "lon": "41.8962071979"
         },
         {
-            "address_id": "7051",
             "count": "8372",
             "address": "50 W Lake St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6303289011",
             "lon": "41.8855907392"
         },
         {
-            "address_id": "81",
             "count": "4341",
             "address": "2 E Van Buren St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6269267015",
             "lon": "41.8767957203"
         },
         {
-            "address_id": "7061",
             "count": "8201",
             "address": "2 W Lake St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6287743204",
             "lon": "41.8855855354"
         },
         {
-            "address_id": "2002",
             "count": "5963",
             "address": "200 S Wacker Dr",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6370474607",
             "lon": "41.8788183757"
         },
         {
-            "address_id": "8002",
             "count": "5633",
             "address": "300 W Wacker Dr",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6363809957",
             "lon": "41.8865190149"
         },
         {
-            "address_id": "13043",
             "count": "1068",
             "address": "100 W Grand Ave",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6319264523",
             "lon": "41.8917049748"
         },
         {
-            "address_id": "6002",
             "count": "6376",
             "address": "100 N Wacker Dr",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6371456343",
             "lon": "41.8839036482"
         },
         {
-            "address_id": "2014",
             "count": "12026",
             "address": "200 S Wacker Dr",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6365316123",
             "lon": "41.8788252582"
         },
         {
-            "address_id": "3023",
             "count": "16791",
             "address": "200 W Adams St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6345798748",
             "lon": "41.8794745787"
         },
         {
-            "address_id": "7034",
             "count": "5512",
             "address": "150 N Wells St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6336900768",
             "lon": "41.8851227951"
         },
         {
-            "address_id": "5073",
             "count": "10966",
             "address": "2 E Madison St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6272252899",
             "lon": "41.8821542803"
         },
         {
-            "address_id": "7032",
             "count": "8048",
             "address": "150 N LaSalle St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6326133183",
             "lon": "41.8853195627"
         },
         {
-            "address_id": "5083",
             "count": "6216",
             "address": "50 E Madison St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6254476824",
             "lon": "41.8821797256"
         },
         {
-            "address_id": "7071",
             "count": "8449",
             "address": "2 E Lake St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6272383829",
             "lon": "41.8856013478"
         },
         {
-            "address_id": "7052",
             "count": "4941",
             "address": "150 N Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6296370584",
             "lon": "41.885291731"
         },
         {
-            "address_id": "7044",
             "count": "9469",
             "address": "150 N LaSalle St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6321855925",
             "lon": "41.8851376819"
         },
         {
-            "address_id": "6033",
             "count": "10578",
             "address": "150 W Washington St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6331225999",
             "lon": "41.8833138114"
         },
         {
-            "address_id": "19073",
             "count": "12264",
             "address": "2 E Chicago Ave",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6276604186",
             "lon": "41.8967900594"
         },
         {
-            "address_id": "WL2",
             "count": "6811",
             "address": "100 S Canal St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6397566781",
             "lon": "41.8800412943"
         },
         {
-            "address_id": "9082",
             "count": "20387",
             "address": "400 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6244242816",
             "lon": "41.889418707"
         },
         {
-            "address_id": "WL12",
             "count": "10013",
             "address": "100 N Canal St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6399213581",
             "lon": "41.8838658589"
         },
         {
-            "address_id": "14072",
             "count": "1962",
             "address": "600 N Wabash Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6268960899",
             "lon": "41.8929411376"
         },
         {
-            "address_id": "7053",
             "count": "14430",
             "address": "50 W Randolph St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6303038238",
             "lon": "41.8845818236"
         },
         {
-            "address_id": "16054",
             "count": "1716",
             "address": "658 N Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6309956224",
             "lon": "41.8943469048"
         },
         {
-            "address_id": "7073",
             "count": "17354",
             "address": "2 E Randolph St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6272339911",
             "lon": "41.8845980141"
         },
         {
-            "address_id": "2081",
             "count": "6563",
             "address": "50 E Adams St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6253337343",
             "lon": "41.8793864233"
         },
         {
-            "address_id": "8082",
             "count": "16407",
             "address": "200 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6247667862",
             "lon": "41.8862325114"
         },
         {
-            "address_id": "6011",
             "count": "7156",
             "address": "300 W Randolph St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6361622278",
             "lon": "41.8842940128"
         },
         {
-            "address_id": "8083",
             "count": "10291",
             "address": "50 E Lake St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6255532421",
             "lon": "41.8858513513"
         },
         {
-            "address_id": "WL9",
             "count": "1795",
             "address": "2 N Clinton St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6410505298",
             "lon": "41.8825080854"
         },
         {
-            "address_id": "5074",
             "count": "22245",
             "address": "2 N State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6276240239",
             "lon": "41.8826724728"
         },
         {
-            "address_id": "9071",
             "count": "5062",
             "address": "50 E Wacker Dr",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6255890245",
             "lon": "41.8877150153"
         },
         {
-            "address_id": "6003",
             "count": "4898",
             "address": "350 W Washington St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6374923976",
             "lon": "41.8833096712"
         },
         {
-            "address_id": "H-E",
             "count": "2060",
             "address": "700 N Wells St",
             "block_face": "East",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6339810971",
             "lon": "41.8951929607"
         },
         {
-            "address_id": "6013",
             "count": "7175",
             "address": "300 W Washington St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6361127126",
             "lon": "41.8833234911"
         },
         {
-            "address_id": "18041",
             "count": "1559",
             "address": "100 W Chicago Ave",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.63211024",
             "lon": "41.896435147"
         },
         {
-            "address_id": "2083",
             "count": "14859",
             "address": "50 E Jackson Blvd",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6251714025",
             "lon": "41.8784176221"
         },
         {
-            "address_id": "4022",
             "count": "8967",
             "address": "2 S Wells St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6339580873",
             "lon": "41.8812545932"
         },
         {
-            "address_id": "WL3",
             "count": "4455",
             "address": "100 S Canal St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6394142256",
             "lon": "41.8800476409"
         },
         {
-            "address_id": "74",
             "count": "2297",
             "address": "400 S Dearborn St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6290595973",
             "lon": "41.8762034398"
         },
         {
-            "address_id": "10062",
             "count": "4702",
             "address": "400 N State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6281860597",
             "lon": "41.8897161324"
         },
         {
-            "address_id": "8043",
             "count": "6956",
             "address": "100 W Lake St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6317432546",
             "lon": "41.8858458946"
         },
         {
-            "address_id": "4072",
             "count": "12167",
             "address": "2 S Wabash Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6263774994",
             "lon": "41.8815181441"
         },
         {
-            "address_id": "2032",
             "count": "8786",
             "address": "200 S LaSalle St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6324345441",
             "lon": "41.8789685962"
         },
         {
-            "address_id": "4071",
             "count": "10791",
             "address": "2 E Madison St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6271310171",
             "lon": "41.8818713801"
         },
         {
-            "address_id": "7001",
             "count": "2855",
             "address": "350 W Lake St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6373443365",
             "lon": "41.8855267996"
         },
         {
-            "address_id": "3042",
             "count": "11153",
             "address": "100 S Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6309649538",
             "lon": "41.8799229343"
         },
         {
-            "address_id": "8052",
             "count": "4981",
             "address": "200 N Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6296368869",
             "lon": "41.8864778865"
         },
         {
-            "address_id": "6001",
             "count": "7526",
             "address": "350 W Randolph St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6374625182",
             "lon": "41.8842837053"
         },
         {
-            "address_id": "16094",
             "count": "19451",
             "address": "658 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6240253673",
             "lon": "41.894624229"
         },
         {
-            "address_id": "8001",
             "count": "3784",
             "address": "300 N Orleans St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6358078124",
             "lon": "41.8871973782"
         },
         {
-            "address_id": "G-N",
             "count": "6578",
             "address": "34 E Grand Ave",
             "block_face": "North",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6274495346",
             "lon": "41.8917729206"
         },
         {
-            "address_id": "5084",
             "count": "10378",
             "address": "2 N Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.625993513",
             "lon": "41.8825350432"
         },
         {
-            "address_id": "4013",
             "count": "10671",
             "address": "300 W Monroe St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6360015324",
             "lon": "41.8807060971"
         },
         {
-            "address_id": "2042",
             "count": "8081",
             "address": "200 S Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6309391701",
             "lon": "41.8788593128"
         },
         {
-            "address_id": "18071",
             "count": "9080",
             "address": "2 E Chicago Ave",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6276997593",
             "lon": "41.8965445441"
         },
         {
-            "address_id": "5081",
             "count": "11497",
             "address": "50 E Washington St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6254792555",
             "lon": "41.8830695075"
         },
         {
-            "address_id": "A-N",
             "count": "2644",
             "address": "100 W Ontario St",
             "block_face": "North",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6320456262",
             "lon": "41.8933182712"
         },
         {
-            "address_id": "6012",
             "count": "4011",
             "address": "100 N Franklin St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.635457553",
             "lon": "41.8839482186"
         },
         {
-            "address_id": "6051",
             "count": "10963",
             "address": "50 W Randolph St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6302830615",
             "lon": "41.8843029748"
         },
         {
-            "address_id": "6014",
             "count": "7403",
             "address": "100 N Wacker Dr",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6366562384",
             "lon": "41.883881122"
         },
         {
-            "address_id": "12042",
             "count": "2433",
             "address": "500 N Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6312800792",
             "lon": "41.8912005339"
         },
         {
-            "address_id": "41072",
             "count": "3160",
             "address": "863 N Rush St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6266023557",
             "lon": "41.8986747504"
         },
         {
-            "address_id": "S2W",
             "count": "4971",
             "address": "700 S Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6242987521",
             "lon": "41.872246298"
         },
         {
-            "address_id": "8074",
             "count": "8746",
             "address": "200 N State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6277076609",
             "lon": "41.8866325639"
         },
         {
-            "address_id": "4023",
             "count": "13469",
             "address": "200 W Monroe St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.634491929",
             "lon": "41.8807178431"
         },
         {
-            "address_id": "8072",
             "count": "4457",
             "address": "200 N Wabash Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6264240961",
             "lon": "41.8863671822"
         },
         {
-            "address_id": "22081",
             "count": "3247",
             "address": "56 E Walton St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6253920697",
             "lon": "41.8998236989"
         },
         {
-            "address_id": "10061",
             "count": "2534",
             "address": "2 W Hubbard St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6290068242",
             "lon": "41.8898981927"
         },
         {
-            "address_id": "7084",
             "count": "8910",
             "address": "150 N Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6261127412",
             "lon": "41.8853513258"
         },
         {
-            "address_id": "18091",
             "count": "6863",
             "address": "136 E Chicago Ave",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6237275731",
             "lon": "41.8966104371"
         },
         {
-            "address_id": "72",
             "count": "4847",
             "address": "400 S State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6278485219",
             "lon": "41.8762799894"
         },
         {
-            "address_id": "83",
             "count": "2427",
             "address": "2 E Congress Pkwy",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6267093988",
             "lon": "41.8757488138"
         },
         {
-            "address_id": "4024",
             "count": "7809",
             "address": "2 S Franklin St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.635081926",
             "lon": "41.8810099252"
         },
         {
-            "address_id": "4021",
             "count": "16211",
             "address": "200 W Madison St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6346065796",
             "lon": "41.8817715516"
         },
         {
-            "address_id": "7083",
             "count": "16560",
             "address": "50 E Randolph St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6254939498",
             "lon": "41.884605496"
         },
         {
-            "address_id": "12114",
             "count": "6239",
             "address": "500 N Columbus Dr",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.619977502",
             "lon": "41.8915178312"
         },
         {
-            "address_id": "14054",
             "count": "2762",
             "address": "600 N Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.630946804",
             "lon": "41.8927689776"
         },
         {
-            "address_id": "12113",
             "count": "7413",
             "address": "300 E Illinois St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6193516359",
             "lon": "41.8911317223"
         },
         {
-            "address_id": "72.1",
             "count": "1401",
             "address": "500 S State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6277900623",
             "lon": "41.8750334059"
         },
         {
-            "address_id": "7023",
             "count": "7131",
             "address": "200 W Randolph St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6347578196",
             "lon": "41.8845669276"
         },
         {
-            "address_id": "73",
             "count": "1565",
             "address": "2 W Congress Pkwy",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6283666793",
             "lon": "41.8757744656"
         },
         {
-            "address_id": "14063",
             "count": "2189",
             "address": "2 W Ohio St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6290813442",
             "lon": "41.8925196377"
         },
         {
-            "address_id": "14042",
             "count": "2741",
             "address": "600 N Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6312893893",
             "lon": "41.8929025623"
         },
         {
-            "address_id": "1092",
             "count": "12012",
             "address": "300 S Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6244509435",
             "lon": "41.8776398623"
         },
         {
-            "address_id": "22093",
             "count": "1691",
             "address": "148 E Delaware Pl",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6226058448",
             "lon": "41.8992888901"
         },
         {
-            "address_id": "7042",
             "count": "7860",
             "address": "150 N Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6311061544",
             "lon": "41.8851485744"
         },
         {
-            "address_id": "23083",
             "count": "2745",
             "address": "56 E Walton St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6256690778",
             "lon": "41.9000395442"
         },
         {
-            "address_id": "5002",
             "count": "12284",
             "address": "2 N Wacker Dr",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6371010889",
             "lon": "41.8826522828"
         },
         {
-            "address_id": "23081",
             "count": "3069",
             "address": "24 E Oak St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6259154931",
             "lon": "41.9006532478"
         },
         {
-            "address_id": "7014",
             "count": "5236",
             "address": "150 N Wacker Dr",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6366757601",
             "lon": "41.8851939705"
         },
         {
-            "address_id": "21091",
             "count": "3244",
             "address": "148 E Delaware Pl",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6225866347",
             "lon": "41.8991223034"
         },
         {
-            "address_id": "84.1",
             "count": "4383",
             "address": "500 S State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6273692345",
             "lon": "41.8752090657"
         },
         {
-            "address_id": "9003",
             "count": "4496",
             "address": "200 W Wacker Dr",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6347888418",
             "lon": "41.8870269692"
         },
         {
-            "address_id": "1083",
             "count": "7062",
             "address": "2 E Van Buren St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.626886501",
             "lon": "41.8770751525"
         },
         {
-            "address_id": "8054",
             "count": "7106",
             "address": "200 N Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6307711443",
             "lon": "41.8863719309"
         },
         {
-            "address_id": "9024",
             "count": "3270",
             "address": "300 N LaSalle Dr",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.632291847",
             "lon": "41.8872219043"
         },
         {
-            "address_id": "71",
             "count": "5069",
             "address": "2 W Van Buren St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6285148183",
             "lon": "41.8767549859"
         },
         {
-            "address_id": "4031",
             "count": "17872",
             "address": "150 W Madison St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6330611625",
             "lon": "41.8817998906"
         },
         {
-            "address_id": "1052",
             "count": "3676",
             "address": "300 S Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6309661928",
             "lon": "41.8773234774"
         },
         {
-            "address_id": "WL6",
             "count": "5083",
             "address": "500 W Madison St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6405563728",
             "lon": "41.8817468385"
         },
         {
-            "address_id": "1082",
             "count": "4250",
             "address": "300 S Wabash Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6262733487",
             "lon": "41.8777148541"
         },
         {
-            "address_id": "38081",
             "count": "8888",
             "address": "38 E Chicago Ave",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6262351812",
             "lon": "41.8965344364"
         },
         {
-            "address_id": "62",
             "count": "1936",
             "address": "400 S Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6294035928",
             "lon": "41.8764243484"
         },
         {
-            "address_id": "94.1",
             "count": "1186",
             "address": "514 S Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6258197906",
             "lon": "41.875027063"
         },
         {
-            "address_id": "91",
             "count": "3925",
             "address": "50 E Van Buren St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6252711201",
             "lon": "41.8768276014"
         },
         {
-            "address_id": "82",
             "count": "3010",
             "address": "400 S Wabash Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6262482097",
             "lon": "41.8765040839"
         },
         {
-            "address_id": "2012",
             "count": "15458",
             "address": "200 S Franklin St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6354316409",
             "lon": "41.8789289594"
         },
         {
-            "address_id": "2033",
             "count": "10336",
             "address": "150 W Jackson Blvd",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6330603472",
             "lon": "41.8782790165"
         },
         {
-            "address_id": "54",
             "count": "3240",
             "address": "400 S LaSalle St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6315365023",
             "lon": "41.8762706675"
         },
         {
-            "address_id": "8042",
             "count": "8110",
             "address": "200 N Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6311010614",
             "lon": "41.8865134596"
         },
         {
-            "address_id": "64",
             "count": "896",
             "address": "400 S Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6305101507",
             "lon": "41.8765279465"
         },
         {
-            "address_id": "7013",
             "count": "4613",
             "address": "300 W Randolph St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6361829402",
             "lon": "41.8845799114"
         },
         {
-            "address_id": "63",
             "count": "1485",
             "address": "60 W Congress Pkwy",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6300710644",
             "lon": "41.8757498907"
         },
         {
-            "address_id": "2072",
             "count": "8859",
             "address": "200 S Wabash Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6262907669",
             "lon": "41.8790054066"
         },
         {
-            "address_id": "51",
             "count": "7936",
             "address": "100 W Van Buren St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6313751419",
             "lon": "41.8767304282"
         },
         {
-            "address_id": "7063",
             "count": "24347",
             "address": "2 W Randolph St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6287699059",
             "lon": "41.8845822016"
         },
         {
-            "address_id": "1002",
             "count": "4691",
             "address": "300 S Wacker Dr",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6370419874",
             "lon": "41.87758641"
         },
         {
-            "address_id": "5013",
             "count": "18518",
             "address": "300 W Madison St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6360608553",
             "lon": "41.8820366763"
         },
         {
-            "address_id": "61",
             "count": "4091",
             "address": "60 W Van Buren St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6301361577",
             "lon": "41.8767649252"
         },
         {
-            "address_id": "21093",
             "count": "5274",
             "address": "146 E Chestnut St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6225387119",
             "lon": "41.8984978324"
         },
         {
-            "address_id": "1014",
             "count": "3633",
             "address": "300 S Wacker Dr",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6364611747",
             "lon": "41.87754962"
         },
         {
-            "address_id": "1093",
             "count": "11258",
             "address": "50 E Van Buren St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6252487347",
             "lon": "41.8771271856"
         },
         {
-            "address_id": "1021",
             "count": "13870",
             "address": "200 W Jackson Blvd",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6345417423",
             "lon": "41.8779485558"
         },
         {
-            "address_id": "14074",
             "count": "3287",
             "address": "600 N State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6279185699",
             "lon": "41.8928239543"
         },
         {
-            "address_id": "1001",
             "count": "7858",
             "address": "350 W Jackson Blvd",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6373362483",
             "lon": "41.8779021963"
         },
         {
-            "address_id": "4061",
             "count": "11228",
             "address": "2 W Madison St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6286669578",
             "lon": "41.8818471536"
         },
         {
-            "address_id": "1053",
             "count": "5261",
             "address": "100 W Van Buren St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6313011827",
             "lon": "41.8770096556"
         },
         {
-            "address_id": "84",
             "count": "4159",
             "address": "400 S State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6273949501",
             "lon": "41.8764430942"
         },
         {
-            "address_id": "9044",
             "count": "2707",
             "address": "300 N Dearborn St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6293438957",
             "lon": "41.8871944661"
         },
         {
-            "address_id": "8081",
             "count": "6047",
             "address": "50 E Wacker Pl",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6257675369",
             "lon": "41.8866594536"
         },
         {
-            "address_id": "2061",
             "count": "9797",
             "address": "2 W Adams St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6286294716",
             "lon": "41.8792905554"
         },
         {
-            "address_id": "15082",
             "count": "20364",
             "address": "626 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6244145608",
             "lon": "41.8936851465"
         },
         {
-            "address_id": "5011",
             "count": "9386",
             "address": "300 W Washington St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6361021911",
             "lon": "41.8830492106"
         },
         {
-            "address_id": "3021",
             "count": "13243",
             "address": "200 W Monroe St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6345233043",
             "lon": "41.880476509"
         },
         {
-            "address_id": "16103",
             "count": "3571",
             "address": "200 E Erie St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6216101908",
             "lon": "41.894222022"
         },
         {
-            "address_id": "17094",
             "count": "24360",
             "address": "700 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.624014921",
             "lon": "41.8954352961"
         },
         {
-            "address_id": "17081",
             "count": "2204",
             "address": "100 E Superior St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6249291502",
             "lon": "41.8956043959"
         },
         {
-            "address_id": "WL13",
             "count": "2301",
             "address": "100 N Canal St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6395184703",
             "lon": "41.8838634255"
         },
         {
-            "address_id": "4064",
             "count": "8019",
             "address": "2 S Dearborn St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.629205197",
             "lon": "41.8812267634"
         },
         {
-            "address_id": "8013",
             "count": "2160",
             "address": "300 W Lake St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6361768756",
             "lon": "41.8858378711"
         },
         {
-            "address_id": "82.1",
             "count": "1327",
             "address": "514 S Wabash Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6262044503",
             "lon": "41.8751561887"
         },
         {
-            "address_id": "11043",
             "count": "1939",
             "address": "100 W Hubbard St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6319822699",
             "lon": "41.8900903909"
         },
         {
-            "address_id": "4012",
             "count": "8158",
             "address": "2 S Franklin St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6354238213",
             "lon": "41.8812031416"
         },
         {
-            "address_id": "17082",
             "count": "24261",
             "address": "700 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6245193049",
             "lon": "41.8952839102"
         },
         {
-            "address_id": "2022",
             "count": "9036",
             "address": "200 S Wells St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6339717077",
             "lon": "41.87907184"
         },
         {
-            "address_id": "20094",
             "count": "32718",
             "address": "830 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6238535705",
             "lon": "41.8981109991"
         },
         {
-            "address_id": "7041",
             "count": "11277",
             "address": "100 W Lake St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6317560066",
             "lon": "41.8855910514"
         },
         {
-            "address_id": "16082",
             "count": "20570",
             "address": "658 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6244331849",
             "lon": "41.8944806622"
         },
         {
-            "address_id": "8041",
             "count": "5375",
             "address": "100 W Wacker Dr",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.631860593",
             "lon": "41.8867291323"
         },
         {
-            "address_id": "3022",
             "count": "6417",
             "address": "100 S Wells St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6339231081",
             "lon": "41.8801643071"
         },
         {
-            "address_id": "5082",
             "count": "17457",
             "address": "2 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6245574052",
             "lon": "41.8824083736"
         },
         {
-            "address_id": "2044",
             "count": "8359",
             "address": "200 S LaSalle St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6321116485",
             "lon": "41.8788055497"
         },
         {
-            "address_id": "S3E",
             "count": "653",
             "address": "1100 S Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6239287898",
             "lon": "41.8681136248"
         },
         {
-            "address_id": "WL7",
             "count": "37446",
             "address": "500 W Madison St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6405451701",
             "lon": "41.8819592029"
         },
         {
-            "address_id": "16092",
             "count": "5394",
             "address": "658 N St Clair St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6228816687",
             "lon": "41.8944115089"
         },
         {
-            "address_id": "2063",
             "count": "12045",
             "address": "2 W Jackson Blvd",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6285167948",
             "lon": "41.8783203876"
         },
         {
-            "address_id": "20091",
             "count": "3970",
             "address": "146 E Chestnut St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6225579541",
             "lon": "41.8982573236"
         },
         {
-            "address_id": "21094",
             "count": "15499",
             "address": "860 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6239072349",
             "lon": "41.8989261202"
         },
         {
-            "address_id": "3041",
             "count": "15113",
             "address": "100 W Monroe St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6316255062",
             "lon": "41.8805302529"
         },
         {
-            "address_id": "8033",
             "count": "4366",
             "address": "150 W Lake St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6332512165",
             "lon": "41.885828488"
         },
         {
-            "address_id": "6083",
             "count": "8227",
             "address": "50 E Washington St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6255056689",
             "lon": "41.8833287507"
         },
         {
-            "address_id": "21082",
             "count": "12029",
             "address": "860 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6242457826",
             "lon": "41.8988131578"
         },
         {
-            "address_id": "15094",
             "count": "18536",
             "address": "626 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6240226786",
             "lon": "41.8938493006"
         },
         {
-            "address_id": "WL10",
             "count": "3753",
             "address": "100 N Clinton St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6413725919",
             "lon": "41.8838830279"
         },
         {
-            "address_id": "F-N",
             "count": "6292",
             "address": "38 E Ohio St",
             "block_face": "North",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6261073109",
             "lon": "41.8926039252"
         },
         {
-            "address_id": "3014",
             "count": "11145",
             "address": "100 S Wacker Dr",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6365722608",
             "lon": "41.8800695499"
         },
         {
-            "address_id": "16081",
             "count": "5315",
             "address": "100 E Huron St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.62493798",
             "lon": "41.8948053924"
         },
         {
-            "address_id": "4063",
             "count": "10510",
             "address": "2 W Nonroe St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6286719642",
             "lon": "41.8808251066"
         },
         {
-            "address_id": "9033",
             "count": "5389",
             "address": "50 W Wacker Dr",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.630425615",
             "lon": "41.8869932931"
         },
         {
-            "address_id": "17083",
             "count": "3190",
             "address": "100 E Huron St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.624935729",
             "lon": "41.8950090823"
         },
         {
-            "address_id": "4011",
             "count": "13910",
             "address": "300 W Madison St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6360431431",
             "lon": "41.8817620891"
         },
         {
-            "address_id": "4032",
             "count": "10776",
             "address": "2 S LaSalle St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6325284674",
             "lon": "41.8812980647"
         },
         {
-            "address_id": "39083",
             "count": "11360",
             "address": "38 E Chicago Ave",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.626184439",
             "lon": "41.8967919537"
         },
         {
-            "address_id": "12064",
             "count": "2432",
             "address": "500 N Dearborn St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6294445914",
             "lon": "41.8910654344"
         },
         {
-            "address_id": "4073",
             "count": "6360",
             "address": "2 E Monroe St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6270275489",
             "lon": "41.8808359272"
         },
         {
-            "address_id": "9043",
             "count": "5179",
             "address": "2 W Wacker Dr",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6288745903",
             "lon": "41.8869935685"
         },
         {
-            "address_id": "4082",
             "count": "16492",
             "address": "2 S Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6245547848",
             "lon": "41.8814613459"
         },
         {
-            "address_id": "5001",
             "count": "6653",
             "address": "350 W Washington St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6375203223",
             "lon": "41.8830591753"
         },
         {
-            "address_id": "8064",
             "count": "3859",
             "address": "200 N Dearborn St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6293041902",
             "lon": "41.8863754721"
         },
         {
-            "address_id": "16104",
             "count": "2591",
             "address": "658 N St Clair St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6225088877",
             "lon": "41.8944913831"
         },
         {
-            "address_id": "2073",
             "count": "15218",
             "address": "2 E Jackson Blvd",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6268720634",
             "lon": "41.8783860198"
         },
         {
-            "address_id": "3024",
             "count": "7101",
             "address": "100 S Franklin St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6350286221",
             "lon": "41.8798676724"
         },
         {
-            "address_id": "9034",
             "count": "3661",
             "address": "300 N Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6308211545",
             "lon": "41.8874465397"
         },
         {
-            "address_id": "16062",
             "count": "215",
             "address": "658 N State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6283319138",
             "lon": "41.8944863031"
         },
         {
-            "address_id": "5003",
             "count": "26950",
             "address": "350 W Madison St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6374920421",
             "lon": "41.8820187478"
         },
         {
-            "address_id": "7021",
             "count": "5945",
             "address": "200 W Lake St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6347135911",
             "lon": "41.8855740564"
         },
         {
-            "address_id": "WL11",
             "count": "3328",
             "address": "100 N Clinton St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6410650284",
             "lon": "41.8838563227"
         },
         {
-            "address_id": "4041",
             "count": "17193",
             "address": "100 W Madison St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6315665639",
             "lon": "41.8818005467"
         },
         {
-            "address_id": "8062",
             "count": "5357",
             "address": "200 N State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6280778785",
             "lon": "41.886513127"
         },
         {
-            "address_id": "22082",
             "count": "19595",
             "address": "900 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6242751759",
             "lon": "41.8996533747"
         },
         {
-            "address_id": "104",
             "count": "965",
             "address": "400 S Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6240642755",
             "lon": "41.8762159337"
         },
         {
-            "address_id": "94",
             "count": "3404",
             "address": "400 S Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6258324459",
             "lon": "41.8763493399"
         },
         {
-            "address_id": "G-S",
             "count": "6768",
             "address": "34 E Grand Ave",
             "block_face": "South",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6274384368",
             "lon": "41.8915441653"
         },
         {
-            "address_id": "5072",
             "count": "10238",
             "address": "2 N Wabash St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.626383798",
             "lon": "41.8826305414"
         },
         {
-            "address_id": "5051",
             "count": "14183",
             "address": "50 W Washington St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6302586373",
             "lon": "41.8830681665"
         },
         {
-            "address_id": "2084",
             "count": "7466",
             "address": "200 S Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6258619128",
             "lon": "41.8788018487"
         },
         {
-            "address_id": "4014",
             "count": "8964",
             "address": "2 S Wacker Dr",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6365777433",
             "lon": "41.8816379677"
         },
         {
-            "address_id": "2082",
             "count": "12930",
             "address": "200 S Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6244616141",
             "lon": "41.8788771536"
         },
         {
-            "address_id": "C-W",
             "count": "2253",
             "address": "626 N Clark St",
             "block_face": "West",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6313283482",
             "lon": "41.8936582389"
         },
         {
-            "address_id": "C-E",
             "count": "2177",
             "address": "626 N Clark St",
             "block_face": "East",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6309792455",
             "lon": "41.893499763"
         },
         {
-            "address_id": "23094",
             "count": "3319",
             "address": "928 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6239050263",
             "lon": "41.9005856882"
         },
         {
-            "address_id": "53.1",
             "count": "1933",
             "address": "100 W Congress Pkwy",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6312123048",
             "lon": "41.8754209744"
         },
         {
-            "address_id": "3052",
             "count": "13310",
             "address": "100 S Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6294910936",
             "lon": "41.879961773"
         },
         {
-            "address_id": "3053",
             "count": "13089",
             "address": "50 W Adams St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6301538575",
             "lon": "41.8795317165"
         },
         {
-            "address_id": "16074",
             "count": "310",
             "address": "658 N State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6279397613",
             "lon": "41.8944137866"
         },
         {
-            "address_id": "8023",
             "count": "3926",
             "address": "200 W Lake St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6347309824",
             "lon": "41.8858290842"
         },
         {
-            "address_id": "5032",
             "count": "15183",
             "address": "2 N LaSalle St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6325094525",
             "lon": "41.8824382802"
         },
         {
-            "address_id": "6041",
             "count": "8274",
             "address": "100 W Randolph St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6317325675",
             "lon": "41.8843118397"
         },
         {
-            "address_id": "4083",
             "count": "5841",
             "address": "50 E Monroe St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6253113814",
             "lon": "41.8808954098"
         },
         {
-            "address_id": "RN1west",
             "count": "4484",
             "address": "1112 N Rush St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6285909642",
             "lon": "41.9028278798"
         },
         {
-            "address_id": "3083",
             "count": "10914",
             "address": "50 E Adams St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6253342847",
             "lon": "41.8796275572"
         },
         {
-            "address_id": "62.1",
             "count": "1038",
             "address": "500 S Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.629316525",
             "lon": "41.8750690414"
         },
         {
-            "address_id": "6054",
             "count": "16367",
             "address": "100 N Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6307244982",
             "lon": "41.8841290994"
         },
         {
-            "address_id": "8061",
             "count": "8586",
             "address": "2 W Wacker Dr",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.628865859",
             "lon": "41.8867632309"
         },
         {
-            "address_id": "8022",
             "count": "3904",
             "address": "200 N Wells S",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6340624772",
             "lon": "41.8864837661"
         },
         {
-            "address_id": "9002",
             "count": "4490",
             "address": "300 N Wells St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6341469181",
             "lon": "41.8874779798"
         },
         {
-            "address_id": "B-N",
             "count": "3193",
             "address": "42 W Ontario St",
             "block_face": "North",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6305243551",
             "lon": "41.8933396729"
         },
         {
-            "address_id": "3071",
             "count": "9102",
             "address": "2 E Monroe St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6270622151",
             "lon": "41.8806296402"
         },
         {
-            "address_id": "4062",
             "count": "15340",
             "address": "2 S State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6279373507",
             "lon": "41.8813386049"
         },
         {
-            "address_id": "7002",
             "count": "6301",
             "address": "150 N Wacker Dr",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6371410768",
             "lon": "41.8851927015"
         },
         {
-            "address_id": "3094",
             "count": "7845",
             "address": "100 S Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6241466667",
             "lon": "41.8799862186"
         },
         {
-            "address_id": "WL5",
             "count": "5872",
             "address": "2 S Canal St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6393982147",
             "lon": "41.8811389808"
         },
         {
-            "address_id": "1091",
             "count": "19183",
             "address": "50 E Jackson Blvd",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6252238322",
             "lon": "41.8781498048"
         },
         {
-            "address_id": "1084",
             "count": "6463",
             "address": "300 S State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6274545663",
             "lon": "41.8776624924"
         },
         {
-            "address_id": "14081",
             "count": "11316",
             "address": "100 E Ontario St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6249011623",
             "lon": "41.8931741756"
         },
         {
-            "address_id": "8053",
             "count": "9700",
             "address": "50 W Lake St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6303255488",
             "lon": "41.8858483674"
         },
         {
-            "address_id": "5021",
             "count": "14202",
             "address": "200 W Washington St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6346412524",
             "lon": "41.8830585254"
         },
         {
-            "address_id": "7031",
             "count": "6065",
             "address": "150 W Lake St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.63323018",
             "lon": "41.8855734378"
         },
         {
-            "address_id": "5042",
             "count": "9383",
             "address": "2 N Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6310693876",
             "lon": "41.8823643617"
         },
         {
-            "address_id": "WL4",
             "count": "8359",
             "address": "2 S Canal St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6398159951",
             "lon": "41.8811415045"
         },
         {
-            "address_id": "5071",
             "count": "12848",
             "address": "2 E Washington St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.627239578",
             "lon": "41.8830678372"
         },
         {
-            "address_id": "11022",
             "count": "3114",
             "address": "430 N Wells St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6341885177",
             "lon": "41.8904488278"
         },
         {
-            "address_id": "5034",
             "count": "7929",
             "address": "2 N Wells St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6336235134",
             "lon": "41.8823258605"
         },
         {
-            "address_id": "6073",
             "count": "9550",
             "address": "2 E Washington St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.627245583",
             "lon": "41.8833296831"
         },
         {
-            "address_id": "4054",
             "count": "11397",
             "address": "2 S Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6306543043",
             "lon": "41.8814804581"
         },
         {
-            "address_id": "5033",
             "count": "18050",
             "address": "150 W Madison St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6330824955",
             "lon": "41.8820758646"
         },
         {
-            "address_id": "3012",
             "count": "7317",
             "address": "100 S Franklin St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6353798257",
             "lon": "41.8800720876"
         },
         {
-            "address_id": "11063",
             "count": "3048",
             "address": "2 W Hubbard St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.629002675",
             "lon": "41.890142036"
         },
         {
-            "address_id": "43",
             "count": "803",
             "address": "140 W Congress Pkwy",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6321894764",
             "lon": "41.875709624"
         },
         {
-            "address_id": "15093",
             "count": "4437",
             "address": "136 E Ontario St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6235596945",
             "lon": "41.8934181993"
         },
         {
-            "address_id": "2011",
             "count": "11888",
             "address": "300 W Adams St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6360285042",
             "lon": "41.87920949"
         },
         {
-            "address_id": "14092",
             "count": "3118",
             "address": "600 N St Clair St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6228435377",
             "lon": "41.8929035262"
         },
         {
-            "address_id": "3051",
             "count": "14596",
             "address": "50 W Monroe St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6301906886",
             "lon": "41.8805494504"
         },
         {
-            "address_id": "4042",
             "count": "12003",
             "address": "2 S Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6310668103",
             "lon": "41.8812600081"
         },
         {
-            "address_id": "8014",
             "count": "3275",
             "address": "300 W Wacker Dr",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6362364958",
             "lon": "41.8863725827"
         },
         {
-            "address_id": "3033",
             "count": "14175",
             "address": "150 W Adams St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6330818636",
             "lon": "41.8795075309"
         },
         {
-            "address_id": "5064",
             "count": "14612",
             "address": "2 N Dearborn St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6292463243",
             "lon": "41.8822484012"
         },
         {
-            "address_id": "4044",
             "count": "9910",
             "address": "2 S LaSalle St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6321175907",
             "lon": "41.8811344813"
         },
         {
-            "address_id": "5044",
             "count": "10573",
             "address": "2 N LaSalle St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.632163433",
             "lon": "41.8822582621"
         },
         {
-            "address_id": "8063",
             "count": "7719",
             "address": "2 W Lake St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6288253346",
             "lon": "41.8858532767"
         },
         {
-            "address_id": "7072",
             "count": "7010",
             "address": "150 N Wabash Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6264496877",
             "lon": "41.8854881776"
         },
         {
-            "address_id": "14104",
             "count": "5124",
             "address": "600 N St Clair St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6224769451",
             "lon": "41.8930002692"
         },
         {
-            "address_id": "7064",
             "count": "6374",
             "address": "150 N Dearborn St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6293184391",
             "lon": "41.8850776355"
         },
         {
-            "address_id": "15083",
             "count": "5318",
             "address": "100 E Ontario St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6248985481",
             "lon": "41.8934107357"
         },
         {
-            "address_id": "9014",
             "count": "5975",
             "address": "300 N Wells St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.633741731",
             "lon": "41.8872506981"
         },
         {
-            "address_id": "16064",
             "count": "2374",
             "address": "658 N Dearborn St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6295193302",
             "lon": "41.8943825015"
         },
         {
-            "address_id": "3054",
             "count": "9851",
             "address": "100 S Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6306311667",
             "lon": "41.8801757686"
         },
         {
-            "address_id": "D-E",
             "count": "11553",
             "address": "928 N Rush St",
             "block_face": "East",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.627191183",
             "lon": "41.9005111587"
         },
         {
-            "address_id": "34084",
             "count": "3434",
             "address": "600 N Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6265765702",
             "lon": "41.8928072874"
         },
         {
-            "address_id": "3013",
             "count": "13841",
             "address": "300 W Adams St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6360550907",
             "lon": "41.8794667145"
         },
         {
-            "address_id": "16023",
             "count": "1073",
             "address": "200 W Erie St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.635027565",
             "lon": "41.8940734759"
         },
         {
-            "address_id": "WL8",
             "count": "2828",
             "address": "2 N Clinton St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6413141877",
             "lon": "41.8825265052"
         },
         {
-            "address_id": "14091",
             "count": "5807",
             "address": "136 E Ontario St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6235568191",
             "lon": "41.8932356718"
         },
         {
-            "address_id": "2053",
             "count": "12865",
             "address": "50 W Jackson Blvd",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6300674042",
             "lon": "41.8783041682"
         },
         {
-            "address_id": "S2E",
             "count": "1363",
             "address": "700 S Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6239501202",
             "lon": "41.872244145"
         },
         {
-            "address_id": "S1E",
             "count": "2136",
             "address": "500 S Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6240814191",
             "lon": "41.8750354775"
         },
         {
-            "address_id": "9023",
             "count": "4839",
             "address": "100 W Wacker Dr",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6318376215",
             "lon": "41.8869850965"
         },
         {
-            "address_id": "9084",
             "count": "711",
             "address": "330 N Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6265066423",
             "lon": "41.88771408"
         },
         {
-            "address_id": "8071",
             "count": "7249",
             "address": "2 E Wacker Pl",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6270919873",
             "lon": "41.8866973726"
         },
         {
-            "address_id": "9022",
             "count": "4528",
             "address": "300 N Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6311002845",
             "lon": "41.8872510121"
         },
         {
-            "address_id": "18081",
             "count": "14063",
             "address": "100 E Chicago Ave",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6247135471",
             "lon": "41.8965912797"
         },
         {
-            "address_id": "F-S",
             "count": "4826",
             "address": "38 E Ohio St",
             "block_face": "South",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6261149121",
             "lon": "41.892323658"
         },
         {
-            "address_id": "19043",
             "count": "2560",
             "address": "100 W Chicago Ave",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6320765908",
             "lon": "41.8966957109"
         },
         {
-            "address_id": "7094",
             "count": "9121",
             "address": "150 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6241950353",
             "lon": "41.8850575032"
         },
         {
-            "address_id": "42",
             "count": "12155",
             "address": "400 S LaSalle St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6319075449",
             "lon": "41.8763574489"
         },
         {
-            "address_id": "9052",
             "count": "3659",
             "address": "330 N Wabash Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.627039504",
             "lon": "41.8878306544"
         },
         {
-            "address_id": "2054",
             "count": "6665",
             "address": "200 S Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6305998662",
             "lon": "41.8791164386"
         },
         {
-            "address_id": "1072",
             "count": "7874",
             "address": "300 S State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6278525774",
             "lon": "41.877480852"
         },
         {
-            "address_id": "2023",
             "count": "14568",
             "address": "200 W Jackson Blvd",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6345344292",
             "lon": "41.8782543342"
         },
         {
-            "address_id": "9073",
             "count": "2953",
             "address": "50 E  Wacker Pl",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6260135197",
             "lon": "41.8868665822"
         },
         {
-            "address_id": "3044",
             "count": "11989",
             "address": "100 S LaSalle St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6320814329",
             "lon": "41.8799880075"
         },
         {
-            "address_id": "8034",
             "count": "4747",
             "address": "200 N Wells St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6337321471",
             "lon": "41.8864277792"
         },
         {
-            "address_id": "8031",
             "count": "5196",
             "address": "150 W Wacker Dr",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6333815335",
             "lon": "41.8867718597"
         },
         {
-            "address_id": "1063",
             "count": "5314",
             "address": "60 W Van Buren St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6300961557",
             "lon": "41.8770275289"
         },
         {
-            "address_id": "9104",
             "count": "16262",
             "address": "400 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6240215265",
             "lon": "41.8892162871"
         },
         {
-            "address_id": "7043",
             "count": "16396",
             "address": "100 W Randolph St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6317758587",
             "lon": "41.8845908259"
         },
         {
-            "address_id": "12041",
             "count": "1577",
             "address": "100 W Grand Ave",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6319398268",
             "lon": "41.8914636869"
         },
         {
-            "address_id": "4052",
             "count": "15621",
             "address": "2 S Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6295034057",
             "lon": "41.8813910301"
         },
         {
-            "address_id": "9042",
             "count": "5655",
             "address": "300 N State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6281616041",
             "lon": "41.8872582503"
         },
         {
-            "address_id": "11074",
             "count": "4154",
             "address": "430 N State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6278361716",
             "lon": "41.8903443173"
         },
         {
-            "address_id": "10041",
             "count": "2292",
             "address": "100 W Hubbard St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.631930205",
             "lon": "41.8898366901"
         },
         {
-            "address_id": "9013",
             "count": "4930",
             "address": "150 W Wacker Dr",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6333207746",
             "lon": "41.8870123419"
         },
         {
-            "address_id": "9053",
             "count": "10175",
             "address": "2 E Wacker Dr",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6275404452",
             "lon": "41.8870899866"
         },
         {
-            "address_id": "16042",
             "count": "2503",
             "address": "658 N Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6313545068",
             "lon": "41.8944685153"
         },
         {
-            "address_id": "9072",
             "count": "15477",
             "address": "300 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6247451454",
             "lon": "41.8873369651"
         },
         {
-            "address_id": "7012",
             "count": "4273",
             "address": "150 N Franklin St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6355423138",
             "lon": "41.8852766977"
         },
         {
-            "address_id": "9094",
             "count": "14122",
             "address": "300 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6243628369",
             "lon": "41.8874825316"
         },
         {
-            "address_id": "2041",
             "count": "10069",
             "address": "100 W Adams St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6316927678",
             "lon": "41.8792504046"
         },
         {
-            "address_id": "8024",
             "count": "2790",
             "address": "200 N Franklin St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6352095329",
             "lon": "41.8863131054"
         },
         {
-            "address_id": "4034",
             "count": "8201",
             "address": "2 S Wells St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6335701268",
             "lon": "41.881193619"
         },
         {
-            "address_id": "9004",
             "count": "4179",
             "address": "300 N Orleans St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6355665738",
             "lon": "41.8873745221"
         },
         {
-            "address_id": "9054",
             "count": "5769",
             "address": "300 N State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.627761125",
             "lon": "41.8873886445"
         },
         {
-            "address_id": "20082",
             "count": "18172",
             "address": "830 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6242548889",
             "lon": "41.8979900092"
         },
         {
-            "address_id": "6031",
             "count": "9159",
             "address": "150 W Randolph St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6332081844",
             "lon": "41.8843265332"
         },
         {
-            "address_id": "14082",
             "count": "19549",
             "address": "600 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6244630029",
             "lon": "41.8929357797"
         },
         {
-            "address_id": "18083",
             "count": "2734",
             "address": "100 E Superior St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6249319934",
             "lon": "41.895790187"
         },
         {
-            "address_id": "4051",
             "count": "10290",
             "address": "50 W Madison St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.630150419",
             "lon": "41.8818353242"
         },
         {
-            "address_id": "WL1",
             "count": "7479",
             "address": "200 S Canal St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6393711619",
             "lon": "41.8786734164"
         },
         {
-            "address_id": "S3W",
             "count": "1434",
             "address": "1100 S Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6242452994",
             "lon": "41.8681073967"
         },
         {
-            "address_id": "2013",
             "count": "14003",
             "address": "300 W Jackson Blvd",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6359598373",
             "lon": "41.8782279741"
         },
         {
-            "address_id": "6043",
             "count": "10072",
             "address": "100 W Washington St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6316990864",
             "lon": "41.8833233179"
         },
         {
-            "address_id": "3063",
             "count": "10914",
             "address": "2 W Adams St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6286223415",
             "lon": "41.8795391594"
         },
         {
-            "address_id": "83.1",
             "count": "2224",
             "address": "2 E Congress Pkwy",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6266883778",
             "lon": "41.8755114364"
         },
         {
-            "address_id": "3002",
             "count": "9611",
             "address": "100 S Wacker Dr",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6371022817",
             "lon": "41.8800629848"
         },
         {
-            "address_id": "3073",
             "count": "12642",
             "address": "2 E Adams St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6270341558",
             "lon": "41.8795798947"
         },
         {
-            "address_id": "4002",
             "count": "8873",
             "address": "2 S Wacker Dr",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6371172478",
             "lon": "41.881528681"
         },
         {
-            "address_id": "8012",
             "count": "4954",
             "address": "200 N Franklin St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6355791291",
             "lon": "41.8863685904"
         },
         {
-            "address_id": "4001",
             "count": "17037",
             "address": "350 W Madison St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6375381293",
             "lon": "41.8817543261"
         },
         {
-            "address_id": "1073",
             "count": "5758",
             "address": "2 W Van Buren St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6284969585",
             "lon": "41.8770513865"
         },
         {
-            "address_id": "3082",
             "count": "12759",
             "address": "100 S Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6244958257",
             "lon": "41.8801873681"
         },
         {
-            "address_id": "1064",
             "count": "4356",
             "address": "300 S Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6305500333",
             "lon": "41.8775464706"
         },
         {
-            "address_id": "3084",
             "count": "7497",
             "address": "100 S Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6259365908",
             "lon": "41.8801029278"
         },
         {
-            "address_id": "11034",
             "count": "1675",
             "address": "430 N Wells St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6338469033",
             "lon": "41.890323673"
         },
         {
-            "address_id": "6042",
             "count": "8360",
             "address": "100 N Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6310695065",
             "lon": "41.8838817889"
         },
         {
-            "address_id": "E-W",
             "count": "4376",
             "address": "900 N Rush St",
             "block_face": "West",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6270700868",
             "lon": "41.899615352"
         },
         {
-            "address_id": "21084",
             "count": "4758",
             "address": "863 N Rush St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6263322579",
             "lon": "41.8987096176"
         },
         {
-            "address_id": "8003",
             "count": "2262",
             "address": "350 W Lake St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6373708157",
             "lon": "41.8858149682"
         },
         {
-            "address_id": "5023",
             "count": "17433",
             "address": "200 W Madison St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6346034977",
             "lon": "41.8820544287"
         },
         {
-            "address_id": "4053",
             "count": "9795",
             "address": "50 W Monroe St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6301931693",
             "lon": "41.8807825752"
         },
         {
-            "address_id": "2043",
             "count": "9687",
             "address": "100 W Jackson Blvd",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6313320578",
             "lon": "41.87830397"
         },
         {
-            "address_id": "5041",
             "count": "14949",
             "address": "100 W Washington St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6317193758",
             "lon": "41.8830771002"
         },
         {
-            "address_id": "5052",
             "count": "11158",
             "address": "2 N Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6295857986",
             "lon": "41.8824467629"
         },
         {
-            "address_id": "3061",
             "count": "12499",
             "address": "2 W Monroe St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6286547332",
             "lon": "41.8805777881"
         },
         {
-            "address_id": "14062",
             "count": "4717",
             "address": "600 N State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.628267878",
             "lon": "41.8929247169"
         },
         {
-            "address_id": "3031",
             "count": "12489",
             "address": "150 W Monroe St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6330377896",
             "lon": "41.8805122643"
         },
         {
-            "address_id": "5043",
             "count": "16639",
             "address": "100 W Madison St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6315991519",
             "lon": "41.8820765897"
         },
         {
-            "address_id": "6022",
             "count": "7583",
             "address": "100 N Wells St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6340767068",
             "lon": "41.884039503"
         },
         {
-            "address_id": "7082",
             "count": "16613",
             "address": "150 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.624610949",
             "lon": "41.8851915607"
         },
         {
-            "address_id": "5012",
             "count": "6652",
             "address": "2 N Franklin St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6354380261",
             "lon": "41.8823028461"
         },
         {
-            "address_id": "8084",
             "count": "4283",
             "address": "200 N Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6260820439",
             "lon": "41.8864014651"
         },
         {
-            "address_id": "2052",
             "count": "14550",
             "address": "200 S Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6294527422",
             "lon": "41.8788532707"
         },
         {
-            "address_id": "15021",
             "count": "1274",
             "address": "200 W Erie St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6350011429",
             "lon": "41.8938495176"
         },
         {
-            "address_id": "2024",
             "count": "6760",
             "address": "200 S Franklin St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6349559251",
             "lon": "41.8786345617"
         },
         {
-            "address_id": "12052",
             "count": "1757",
             "address": "500 N Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6297872897",
             "lon": "41.8911497156"
         },
         {
-            "address_id": "16052",
             "count": "2278",
             "address": "658 N Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6299111193",
             "lon": "41.8944882765"
         },
         {
-            "address_id": "2071",
             "count": "13710",
             "address": "2 E Adams St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6270590966",
             "lon": "41.8793451909"
         },
         {
-            "address_id": "7003",
             "count": "4315",
             "address": "350 W Randolph St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6374782446",
             "lon": "41.8845755884"
         },
         {
-            "address_id": "6084",
             "count": "7219",
             "address": "100 N Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.626047445",
             "lon": "41.8838411061"
         },
         {
-            "address_id": "11111",
             "count": "6863",
             "address": "300 E Illinois St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6193768961",
             "lon": "41.8908861231"
         },
         {
-            "address_id": "11082",
             "count": "31628",
             "address": "408 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6243777294",
             "lon": "41.8901437692"
         },
         {
-            "address_id": "7022",
             "count": "5347",
             "address": "150 N Wells St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6340543916",
             "lon": "41.8852888999"
         },
         {
-            "address_id": "6074",
             "count": "20600",
             "address": "100 N State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6276714471",
             "lon": "41.8839773116"
         },
         {
-            "address_id": "6094",
             "count": "8088",
             "address": "100 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6240575326",
             "lon": "41.8837799188"
         },
         {
-            "address_id": "12082",
             "count": "21682",
             "address": "500 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6243985079",
             "lon": "41.8913288485"
         },
         {
-            "address_id": "7024",
             "count": "4800",
             "address": "150 N Franklin St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6351910814",
             "lon": "41.885072283"
         },
         {
-            "address_id": "6044",
             "count": "10241",
             "address": "100 N LaSalle St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6322127282",
             "lon": "41.8837143545"
         },
         {
-            "address_id": "15101",
             "count": "3010",
             "address": "200 E Erie St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6216005491",
             "lon": "41.8940759833"
         },
         {
-            "address_id": "6021",
             "count": "9196",
             "address": "200 W Randolph St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6347143618",
             "lon": "41.8843020445"
         },
         {
-            "address_id": "4081",
             "count": "5394",
             "address": "50 E Madison St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6253532178",
             "lon": "41.8819150168"
         },
         {
-            "address_id": "52",
             "count": "2460",
             "address": "400 S Clark St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6308708388",
             "lon": "41.8763733003"
         },
         {
-            "address_id": "1071",
             "count": "13679",
             "address": "2 W Jackson Blvd",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.628521123",
             "lon": "41.8780384029"
         },
         {
-            "address_id": "5063",
             "count": "17377",
             "address": "2 W Madison St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.628710931",
             "lon": "41.8821107601"
         },
         {
-            "address_id": "6034",
             "count": "5582",
             "address": "100 N Wells St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6336705133",
             "lon": "41.8838478979"
         },
         {
-            "address_id": "5031",
             "count": "14509",
             "address": "150 W Washington St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6331072783",
             "lon": "41.8830673773"
         },
         {
-            "address_id": "5053",
             "count": "13592",
             "address": "50 W Madison St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6301343239",
             "lon": "41.8821097061"
         },
         {
-            "address_id": "5061",
             "count": "20843",
             "address": "2 W Washington St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6287248618",
             "lon": "41.883058766"
         },
         {
-            "address_id": "E-E",
             "count": "9457",
             "address": "900 N Rush St",
             "block_face": "East",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6267580758",
             "lon": "41.8996742777"
         },
         {
-            "address_id": "12102",
             "count": "2278",
             "address": "500 N Columbus Dr",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6203548908",
             "lon": "41.8914252159"
         },
         {
-            "address_id": "63.1",
             "count": "1789",
             "address": "60 W Congress Pkwy",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6301201867",
             "lon": "41.8754132402"
         },
         {
-            "address_id": "RN2east",
             "count": "3489",
             "address": "1112 N Rush St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6283468788",
             "lon": "41.9028457708"
         },
         {
-            "address_id": "2003",
             "count": "16658",
             "address": "350 W Jackson Blvd",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6373575088",
             "lon": "41.8782350897"
         },
         {
-            "address_id": "8051",
             "count": "9565",
             "address": "50 W Wacker Dr",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6304127561",
             "lon": "41.8867776088"
         },
         {
-            "address_id": "24083",
             "count": "2557",
             "address": "24 E Oak St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6259230083",
             "lon": "41.9008595554"
         },
         {
-            "address_id": "3011",
             "count": "12326",
             "address": "300 W Monroe St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.636008893",
             "lon": "41.8804336829"
         },
         {
-            "address_id": "19093",
             "count": "3491",
             "address": "136 E Chicago Ave",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.623711337",
             "lon": "41.8968024217"
         },
         {
-            "address_id": "4084",
             "count": "7120",
             "address": "2 S Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.625994497",
             "lon": "41.8813792506"
         },
         {
-            "address_id": "5054",
             "count": "10958",
             "address": "2 N Clark St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6306888135",
             "lon": "41.8826084944"
         },
         {
-            "address_id": "5022",
             "count": "8339",
             "address": "2 N Wells St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6339682179",
             "lon": "41.8823908956"
         },
         {
-            "address_id": "4033",
             "count": "11234",
             "address": "150 W Monroe St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6330063317",
             "lon": "41.8807606486"
         },
         {
-            "address_id": "3081",
             "count": "9260",
             "address": "50 E Monroe St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6252698644",
             "lon": "41.8806438492"
         },
         {
-            "address_id": "3032",
             "count": "12430",
             "address": "100 S LaSalle St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6324705091",
             "lon": "41.880133263"
         },
         {
-            "address_id": "3074",
             "count": "12644",
             "address": "100 S State St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6275232696",
             "lon": "41.8804343974"
         },
         {
-            "address_id": "3064",
             "count": "10130",
             "address": "100 S Dearborn St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.629179885",
             "lon": "41.8797903746"
         },
         {
-            "address_id": "3003",
             "count": "12423",
             "address": "350 W Adams St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6372678148",
             "lon": "41.8794555648"
         },
         {
-            "address_id": "14094",
             "count": "19997",
             "address": "600 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6239168753",
             "lon": "41.8928853104"
         },
         {
-            "address_id": "53",
             "count": "3405",
             "address": "100 W Congress Pkwy",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6312153927",
             "lon": "41.8757373342"
         },
         {
-            "address_id": "1081",
             "count": "18081",
             "address": "2 E Jackson Blvd",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6269118559",
             "lon": "41.8780972014"
         },
         {
-            "address_id": "23082",
             "count": "7221",
             "address": "928 N Michigan Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6243111636",
             "lon": "41.9004731432"
         },
         {
-            "address_id": "22094",
             "count": "8176",
             "address": "900 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6238915705",
             "lon": "41.8997660587"
         },
         {
-            "address_id": "1074",
             "count": "3410",
             "address": "300 S Dearborn St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6290615843",
             "lon": "41.8773569141"
         },
         {
-            "address_id": "6024",
             "count": "4808",
             "address": "100 N Franklin St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6351193845",
             "lon": "41.8837466097"
         },
         {
-            "address_id": "1094",
             "count": "11006",
             "address": "300 S Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6258269292",
             "lon": "41.8775591333"
         },
         {
-            "address_id": "1104",
             "count": "2955",
             "address": "300 S Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6240747389",
             "lon": "41.8774714181"
         },
         {
-            "address_id": "6052",
             "count": "12746",
             "address": "100 N Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6295466649",
             "lon": "41.8839385227"
         },
         {
-            "address_id": "8094",
             "count": "15072",
             "address": "200 N Michigan Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6243197825",
             "lon": "41.8864269872"
         },
         {
-            "address_id": "3072",
             "count": "8285",
             "address": "100 S Wabash Ave",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6263422463",
             "lon": "41.8802988962"
         },
         {
-            "address_id": "8044",
             "count": "9398",
             "address": "200 N LaSalle St",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6322587631",
             "lon": "41.8863935476"
         },
         {
-            "address_id": "1023",
             "count": "5630",
             "address": "200 W Van Buren St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6343981473",
             "lon": "41.8769696383"
         },
         {
-            "address_id": "1022",
             "count": "3960",
             "address": "300 S Wells St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6338839835",
             "lon": "41.8776555806"
         },
         {
-            "address_id": "1061",
             "count": "13655",
             "address": "60 W Jackson Blvd",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6300944146",
             "lon": "41.8780130222"
         },
         {
-            "address_id": "1062",
             "count": "3710",
             "address": "300 S Dearborn St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6293934877",
             "lon": "41.8775974869"
         },
         {
-            "address_id": "21",
             "count": "5074",
             "address": "200 W Van Buren St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6344946116",
             "lon": "41.8766905458"
         },
         {
-            "address_id": "13061",
             "count": "2663",
             "address": "2 W Ohio St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6290401251",
             "lon": "41.8923046602"
         },
         {
-            "address_id": "44",
             "count": "2534",
             "address": "400 S Financial Pl",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6330089217",
             "lon": "41.8763853257"
         },
         {
-            "address_id": "31",
             "count": "5669",
             "address": "170 W Van Buren St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6333684061",
             "lon": "41.8767089331"
         },
         {
-            "address_id": "6023",
             "count": "8063",
             "address": "200 W Washington St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6346035197",
             "lon": "41.8832917999"
         },
         {
-            "address_id": "93.1",
             "count": "1934",
             "address": "44 E Congress Pkwy",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.625113959",
             "lon": "41.8755018322"
         },
         {
-            "address_id": "4003",
             "count": "14066",
             "address": "350 W Monroe St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6373202797",
             "lon": "41.8806986308"
         },
         {
-            "address_id": "13081",
             "count": "5663",
             "address": "100 E Ohio St",
             "block_face": "South",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6248825718",
             "lon": "41.8923750025"
         },
         {
-            "address_id": "5062",
             "count": "14449",
             "address": "2 N State St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6280429922",
             "lon": "41.882470039"
         },
         {
-            "address_id": "A-S",
             "count": "2343",
             "address": "100 W Ontario St",
             "block_face": "South",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6319995058",
             "lon": "41.8930822515"
         },
         {
-            "address_id": "38084",
             "count": "1957",
             "address": "726 N Wabash Ave",
             "block_face": "East",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6266400036",
             "lon": "41.8961147706"
         },
         {
-            "address_id": "6032",
             "count": "11269",
             "address": "100 N LaSalle St",
             "block_face": "West",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6325656829",
             "lon": "41.8838580257"
         },
         {
-            "address_id": "B-S",
             "count": "3154",
             "address": "42 W Ontario St",
             "block_face": "South",
-            "count_time": "12:30 p.m. to 9:30 p.m.",
-            "count_year": "2007",
             "lat": "-87.6304896396",
             "lon": "41.8930912143"
         },
         {
-            "address_id": "3043",
             "count": "9989",
             "address": "100 W Adams St",
             "block_face": "North",
-            "count_time": "7:45 a.m. to 5:45 p.m.",
-            "count_year": "2007",
             "lat": "-87.6316179067",
             "lon": "41.8795154257"
         }

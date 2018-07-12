@@ -47,7 +47,7 @@ for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
     [+pedCountRaw.pedcount[i].lat + 0.0002, +pedCountRaw.pedcount[i].lon + 0.0002]
   ];
   pedCountConverted.pedcount[i].polygon = polygon;
-  pedCountConverted.pedcount[i].count = pedCountRaw.pedcount[i].count / 75;
+  pedCountConverted.pedcount[i].adjCount = pedCountRaw.pedcount[i].count / 75;
 }
 
 const potholesRaw = require('./data/potholes.min.json');
@@ -77,11 +77,11 @@ const DATA_URL = {
 const INITIAL_VIEW_STATE = {
   longitude: -87.615,
   latitude: 41.8781,
-  zoom: 13.25,
-  maxZoom: 17,
-  minZoom: 11.5,
-  pitch: 40,
-  bearing: -1,
+  zoom: 12,
+  maxZoom: 15,
+  minZoom: 11,
+  pitch: 60,
+  bearing: -40,
 };
 
 const redGreenInterplate = interpolateRgb('red', 'teal')
@@ -242,8 +242,8 @@ export default class App extends Component {
           fp64: true,
           opacity: .5,
           getPolygon: f => f.polygon,
-          getElevation: f => f.count,
-          getFillColor: f => [f.count, 150, 25],
+          getElevation: f => f.adjCount,
+          getFillColor: f => [f.adjCount, 150, 25],
           lightSettings: LIGHT_SETTINGS,
           autoHighlight: true,
           highlightColor: [238, 238, 0, 200],
@@ -311,9 +311,10 @@ export default class App extends Component {
     if (hoveredObject.hasOwnProperty('address')) {
       const address = hoveredObject.address;
       const count = hoveredObject.count;
+      const block_face = hoveredObject.block_face
       return (
         <Tooltip style={{ left: x + 10, top: y + 10 }}>
-          <p>{address}</p>
+          <p>{block_face + ' ' + address}</p>
           <p>Pedestrian Count: {parseInt(count)}</p>
         </Tooltip>
       );
@@ -410,6 +411,7 @@ const Tooltip = styled.div`
 export { App, INITIAL_VIEW_STATE };
 
 if (!window.demoLauncherActive) {
+  document.body.style.backgroundColor = '#2a2a2a';
   render(<App />, document.body.appendChild(document.createElement('div')));
 }
 
