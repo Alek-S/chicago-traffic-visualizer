@@ -21,7 +21,7 @@ document.body.appendChild( stats.dom );
 
 
 // Set your mapbox token here
-const MAPBOX_TOKEN = process.env.MapboxAccessToken // eslint-disable-line
+const MAPBOX_TOKEN = 'pk.eyJ1IjoibWZhbGtvd3NraSIsImEiOiJjamplc241c3U0cWdyM3FvZ2lhbnRpMWNqIn0.IoccaoYEVuGJZjvsADuwAg' // eslint-disable-line
 
 // parsing Raw building data
 // TODO: do this somewhere else...
@@ -138,7 +138,7 @@ export default class App extends Component {
     const {
       buildings = DATA_URL.BUILDINGS,
       trips = DATA_URL.TRIPS,
-      trailLength = 480,
+      trailLength = 880,
       time = this.state.time,
       pedestrians= DATA_URL.PEDESTRIANS,
     } = this.props;
