@@ -10,30 +10,47 @@ import styled from 'styled-components';
  * @returns {JSX}
 */
 export default class Key extends Component {
-  // componentDidMount() {
-  //   console.log(this.props.keyEntries)
-  // }
+  componentDidMount() {
+    console.log(this.props.keyEntries);
+    console.log(this.props.controls);
+  }
 
   getEntries = () => {
-    let from = '#fff';
-    let to = '#000';
+    let from = '';
+    let to = '';
+    let display = '';
 
     const list = this.props.keyEntries.map( (entry, i) =>{
-      if (entry === 'Buses'){
-        from = '#1AB8C4'
-        to = '#ff884d'
-        // return (
-        //   <li key={i.toString()}>
-        //     {entry}: <Gradient from='#1AB8C4' to='#ff884d'></Gradient>
-        //   </li>
-        // )
-      }else{
-        from = '#fff';
-        to = '#000';
+      display = 'hidden';
+
+      switch(entry){
+        case 'Buses':
+          from = '#1AB8C4';
+          to = '#ff884d';
+          display = this.props.controls.showTrips ? '' : 'hidden';
+          break;
+        case 'Buildings':
+          from = this.props.controls.showBuildingColors ? '#82FF95' : '#3B4046';
+          to = this.props.controls.showBuildingColors ? '#8598FF' : '#3B4046';
+          display = this.props.controls.showBuildings ? '' : 'hidden';
+          break;
+        case 'Pedestrians':
+          from ='#3BC12F';
+          to = '#C3741B';
+          display = this.props.controls.showPedestrians ? '' : 'hidden';
+          break;
+        case 'Potholes':
+          from = '#208BD8';
+          to = '#208BD8';
+          display = this.props.controls.showPotholes ? '' : 'hidden';
+          break;
+        default:
+          from = '#fff';
+          to = '#000';
       }
 
       return (
-        <li key={i.toString()}>
+        <li key={i.toString()} className={display}>
           {entry}: <Gradient from={from} to={to}></Gradient>
         </li>
       )
@@ -55,7 +72,11 @@ export default class Key extends Component {
 }
 
 Key.propTypes = {
-  keyEntries: PropTypes.arrayOf(PropTypes.string).isRequired
+  keyEntries: PropTypes.arrayOf(PropTypes.string)
+}
+
+Key.defaultProps = {
+  keyEntries: ['Buses', 'Buildings', 'Pedestrians', 'Potholes']
 }
 
 const StyledKey = styled.div`
@@ -67,7 +88,7 @@ const StyledKey = styled.div`
   font-weight: 300;
   position: fixed;
   right: 0rem;
-  top: 28rem;
+  bottom: 3rem;
   width: 18rem;
   z-index: 99;
 
@@ -83,10 +104,21 @@ const StyledKey = styled.div`
     text-align: center;
   }
 
-  li{
+  ul {
+    padding-left: 0;
+    margin-left: 1rem;
+  }
+
+  li {
     list-style: none;
-    line-height: 2;
+    line-height: 2.5;
     font-size: 12px;
+    /* padding-left: .25;
+    margin-left: 0; */
+  }
+
+  & .hidden{
+    display: none;
   }
 `;
 
@@ -100,5 +132,5 @@ const Gradient = styled.div`
   margin-right: 1rem;
   float: right;
   clear: left;
-  top: 5px;
+  top: 10px;
 `;

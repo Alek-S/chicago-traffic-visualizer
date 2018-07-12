@@ -11,7 +11,6 @@ import DatGui, {
   DatSelect,
   DatString,
 } from 'react-dat-gui';
-import Key from './Key';
 
 /** @class 
  * @name ControlPanel
@@ -25,7 +24,6 @@ export default class ControlPanel extends Component {
   state = {
     isVisible: true,
     minMaxNumber: 60,
-    selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
   }
   togglePanel = () => {
     const { isVisible } = this.state;
@@ -55,7 +53,6 @@ export default class ControlPanel extends Component {
             </DatGui>
           }
         </StyledControlPanel>
-        <Key keyEntries={this.state.selections}/>
       </ React.Fragment>
     )
   }
