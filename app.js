@@ -99,8 +99,8 @@ export default class App extends Component {
     controls: {
       showTrips: true,
       showBuildingColors: false,
-      showBuildings: false,
-      showPedestrians: true,
+      showBuildings: true,
+      showPedestrians: false,
       mapType: 'dark',
       confetti: false,
       showPedestrians: false,
@@ -109,6 +109,7 @@ export default class App extends Component {
       yearSlice: 2018,
     },
     time: 0,
+    hoveredObject: null,
   }
 
   componentDidMount() {
@@ -188,7 +189,11 @@ export default class App extends Component {
             }
             return [74, 80, 87];
           },
-          lightSettings: LIGHT_SETTINGS
+          lightSettings: LIGHT_SETTINGS,
+          autoHighlight: true,
+          highlightColor: [238, 238, 0, 200],
+          pickable: true,
+          onHover: this._onHover,
         })
       )
     }
@@ -239,7 +244,11 @@ export default class App extends Component {
           getPolygon: f => f.polygon,
           getElevation: f => f.count,
           getFillColor: f => [f.count, 150, 25],
-          lightSettings: LIGHT_SETTINGS
+          lightSettings: LIGHT_SETTINGS,
+          autoHighlight: true,
+          highlightColor: [238, 238, 0, 200],
+          pickable: true,
+          onHover: this._onHover,
         })
       )
     }
@@ -256,6 +265,60 @@ export default class App extends Component {
       // [gl.CULL_FACE]: true,
       // [gl.FRONT_FACE]: gl.CW,
     });
+  }
+
+  _onHover = ({x, y, object}) => {
+    this.setState({x, y, hoveredObject: object});
+  }
+
+  _renderBuildingTooltip() {
+    const {x, y, hoveredObject} = this.state;
+
+    if (!hoveredObject) {
+      return null;
+    }
+
+    const buildingName = hoveredObject.bldg_name1;
+    const yearBuilt = hoveredObject.year_built;
+
+
+    return (
+      <Tooltip style={{ left: x + 10, top: y + 10 }}>
+        <p>{buildingName}</p>
+        <p>Built in {yearBuilt}</p>
+      </Tooltip>
+    );
+  }
+
+  _renderTooltip() {
+    const {x, y, hoveredObject} = this.state;
+
+    if (!hoveredObject) {
+      return null;
+    }
+
+    if (hoveredObject.hasOwnProperty('bldg_name1')) {
+      const buildingName = hoveredObject.bldg_name1;
+      const yearBuilt = hoveredObject.year_built;
+      return (
+        <Tooltip style={{ left: x + 10, top: y + 10 }}>
+          <p>{buildingName}</p>
+          <p>Built in {yearBuilt}</p>
+        </Tooltip>
+      );
+    }
+
+    if (hoveredObject.hasOwnProperty('address')) {
+      const address = hoveredObject.address;
+      const count = hoveredObject.count;
+      return (
+        <Tooltip style={{ left: x + 10, top: y + 10 }}>
+          <p>{address}</p>
+          <p>Pedestrian Count: {parseInt(count)}</p>
+        </Tooltip>
+      );
+    }
+
   }
 
   getMapStyle = () => {
@@ -285,7 +348,7 @@ export default class App extends Component {
     const { controls } = this.state;
 
     return (
-      <div onContextMenu={this.handleRightClick}>
+      <StyledContainer onContextMenu={this.handleRightClick}>
         <ControlPanel
           viewState={viewState}
           controls={controls}
@@ -298,6 +361,8 @@ export default class App extends Component {
             <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={1000} gravity={0.08} />}
           </div>
         }
+        {/* {this._renderPedestrianTooltip()} */}
+        {this._renderTooltip()}
         <DeckGL
           layers={this._renderLayers()}
           initialViewState={INITIAL_VIEW_STATE}
@@ -305,6 +370,7 @@ export default class App extends Component {
           controller={controller}
           onWebGLInitialized={this._onWebGLInitialized.bind(this)}
           onContextMenu={this.handleRightClick}
+          onHover={this._onHover.bind(this)}
         >
           {baseMap && MAPBOX_TOKEN && (
             <StaticMap
@@ -315,10 +381,30 @@ export default class App extends Component {
             />
           )}
         </DeckGL>
-      </div>
+      </StyledContainer>
     );
   }
 }
+
+const StyledContainer = styled.div`
+  @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,700');
+  h1, h2, h3, h4, h5, h6, p, ul, li, span {
+    font-family: 'Quicksand', sans-serif;
+  }
+  cursor: crosshair;
+`;
+
+const Tooltip = styled.div`
+  z-index: 9;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 6px;
+  padding: 0px 20px;
+  color: #fff;
+  p {
+    line-height: 1em;
+  }
+`;
 
 // NOTE: EXPORTS FOR DECK.GL WEBSITE DEMO LAUNCHER - CAN BE REMOVED IN APPS
 export { App, INITIAL_VIEW_STATE };
@@ -326,3 +412,4 @@ export { App, INITIAL_VIEW_STATE };
 if (!window.demoLauncherActive) {
   render(<App />, document.body.appendChild(document.createElement('div')));
 }
+
