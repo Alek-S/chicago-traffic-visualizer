@@ -7,14 +7,10 @@ import styled from 'styled-components';
  * Key UI to provide information on what data is being rendered
  * 
  * @param {Array} props.keyEntries - what keys to show
+ * @param {Object} props.controls - whats shown and hidden
  * @returns {JSX}
 */
 export default class Key extends Component {
-  componentDidMount() {
-    console.log(this.props.keyEntries);
-    console.log(this.props.controls);
-  }
-
   getEntries = () => {
     let from = '';
     let to = '';
@@ -72,7 +68,8 @@ export default class Key extends Component {
 }
 
 Key.propTypes = {
-  keyEntries: PropTypes.arrayOf(PropTypes.string)
+  keyEntries: PropTypes.arrayOf(PropTypes.string),
+  controls: PropTypes.object.isRequired
 }
 
 Key.defaultProps = {
@@ -88,7 +85,7 @@ const StyledKey = styled.div`
   font-weight: 300;
   position: fixed;
   right: 0rem;
-  bottom: 3rem;
+  bottom: 4rem;
   width: 18rem;
   z-index: 99;
 
