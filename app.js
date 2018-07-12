@@ -31,6 +31,10 @@ let buildingsConverted = buildingsRaw;
 for (let i = 0; i < buildingsRaw.length; i++) {
   const polygon = buildingsRaw[i].polygon.coordinates[0][0];
   buildingsConverted[i].polygon = polygon;
+  if(buildingsRaw[i].year_built < 1000){
+    buildingsConverted[i].year_built = 1965;
+  }
+  buildingsConverted[i].height = buildingsRaw[i].stories * 3.3;
 }
 
 const pedCountRaw = require('./data/chicago_ped_count.min.json');
@@ -44,7 +48,7 @@ for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
     [+pedCountRaw.pedcount[i].lat + 0.0002, +pedCountRaw.pedcount[i].lon + 0.0002]
   ];
   pedCountConverted.pedcount[i].polygon = polygon;
-  pedCountConverted.pedcount[i].count = pedCountRaw.pedcount[i].count / 75;
+  pedCountConverted.pedcount[i].adjCount = pedCountRaw.pedcount[i].count / 75;
 }
 
 const potholesRaw = require('./data/potholes.min.json');
@@ -74,11 +78,11 @@ const DATA_URL = {
 const INITIAL_VIEW_STATE = {
   longitude: -87.615,
   latitude: 41.8781,
-  zoom: 13.25,
-  maxZoom: 17,
-  minZoom: 11.5,
-  pitch: 40,
-  bearing: -1,
+  zoom: 13.5,
+  maxZoom: 15,
+  minZoom: 11,
+  pitch: 60,
+  bearing: -20,
 };
 
 const redGreenInterplate = interpolateRgb('red', 'teal')
@@ -96,17 +100,18 @@ export default class App extends Component {
     controls: {
       showTrips: true,
       showBuildingColors: false,
-      showBuildings: false,
-      showPedestrians: true,
+      showBuildings: true,
+      showPedestrians: false,
       mapType: 'dark',
       confetti: false,
       showPedestrians: false,
-      showPotholes: true,
+      showPotholes: false,
       buildingsSlice: buildingsConverted,
       yearSlice: 2018,
       selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
     },
     time: 0,
+    hoveredObject: null,
   }
 
   componentDidMount() {
@@ -186,7 +191,11 @@ export default class App extends Component {
             }
             return [74, 80, 87];
           },
-          lightSettings: LIGHT_SETTINGS
+          lightSettings: LIGHT_SETTINGS,
+          autoHighlight: true,
+          highlightColor: [238, 238, 0, 200],
+          pickable: true,
+          onHover: this._onHover,
         })
       )
     }
@@ -219,7 +228,7 @@ export default class App extends Component {
           opacity: .5,
           getPolygon: f => f.polygon,
           getElevation: f => f.count,
-          getFillColor: f => [f.count,150, 250],
+          getFillColor: f => [f.count, 150, 250],
           lightSettings: LIGHT_SETTINGS
         })
       )
@@ -235,9 +244,13 @@ export default class App extends Component {
           fp64: true,
           opacity: .5,
           getPolygon: f => f.polygon,
-          getElevation: f => f.count,
-          getFillColor: f => [f.count, 150, 25],
-          lightSettings: LIGHT_SETTINGS
+          getElevation: f => f.adjCount,
+          getFillColor: f => [f.adjCount, 150, 25],
+          lightSettings: LIGHT_SETTINGS,
+          autoHighlight: true,
+          highlightColor: [238, 238, 0, 200],
+          pickable: true,
+          onHover: this._onHover,
         })
       )
     }
@@ -254,6 +267,42 @@ export default class App extends Component {
       // [gl.CULL_FACE]: true,
       // [gl.FRONT_FACE]: gl.CW,
     });
+  }
+
+  _onHover = ({x, y, object}) => {
+    this.setState({x, y, hoveredObject: object});
+  }
+
+  _renderTooltip() {
+    const {x, y, hoveredObject} = this.state;
+
+    if (!hoveredObject) {
+      return null;
+    }
+
+    if (hoveredObject.hasOwnProperty('bldg_name1')) {
+      const buildingName = hoveredObject.bldg_name1;
+      const yearBuilt = hoveredObject.year_built;
+      return (
+        <Tooltip style={{ left: 10, bottom: 35 }}>
+          <p>{buildingName}</p>
+          <p>Built in {yearBuilt}</p>
+        </Tooltip>
+      );
+    }
+
+    if (hoveredObject.hasOwnProperty('address')) {
+      const address = hoveredObject.address;
+      const count = hoveredObject.count;
+      const block_face = hoveredObject.block_face
+      return (
+        <Tooltip style={{ left: 10, bottom: 35 }}>
+          <p>{block_face + ' ' + address}</p>
+          <p>Pedestrian Count: {parseInt(count)}</p>
+        </Tooltip>
+      );
+    }
+
   }
 
   getMapStyle = () => {
@@ -283,7 +332,7 @@ export default class App extends Component {
     const { controls } = this.state;
 
     return (
-      <div onContextMenu={this.handleRightClick}>
+      <StyledContainer onContextMenu={this.handleRightClick}>
         <ControlPanel
           viewState={viewState}
           controls={controls}
@@ -293,9 +342,11 @@ export default class App extends Component {
         />
         {controls.confetti &&
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-            <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={1000} gravity={0.08} />}
+            <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={1000} gravity={0.08} colors={['#58B9F7', '#ffffff', '#ff0000']}/>}
           </div>
         }
+        {/* {this._renderPedestrianTooltip()} */}
+        {this._renderTooltip()}
         <DeckGL
           layers={this._renderLayers()}
           initialViewState={INITIAL_VIEW_STATE}
@@ -303,8 +354,9 @@ export default class App extends Component {
           controller={controller}
           onWebGLInitialized={this._onWebGLInitialized.bind(this)}
           onContextMenu={this.handleRightClick}
+          onHover={this._onHover.bind(this)}
         >
-          {baseMap && (
+          {baseMap && MAPBOX_TOKEN && (
             <StaticMap
               reuseMaps
               mapStyle={this.getMapStyle()}
@@ -317,14 +369,36 @@ export default class App extends Component {
           keyEntries={this.state.selections}
           controls={this.state.controls}
         />
-      </div>
+      </StyledContainer>
     );
   }
 }
+
+const StyledContainer = styled.div`
+  @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,700');
+  h1, h2, h3, h4, h5, h6, p, ul, li, span {
+    font-family: 'Quicksand', sans-serif;
+  }
+  cursor: crosshair;
+`;
+
+const Tooltip = styled.div`
+  z-index: 9;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 6px;
+  padding: 0px 20px;
+  color: #fff;
+  p {
+    line-height: 1em;
+  }
+`;
 
 // NOTE: EXPORTS FOR DECK.GL WEBSITE DEMO LAUNCHER - CAN BE REMOVED IN APPS
 export { App, INITIAL_VIEW_STATE };
 
 if (!window.demoLauncherActive) {
+  document.body.style.backgroundColor = '#2a2a2a';
   render(<App />, document.body.appendChild(document.createElement('div')));
 }
+
