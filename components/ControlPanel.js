@@ -38,7 +38,6 @@ export default class ControlPanel extends Component {
         <h1>Chicago Traffic Visualizer
         {/* <FontAwesomeIcon icon="coffee" onClick={this.togglePanel} /> */}
         </h1>
-        <p>frame {Math.floor(frameTime)}</p>
         <p>Date {date}</p>
         {isVisible &&
           <DatGui data={controls} onUpdate={update}>

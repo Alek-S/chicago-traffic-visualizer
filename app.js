@@ -20,6 +20,9 @@ stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
 document.body.appendChild( stats.dom );
 // console.log(animationData);
 
+const loopLength = 101000;
+const fps = 60;
+
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoibWZhbGtvd3NraSIsImEiOiJjamplc241c3U0cWdyM3FvZ2lhbnRpMWNqIn0.IoccaoYEVuGJZjvsADuwAg' // eslint-disable-line
 
@@ -81,7 +84,7 @@ export default class App extends Component {
       showTrips: true,
       showBuildingColors: false,
       showBuildings: false,
-      showPedestrians: true,
+      showPedestrians: false,
       mapType: 'dark',
       confetti: false,
       buildingsSlice: buildingsConverted,
@@ -120,8 +123,6 @@ export default class App extends Component {
     stats.begin();
 
     const timestamp = Date.now() / 1000;
-    const loopLength = 101000;
-    const fps = 60;
     const loopTime = loopLength / 10 / fps;
 
     this.setState({
@@ -138,7 +139,7 @@ export default class App extends Component {
     const {
       buildings = DATA_URL.BUILDINGS,
       trips = DATA_URL.TRIPS,
-      trailLength = 880,
+      trailLength = 150,
       time = this.state.time,
       pedestrians= DATA_URL.PEDESTRIANS,
     } = this.props;
@@ -178,11 +179,9 @@ export default class App extends Component {
           id: 'trips',
           data: trips,
           getPath: d => d.segments,
-          // getColor: d => [253, 128, 93],
           getColor: d => (d.speed < 20 ? [253, 128, 93] : [23, 184, 190]),
           // getColor: d => (rgbStringToArray(redGreenInterplate(parseInt(d.speed/40)))),
           opacity: 1.0,
-          strokeWidth: 22,
           trailLength,
           currentTime: time
         })
