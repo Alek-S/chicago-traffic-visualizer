@@ -67,6 +67,18 @@ const INITIAL_VIEW_STATE = {
 
 const redGreenInterplate = interpolateRgb('red', 'teal')
 
+function getTheColor(d) {
+  let color = [253, 128, 93];
+  if (d.speed < 10) {
+    color = [255, 0, 0];
+  } else if (d.speed > 35) {
+    color = [63, 255, 0];
+  } else if (d.speed >= 23 && d.speed <= 35) {
+    color = [23, 184, 190];
+  }
+  return color;
+}
+
 // convert rgb string to array
 function rgbStringToArray(rgbString) {
   let spliter = rgbString.split('(');
@@ -138,7 +150,7 @@ export default class App extends Component {
     const {
       buildings = DATA_URL.BUILDINGS,
       trips = DATA_URL.TRIPS,
-      trailLength = 880,
+      trailLength = 180,
       time = this.state.time,
       pedestrians= DATA_URL.PEDESTRIANS,
     } = this.props;
@@ -178,8 +190,8 @@ export default class App extends Component {
           id: 'trips',
           data: trips,
           getPath: d => d.segments,
-          // getColor: d => [253, 128, 93],
-          getColor: d => (d.speed < 20 ? [253, 128, 93] : [23, 184, 190]),
+          getColor: getTheColor,
+          // getColor: d => (d.speed < 20 ? [253, 128, 93] : [23, 184, 190]),
           // getColor: d => (rgbStringToArray(redGreenInterplate(parseInt(d.speed/40)))),
           opacity: 1.0,
           strokeWidth: 22,
