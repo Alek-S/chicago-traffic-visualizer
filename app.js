@@ -77,11 +77,11 @@ const DATA_URL = {
 const INITIAL_VIEW_STATE = {
   longitude: -87.615,
   latitude: 41.8781,
-  zoom: 12,
+  zoom: 13.5,
   maxZoom: 15,
   minZoom: 11,
   pitch: 60,
-  bearing: -40,
+  bearing: -20,
 };
 
 const redGreenInterplate = interpolateRgb('red', 'teal')
@@ -104,7 +104,7 @@ export default class App extends Component {
       mapType: 'dark',
       confetti: false,
       showPedestrians: false,
-      showPotholes: true,
+      showPotholes: false,
       buildingsSlice: buildingsConverted,
       yearSlice: 2018,
     },
@@ -226,7 +226,7 @@ export default class App extends Component {
           opacity: .5,
           getPolygon: f => f.polygon,
           getElevation: f => f.count,
-          getFillColor: f => [f.count,150, 250],
+          getFillColor: f => [f.count, 150, 250],
           lightSettings: LIGHT_SETTINGS
         })
       )
@@ -271,25 +271,6 @@ export default class App extends Component {
     this.setState({x, y, hoveredObject: object});
   }
 
-  _renderBuildingTooltip() {
-    const {x, y, hoveredObject} = this.state;
-
-    if (!hoveredObject) {
-      return null;
-    }
-
-    const buildingName = hoveredObject.bldg_name1;
-    const yearBuilt = hoveredObject.year_built;
-
-
-    return (
-      <Tooltip style={{ left: x + 10, top: y + 10 }}>
-        <p>{buildingName}</p>
-        <p>Built in {yearBuilt}</p>
-      </Tooltip>
-    );
-  }
-
   _renderTooltip() {
     const {x, y, hoveredObject} = this.state;
 
@@ -301,7 +282,7 @@ export default class App extends Component {
       const buildingName = hoveredObject.bldg_name1;
       const yearBuilt = hoveredObject.year_built;
       return (
-        <Tooltip style={{ left: x + 10, top: y + 10 }}>
+        <Tooltip style={{ left: 10, bottom: 35 }}>
           <p>{buildingName}</p>
           <p>Built in {yearBuilt}</p>
         </Tooltip>
@@ -313,7 +294,7 @@ export default class App extends Component {
       const count = hoveredObject.count;
       const block_face = hoveredObject.block_face
       return (
-        <Tooltip style={{ left: x + 10, top: y + 10 }}>
+        <Tooltip style={{ left: 10, bottom: 35 }}>
           <p>{block_face + ' ' + address}</p>
           <p>Pedestrian Count: {parseInt(count)}</p>
         </Tooltip>
@@ -359,7 +340,7 @@ export default class App extends Component {
         />
         {controls.confetti &&
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-            <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={1000} gravity={0.08} />}
+            <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={1000} gravity={0.08} colors={['#58B9F7', '#ffffff', '#ff0000']}/>}
           </div>
         }
         {/* {this._renderPedestrianTooltip()} */}
