@@ -192,7 +192,6 @@ export default class App extends Component {
     this.setState({elevationScale: .000});
     this._stopAnimate();
 
-    // wait 1.5 secs to start animation so that all data are loaded
     this._startAnimate();
   }
 
@@ -253,7 +252,8 @@ export default class App extends Component {
           highlightColor: [238, 238, 0, 200],
           pickable: true,
           onHover: this._onHover,
-          visible: controls.showBuildings
+          visible: controls.showBuildings,
+          onClick: this._onClick.bind(this),
         })
       )
 
@@ -280,7 +280,7 @@ export default class App extends Component {
           data: potholes.potholeCount,
           extruded: true,
           wireframe: false,
-          fp64: true,
+          fp64: false,
           opacity: .5,
           getPolygon: f => f.polygon,
           getElevation: f => f.count,
@@ -290,7 +290,6 @@ export default class App extends Component {
         })
       )
     
-
       layers.push(
         new PolygonLayer({
           id: 'pedestrians',
@@ -317,7 +316,7 @@ export default class App extends Component {
           data: neighbohoods,
           extruded: false,
           wireframe: true,
-          fp64: true,
+          fp64: false,
           opacity: 1,
           getPolygon: f => f.polygon,
           getFillColor: [100,100,100, 0],
@@ -347,6 +346,25 @@ export default class App extends Component {
 
   _onHover = ({x, y, object}) => {
     this.setState({x, y, hoveredObject: object});
+  }
+
+  _onClick = ({x, y, object}) => {
+    this.setState({clickedObject: object});
+    if (object.bldg_name1 === "WRIGLEY FIELD") {
+      this._runConfetti();
+    }
+  }
+
+  _runConfetti(){
+    let { controls } = this.state;
+    controls.confetti = true;
+    this.setState({ controls });
+    window.setTimeout(this._stopConfetti.bind(this), 18000);
+  }
+  _stopConfetti(){
+    let { controls } = this.state;
+    controls.confetti = false;
+    this.setState({ controls });
   }
 
   _renderTooltip() {
@@ -428,7 +446,7 @@ export default class App extends Component {
         />
         {controls.confetti &&
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-            <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={1000} gravity={0.08} colors={['#58B9F7', '#ffffff', '#ff0000']}/>}
+            <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={500} gravity={0.08} colors={['#58B9F7', '#ffffff', '#ff0000']} recycle={false}/>}
           </div>
         }
         {/* {this._renderPedestrianTooltip()} */}
