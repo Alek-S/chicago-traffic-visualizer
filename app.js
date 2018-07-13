@@ -132,6 +132,8 @@ export default class App extends Component {
       showNeighborhoods: false,
       showMap: true,
       buildingsSlice: buildingsConverted,
+      playbackSpeed: 5,
+      playbackPosition: 0,
       yearSlice: 2018,
       selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
     },
@@ -161,18 +163,29 @@ export default class App extends Component {
         }
       }
       controls.buildingsSlice = newBuildings;
-      this.setState({ controls });
+      this.setState({
+        controls,
+        time: controls.playbackPosition
+      });
     }
   }
 
   _animate() {
     stats.begin();
+    const { controls, time } = this.state;
 
-    const timestamp = Date.now() / 1000;
-    const loopTime = loopLength / 10 / fps;
+    let setTime = time;
+    setTime += parseInt(controls.playbackSpeed) * 6;
+    if (setTime > loopLength) {
+      setTime = 0;
+    }
 
     this.setState({
-      time: ((timestamp % loopTime) / loopTime) * loopLength
+      time: setTime,
+      controls: {
+        ...controls,
+        playbackPosition: setTime,
+      }
     });
 
     this._animationFrame = window.requestAnimationFrame(this._animate.bind(this));

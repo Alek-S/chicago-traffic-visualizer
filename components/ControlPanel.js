@@ -51,11 +51,15 @@ export default class ControlPanel extends Component {
         <FontAwesomeIcon icon={isVisible ? faCaretUp : faCaretDown} onClick={this.togglePanel} className="caret" />
         </h1>
         {/* <p>frame {Math.floor(frameTime)}</p> */}
-        <p>Date {getDate(Math.floor(frameTime))}</p>
+        
         {isVisible &&
           // <p>frame {Math.floor(frameTime)}</p>
           // <p>Date {date}</p>
           <DatGui data={controls} onUpdate={update}>
+            <DatBoolean path='showTrips' label='Show Bus Traffic: ' />
+            {controls.showTrips && <p>Date {getDate(Math.floor(frameTime))}</p>}
+            {controls.showTrips && <DatNumber path='playbackSpeed' label='Play Speed ' min={0} max={10} step={1} />}
+            {controls.showTrips && <DatNumber path='playbackPosition' label='Position: ' min={0} max={101000} step={1}/>}
             <DatBoolean path='showBuildings' label='Show Buildings: ' />
             {controls.showBuildings && <DatNumber path='yearSlice' label='Year Built ' min={1890} max={2018} step={5} />}
             {controls.showBuildings && <DatBoolean path='showBuildingColors' label='Show Building Colors: ' />}
