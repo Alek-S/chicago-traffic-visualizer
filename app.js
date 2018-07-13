@@ -19,10 +19,13 @@ import { format, formatDistance, formatRelative, subDays } from 'date-fns'
 const stats = new Stats();
 stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
 document.body.appendChild(stats.dom);
+// console.log(animationData);
 
+const loopLength = 101000;
+const fps = 60;
 
 // Set your mapbox token here
-const MAPBOX_TOKEN = process.env.MapboxAccessToken // eslint-disable-line
+const MAPBOX_TOKEN = process.env.MapboxAccessToken; // eslint-disable-line
 
 // parsing Raw building data
 // TODO: do this somewhere else...
@@ -41,7 +44,7 @@ const neighborhoodsRaw = require('./data/chicago_neighborhood_data.json');
 let neighborhoodsConverted = neighborhoodsRaw;
 for (let i = 0; i < neighborhoodsRaw.length; i++) {
   const polygon = neighborhoodsRaw[i].polygon.coordinates[0][0];
-  neighborhoodsConverted[i].polygon = polygon; 
+  neighborhoodsConverted[i].polygon = polygon;
 }
 
 const pedCountRaw = require('./data/chicago_ped_count.min.json');
@@ -88,13 +91,25 @@ const INITIAL_VIEW_STATE = {
   longitude: -87.615,
   latitude: 41.8781,
   zoom: 13.5,
-  maxZoom: 15,
+  maxZoom: 17,
   minZoom: 10.5,
   pitch: 60,
   bearing: -20,
 };
 
 const redGreenInterplate = interpolateRgb('red', 'teal')
+
+function getTheColor(d) {
+  let color = [253, 128, 253];
+  if (d.speed < 10) {
+    color = [255, 0, 255];
+  } else if (d.speed > 35) {
+    color = [63, 255, 63];
+  } else if (d.speed >= 20 && d.speed <= 35) {
+    color = [23, 184, 190];
+  }
+  return color;
+}
 
 // convert rgb string to array
 function rgbStringToArray(rgbString) {
@@ -107,15 +122,15 @@ function rgbStringToArray(rgbString) {
 export default class App extends Component {
   state = {
     controls: {
-      showTrips: true,
+      showTrips: false,
       showBuildingColors: false,
-      showBuildings: true,
+      showBuildings: false,
       showPedestrians: false,
       mapType: 'dark',
       confetti: false,
       showPotholes: false,
       showNeighborhoods: false,
-      showMap: true,
+      showMap: false,
       buildingsSlice: buildingsConverted,
       yearSlice: 2018,
       selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
@@ -153,9 +168,8 @@ export default class App extends Component {
   _animate() {
     stats.begin();
 
-    const timestamp = Date.now();
-    const loopLength = 100000;
-    const loopTime = 300000;
+    const timestamp = Date.now() / 1000;
+    const loopTime = loopLength / 10 / fps;
 
     this.setState({
       time: ((timestamp % loopTime) / loopTime) * loopLength
@@ -171,7 +185,7 @@ export default class App extends Component {
     const {
       buildings = DATA_URL.BUILDINGS,
       trips = DATA_URL.TRIPS,
-      trailLength = 480,
+      trailLength = 150,
       time = this.state.time,
       pedestrians = DATA_URL.PEDESTRIANS,
       potholes = DATA_URL.POTHOLES,
@@ -179,7 +193,6 @@ export default class App extends Component {
     } = this.props;
 
     const layers = [];
-    if (controls.showBuildings) {
       layers.push(
         new PolygonLayer({
           id: 'buildings',
@@ -187,18 +200,14 @@ export default class App extends Component {
           extruded: true,
           wireframe: false,
           stroked: false,
-          fp64: true,
+          fp64: false,
           opacity: 1.0, // buildings will clip if (opacity < 1.0)
           getPolygon: f => f.polygon,
           getElevation: f => f.height,
           getFillColor: f => {
             if (controls.showBuildingColors) {
               const yearScaled = f.year_built === "0" ? 30 : (f.year_built - 1870) / 1.5;
-              const centerColor = 110;
-              const colorSpread = 60;
-              const greenBasis = centerColor + colorSpread;
-              const blueBasis = centerColor - colorSpread;
-              return [70, greenBasis - yearScaled, blueBasis + yearScaled];
+              return [20 + yearScaled / 3, 20 + yearScaled / 3, 20 + yearScaled];
             }
             return [74, 80, 87];
           },
@@ -207,9 +216,9 @@ export default class App extends Component {
           highlightColor: [238, 238, 0, 200],
           pickable: true,
           onHover: this._onHover,
+          visible: controls.showBuildings
         })
       )
-    }
 
     if (controls.showTrips) {
       layers.push(
@@ -217,18 +226,17 @@ export default class App extends Component {
           id: 'trips',
           data: trips,
           getPath: d => d.segments,
-          // getColor: d => [253, 128, 93],
-          getColor: d => (d.speed < 20 ? [253, 128, 93] : [23, 184, 190]),
+          getColor: getTheColor,
+          // getColor: d => (d.speed < 20 ? [253, 128, 93] : [23, 184, 190]),
           // getColor: d => (rgbStringToArray(redGreenInterplate(parseInt(d.speed/40)))),
           opacity: 1.0,
-          strokeWidth: 22,
           trailLength,
-          currentTime: time
+          currentTime: time,
+          fp64: false,
         })
       )
     }
 
-    if (controls.showPotholes) {
       layers.push(
         new PolygonLayer({
           id: 'potholes',
@@ -239,20 +247,20 @@ export default class App extends Component {
           opacity: .5,
           getPolygon: f => f.polygon,
           getElevation: f => f.count,
-          getFillColor: f => [f.count, 150, 250],
-          lightSettings: LIGHT_SETTINGS
+          getFillColor: f => [255, 0, 0, 100],
+          lightSettings: LIGHT_SETTINGS,
+          visible: controls.showPotholes
         })
       )
-    }
+    
 
-    if (controls.showPedestrians) {
       layers.push(
         new PolygonLayer({
           id: 'pedestrians',
           data: pedestrians.pedcount,
           extruded: true,
           wireframe: false,
-          fp64: true,
+          fp64: false,
           opacity: .5,
           getPolygon: f => f.polygon,
           getElevation: f => f.adjCount,
@@ -262,11 +270,10 @@ export default class App extends Component {
           highlightColor: [238, 238, 0, 200],
           pickable: true,
           onHover: this._onHover,
+          visible: controls.showPedestrians,
         })
       )
-    }
     
-    if (controls.showNeighborhoods) {
       layers.push(
         new PolygonLayer({
           id: 'neighborhoods',
@@ -278,16 +285,15 @@ export default class App extends Component {
           getPolygon: f => f.polygon,
           getFillColor: [100,100,100, 0],
           getLineColor: [255, 255, 255],
-          getLineWidth: 3,
-          lightSettings: LIGHT_SETTINGS,
+          getLineWidth: 4,
           autoHighlight: true,
-          highlightColor: [238, 238, 0, 200],
+          highlightColor: [40, 125, 238, 200],
           pickable: true,
           onHover: this._onHover,
+          visible: controls.showNeighborhoods,
         })
       )
-    }
-
+    
     return layers;
   }
 
@@ -409,7 +415,7 @@ export default class App extends Component {
             />
           )}
         </DeckGL>
-        <Key 
+        <Key
           keyEntries={this.state.selections}
           controls={this.state.controls}
         />

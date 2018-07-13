@@ -39,6 +39,7 @@ export default class ControlPanel extends Component {
         <h1>Chicago Traffic Visualizer
         <FontAwesomeIcon icon={isVisible ? faCaretUp : faCaretDown} onClick={this.togglePanel} className="caret" />
         </h1>
+        <p>Date {date}</p>
         {isVisible &&
           // <p>frame {Math.floor(frameTime)}</p>
           // <p>Date {date}</p>
