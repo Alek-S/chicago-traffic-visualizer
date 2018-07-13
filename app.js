@@ -218,7 +218,6 @@ export default class App extends Component {
   _renderLayers() {
     const { controls } = this.state;
     const {
-      buildings = DATA_URL.BUILDINGS,
       trips = DATA_URL.TRIPS,
       trailLength = 150,
       time = this.state.time,
@@ -264,8 +263,6 @@ export default class App extends Component {
           data: trips,
           getPath: d => d.segments,
           getColor: getTheColor,
-          // getColor: d => (d.speed < 20 ? [253, 128, 93] : [23, 184, 190]),
-          // getColor: d => (rgbStringToArray(redGreenInterplate(parseInt(d.speed/40)))),
           opacity: 1.0,
           trailLength,
           currentTime: time,
@@ -316,12 +313,12 @@ export default class App extends Component {
           data: neighbohoods,
           extruded: false,
           wireframe: true,
-          fp64: false,
+          fp64: true,
           opacity: 1,
           getPolygon: f => f.polygon,
-          getFillColor: [100,100,100, 0],
-          getLineColor: [255, 255, 255],
-          getLineWidth: 4,
+          getFillColor: f => [100,100,100, 0],
+          getLineColor: f => [255, 255, 255],
+          getLineWidth: f => 4,
           autoHighlight: true,
           highlightColor: [40, 125, 238, 200],
           pickable: true,
@@ -337,15 +334,12 @@ export default class App extends Component {
     setParameters(gl, {
       depthTest: true,
       [gl.DEPTH_FUNC]: gl.LEQUAL,
-      // [gl.POLYGON_OFFSET_FILL]: true,
-      // polygonOffset: [3, 3],
-      // [gl.CULL_FACE]: true,
-      // [gl.FRONT_FACE]: gl.CW,
     });
   }
 
   _onHover = ({x, y, object}) => {
     this.setState({x, y, hoveredObject: object});
+    this._renderTooltip();
   }
 
   _onClick = ({x, y, object}) => {
@@ -376,10 +370,12 @@ export default class App extends Component {
 
     if (hoveredObject.hasOwnProperty('bldg_name1')) {
       const buildingName = hoveredObject.bldg_name1;
+      const buildingName2 = hoveredObject.bldg_name2;
       const yearBuilt = hoveredObject.year_built;
       return (
         <Tooltip style={{ left: 10, bottom: 35 }}>
           <p>{buildingName}</p>
+          {buildingName2 && buildingName !== buildingName2 && <p>{buildingName2}</p>}
           <p>Built in {yearBuilt}</p>
         </Tooltip>
       );
@@ -449,8 +445,7 @@ export default class App extends Component {
             <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={500} gravity={0.08} colors={['#58B9F7', '#ffffff', '#ff0000']} recycle={false}/>}
           </div>
         }
-        {/* {this._renderPedestrianTooltip()} */}
-        {this._renderTooltip()}
+        {this.state.hoveredObject ? this._renderTooltip() : null}
         <DeckGL
           layers={this._renderLayers()}
           initialViewState={INITIAL_VIEW_STATE}
