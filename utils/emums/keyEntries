@@ -1,0 +1,28 @@
+const dataKey = {
+  buses: {
+    name: 'Buses',
+    fromColor: '#A461A4',
+    toColor: '#3FDF00',
+    description: 'Velocity within reported timeframe',
+  },
+  buildings: {
+    name: 'Buildings',
+    fromColor: '#13131A',
+    toColor: '#5E5FD1',
+    description: 'Year of construction',
+  },
+  pedestrians: {
+    name: 'Pedestrians',
+    fromColor: '#3BC12F',
+    toColor: '#C3741B',
+    description: 'Number of passed pedestrians within timeframe'
+  },
+  potholes: {
+    name: 'Potholes',
+    fromColor: '#DE4234',
+    toColor: '#DE4234',
+    description: '311 service requests for open potholes'
+  },
+}
+
+export default dataKey;
