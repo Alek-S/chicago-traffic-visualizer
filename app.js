@@ -87,6 +87,8 @@ const DATA_URL = {
 };
 // console.log(animationData)
 
+const elevationScale = {min: .01, max: 1};
+
 const INITIAL_VIEW_STATE = {
   longitude: -87.615,
   latitude: 41.8781,
@@ -137,6 +139,7 @@ export default class App extends Component {
     },
     time: 0,
     hoveredObject: null,
+    elevationScale: .01,
   }
 
   componentDidMount() {
@@ -151,7 +154,12 @@ export default class App extends Component {
 
   update = controls => {
     if (this.state.controls.yearSlice === controls.yearSlice) {
+      if(this.state.controls.showBuildings === controls.showBuildings || !controls.showBuildings){
+        this.setState({ controls });
+      } else {
+        this._animateBuildings();
       this.setState({ controls });
+      }
     } else {
       let newBuildings = [];
       for (let i = 0; i < buildingsConverted.length; i++) {
@@ -180,6 +188,34 @@ export default class App extends Component {
     stats.end();
   }
 
+  _animateBuildings() {
+    this.setState({elevationScale: .000});
+    this._stopAnimate();
+
+    // wait 1.5 secs to start animation so that all data are loaded
+    this._startAnimate();
+  }
+
+  _startAnimate() {
+
+    this.intervalTimer = window.setInterval(this._animateHeight.bind(this), 50);
+  }
+
+  _stopAnimate() {
+    window.clearTimeout(this.startAnimationTimer);
+    window.clearTimeout(this.intervalTimer);
+  }
+
+  _animateHeight() {
+    const state = this.state;
+    if (state.elevationScale >= elevationScale.max) {
+      this.setState({elevationScale: 1});
+      this._stopAnimate();
+    } else {
+      this.setState({elevationScale: this.state.elevationScale + .03});
+    }
+  }
+
   _renderLayers() {
     const { controls } = this.state;
     const {
@@ -204,6 +240,7 @@ export default class App extends Component {
           opacity: 1.0, // buildings will clip if (opacity < 1.0)
           getPolygon: f => f.polygon,
           getElevation: f => f.height,
+          elevationScale: this.state.elevationScale,
           getFillColor: f => {
             if (controls.showBuildingColors) {
               const yearScaled = f.year_built === "0" ? 30 : (f.year_built - 1870) / 1.5;
