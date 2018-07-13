@@ -87,6 +87,8 @@ const DATA_URL = {
 };
 // console.log(animationData)
 
+const elevationScale = {min: .01, max: 1};
+
 const INITIAL_VIEW_STATE = {
   longitude: -87.615,
   latitude: 41.8781,
@@ -137,6 +139,7 @@ export default class App extends Component {
     },
     time: 0,
     hoveredObject: null,
+    elevationScale: .01,
   }
 
   componentDidMount() {
@@ -151,7 +154,12 @@ export default class App extends Component {
 
   update = controls => {
     if (this.state.controls.yearSlice === controls.yearSlice) {
+      if(this.state.controls.showBuildings === controls.showBuildings || !controls.showBuildings){
+        this.setState({ controls });
+      } else {
+        this._animateBuildings();
       this.setState({ controls });
+      }
     } else {
       let newBuildings = [];
       for (let i = 0; i < buildingsConverted.length; i++) {
@@ -180,10 +188,36 @@ export default class App extends Component {
     stats.end();
   }
 
+  _animateBuildings() {
+    this.setState({elevationScale: .000});
+    this._stopAnimate();
+
+    this._startAnimate();
+  }
+
+  _startAnimate() {
+
+    this.intervalTimer = window.setInterval(this._animateHeight.bind(this), 50);
+  }
+
+  _stopAnimate() {
+    window.clearTimeout(this.startAnimationTimer);
+    window.clearTimeout(this.intervalTimer);
+  }
+
+  _animateHeight() {
+    const state = this.state;
+    if (state.elevationScale >= elevationScale.max) {
+      this.setState({elevationScale: 1});
+      this._stopAnimate();
+    } else {
+      this.setState({elevationScale: this.state.elevationScale + .03});
+    }
+  }
+
   _renderLayers() {
     const { controls } = this.state;
     const {
-      buildings = DATA_URL.BUILDINGS,
       trips = DATA_URL.TRIPS,
       trailLength = 150,
       time = this.state.time,
@@ -204,6 +238,7 @@ export default class App extends Component {
           opacity: 1.0, // buildings will clip if (opacity < 1.0)
           getPolygon: f => f.polygon,
           getElevation: f => f.height,
+          elevationScale: this.state.elevationScale,
           getFillColor: f => {
             if (controls.showBuildingColors) {
               const yearScaled = f.year_built === "0" ? 30 : (f.year_built - 1870) / 1.5;
@@ -216,7 +251,8 @@ export default class App extends Component {
           highlightColor: [238, 238, 0, 200],
           pickable: true,
           onHover: this._onHover,
-          visible: controls.showBuildings
+          visible: controls.showBuildings,
+          onClick: this._onClick.bind(this),
         })
       )
 
@@ -227,8 +263,6 @@ export default class App extends Component {
           data: trips,
           getPath: d => d.segments,
           getColor: getTheColor,
-          // getColor: d => (d.speed < 20 ? [253, 128, 93] : [23, 184, 190]),
-          // getColor: d => (rgbStringToArray(redGreenInterplate(parseInt(d.speed/40)))),
           opacity: 1.0,
           trailLength,
           currentTime: time,
@@ -243,7 +277,7 @@ export default class App extends Component {
           data: potholes.potholeCount,
           extruded: true,
           wireframe: false,
-          fp64: true,
+          fp64: false,
           opacity: .5,
           getPolygon: f => f.polygon,
           getElevation: f => f.count,
@@ -253,7 +287,6 @@ export default class App extends Component {
         })
       )
     
-
       layers.push(
         new PolygonLayer({
           id: 'pedestrians',
@@ -283,9 +316,9 @@ export default class App extends Component {
           fp64: true,
           opacity: 1,
           getPolygon: f => f.polygon,
-          getFillColor: [100,100,100, 0],
-          getLineColor: [255, 255, 255],
-          getLineWidth: 4,
+          getFillColor: f => [100,100,100, 0],
+          getLineColor: f => [255, 255, 255],
+          getLineWidth: f => 4,
           autoHighlight: true,
           highlightColor: [40, 125, 238, 200],
           pickable: true,
@@ -301,15 +334,31 @@ export default class App extends Component {
     setParameters(gl, {
       depthTest: true,
       [gl.DEPTH_FUNC]: gl.LEQUAL,
-      // [gl.POLYGON_OFFSET_FILL]: true,
-      // polygonOffset: [3, 3],
-      // [gl.CULL_FACE]: true,
-      // [gl.FRONT_FACE]: gl.CW,
     });
   }
 
   _onHover = ({x, y, object}) => {
     this.setState({x, y, hoveredObject: object});
+    this._renderTooltip();
+  }
+
+  _onClick = ({x, y, object}) => {
+    this.setState({clickedObject: object});
+    if (object.bldg_name1 === "WRIGLEY FIELD") {
+      this._runConfetti();
+    }
+  }
+
+  _runConfetti(){
+    let { controls } = this.state;
+    controls.confetti = true;
+    this.setState({ controls });
+    window.setTimeout(this._stopConfetti.bind(this), 18000);
+  }
+  _stopConfetti(){
+    let { controls } = this.state;
+    controls.confetti = false;
+    this.setState({ controls });
   }
 
   _renderTooltip() {
@@ -321,10 +370,12 @@ export default class App extends Component {
 
     if (hoveredObject.hasOwnProperty('bldg_name1')) {
       const buildingName = hoveredObject.bldg_name1;
+      const buildingName2 = hoveredObject.bldg_name2;
       const yearBuilt = hoveredObject.year_built;
       return (
         <Tooltip style={{ left: 10, bottom: 35 }}>
           <p>{buildingName}</p>
+          {buildingName2 && buildingName !== buildingName2 && <p>{buildingName2}</p>}
           <p>Built in {yearBuilt}</p>
         </Tooltip>
       );
@@ -391,11 +442,10 @@ export default class App extends Component {
         />
         {controls.confetti &&
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-            <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={1000} gravity={0.08} colors={['#58B9F7', '#ffffff', '#ff0000']}/>}
+            <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={500} gravity={0.08} colors={['#58B9F7', '#ffffff', '#ff0000']} recycle={false}/>}
           </div>
         }
-        {/* {this._renderPedestrianTooltip()} */}
-        {this._renderTooltip()}
+        {this.state.hoveredObject ? this._renderTooltip() : null}
         <DeckGL
           layers={this._renderLayers()}
           initialViewState={INITIAL_VIEW_STATE}
