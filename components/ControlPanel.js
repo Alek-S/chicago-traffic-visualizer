@@ -36,7 +36,7 @@ export default class ControlPanel extends Component {
     const { isVisible } = this.state;
     return (
       <StyledControlPanel>
-        <h1>Chicago Traffic Visualizer
+        <h1>Chicago Data Visualizer
         <FontAwesomeIcon icon={isVisible ? faCaretUp : faCaretDown} onClick={this.togglePanel} className="caret" />
         </h1>
         <p>Date {date}</p>
@@ -85,6 +85,7 @@ const StyledControlPanel = styled.div`
   h1, h2, h3, p, span, ul, li {
     color: #C5C6C7;
     font-weight: 100;
+    letter-spacing: 1px;
   }
   h1 {
     background: linear-gradient(to bottom, #4c5566 0%, #343b47 100%);
@@ -97,6 +98,7 @@ const StyledControlPanel = styled.div`
 
 
   li{
+    font-size: 14px;
     list-style: none;
     line-height: 2.5;
     margin: 0;
