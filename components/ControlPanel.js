@@ -96,6 +96,7 @@ const StyledControlPanel = styled.div`
 
 
   li{
+    font-size: 14px;
     list-style: none;
     line-height: 2.5;
     margin: 0;

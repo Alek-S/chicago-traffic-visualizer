@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import dataKey from '../utils/emums/keyEntries';
 
 /** @class 
  * @name Key
  * Key UI to provide information on what data is being rendered
  * 
  * @param {Array} props.keyEntries - what keys to show
- * @param {Object} props.controls - whats shown and hidden
+ * @param {Object} props.controls - whats shown and hidden, from parent app.js
  * @returns {JSX}
 */
 export default class Key extends Component {
+
   getEntries = () => {
+    const { 
+      showTrips,
+      showBuildingColors,
+      showBuildings,
+      showPedestrians,
+      showPotholes,
+    } = this.props.controls;
+
     let from = '';
     let to = '';
     let display = '';
@@ -20,25 +30,25 @@ export default class Key extends Component {
       display = 'hidden';
 
       switch(entry){
-        case 'Buses':
-          from = '#1AB8C4';
-          to = '#ff884d';
-          display = this.props.controls.showTrips ? '' : 'hidden';
+        case dataKey.buses.name:
+          from = dataKey.buses.fromColor;
+          to = dataKey.buses.toColor;
+          display = showTrips ? '' : 'hidden';
           break;
-        case 'Buildings':
-          from = this.props.controls.showBuildingColors ? '#82FF95' : '#3B4046';
-          to = this.props.controls.showBuildingColors ? '#8598FF' : '#3B4046';
-          display = this.props.controls.showBuildings ? '' : 'hidden';
+        case dataKey.buildings.name:
+          from = showBuildingColors ? dataKey.buildings.fromColor : '#3B4046';
+          to = showBuildingColors ? dataKey.buildings.toColor : '#3B4046';
+          display = showBuildings ? '' : 'hidden';
           break;
-        case 'Pedestrians':
-          from ='#3BC12F';
-          to = '#C3741B';
-          display = this.props.controls.showPedestrians ? '' : 'hidden';
+        case dataKey.pedestrians.name:
+          from = dataKey.pedestrians.fromColor;
+          to = dataKey.pedestrians.toColor;
+          display = showPedestrians ? '' : 'hidden';
           break;
-        case 'Potholes':
-          from = '#208BD8';
-          to = '#208BD8';
-          display = this.props.controls.showPotholes ? '' : 'hidden';
+        case dataKey.potholes.name:
+          from = dataKey.potholes.fromColor;
+          to = dataKey.potholes.toColor;
+          display = showPotholes ? '' : 'hidden';
           break;
         default:
           from = '#fff';
@@ -73,7 +83,12 @@ Key.propTypes = {
 }
 
 Key.defaultProps = {
-  keyEntries: ['Buses', 'Buildings', 'Pedestrians', 'Potholes']
+  keyEntries: [
+    dataKey.buses.name, 
+    dataKey.buildings.name, 
+    dataKey.pedestrians.name, 
+    dataKey.potholes.name
+  ]
 }
 
 const StyledKey = styled.div`
@@ -125,7 +140,7 @@ const Gradient = styled.div`
   height: 10px;
   width: 150px;
   background: linear-gradient(to right, ${props => props.from} 0%, ${props => props.to} 100%);
-  border-radius: 2px;
+  border-radius: 10px;
   margin-right: 1rem;
   float: right;
   clear: left;

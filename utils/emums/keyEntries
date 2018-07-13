@@ -1,0 +1,24 @@
+const dataKey = {
+  buses: {
+    name: 'Buses',
+    fromColor: '#1AB8C4',
+    toColor: '#ff884d',
+  },
+  buildings: {
+    name: 'Buildings',
+    fromColor: '#82FF95',
+    toColor: '#8598FF',
+  },
+  pedestrians: {
+    name: 'Pedestrians',
+    fromColor: '#3BC12F',
+    toColor: '#C3741B',
+  },
+  potholes: {
+    name: 'Potholes',
+    fromColor: '#208BD8',
+    toColor: '#208BD8',
+  },
+}
+
+export default dataKey;
