@@ -70,6 +70,11 @@ export default class Key extends Component {
     return(
       <StyledKey>
         <h1>Data Key</h1>
+        <h2>Scale</h2>
+        <Scale>
+          <span>Low</span><span>high</span>
+        </Scale>
+        <Divider />
         <ul>
           {this.getEntries()}
         </ul>
@@ -101,7 +106,7 @@ const StyledKey = styled.div`
   font-weight: 300;
   position: fixed;
   right: 0rem;
-  bottom: 3rem;
+  bottom: 2.5rem;
   width: 18rem;
   z-index: 99;
 
@@ -109,12 +114,25 @@ const StyledKey = styled.div`
   h1 {
     background: linear-gradient(to bottom, #4c5566 0%, #343b47 100%);
     color: #1AB8C4;
-    font-size: 14px;
+    font-size: 15px;
+    letter-spacing: 1px;
     font-weight: 300;
     margin: 0;
     padding: .3rem;
     width: 18rem;
     text-align: center;
+  }
+
+  h2{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1rem;
+    position: relative;
+    top: 15px;
+    font-size: 11px;
+    font-weight: 300;
+    color: #1AB8C4;
+    font-style: italic;
   }
 
   ul {
@@ -154,3 +172,36 @@ const Gradient = styled.div`
   clear: left;
   top: 5px;
 `;
+
+const Scale= styled.div`
+  position: relative;
+  top: -15px;
+  font-size: 9px;
+  font-style: italic;
+  margin-top: 1rem;
+  /* margin-bottom: 1rem; */
+  margin-left: 7.5rem;
+  background: linear-gradient(to right, #343b47 0%, #4c5566 100%);
+  border-radius: 10px;
+  height: 13px;
+  width: 150px;
+  color: #1AB8C4;
+
+
+  span{
+    margin-top: 0;
+  }
+  span:first-child{
+    margin-left: .3rem;
+  }
+  span:last-child{
+    float: right;
+    clear: left;
+    margin-right: .3rem;
+  }
+`;
+
+const Divider = styled.div`
+  border-bottom: 1px solid #343b47;
+  margin-bottom: 1rem;
+`

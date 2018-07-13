@@ -123,12 +123,12 @@ export default class App extends Component {
   state = {
     controls: {
       showTrips: true,
-      showBuildingColors: false,
-      showBuildings: false,
+      showBuildingColors: true,
+      showBuildings: true,
       showPedestrians: false,
       mapType: 'dark',
       confetti: false,
-      showPotholes: false,
+      showPotholes: true,
       showNeighborhoods: false,
       showMap: false,
       buildingsSlice: buildingsConverted,
