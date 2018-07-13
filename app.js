@@ -37,6 +37,13 @@ for (let i = 0; i < buildingsRaw.length; i++) {
   buildingsConverted[i].height = buildingsRaw[i].stories * 3.3;
 }
 
+const neighborhoodsRaw = require('./data/chicago_neighborhood_data.json');
+let neighborhoodsConverted = neighborhoodsRaw;
+for (let i = 0; i < neighborhoodsRaw.length; i++) {
+  const polygon = neighborhoodsRaw[i].polygon.coordinates[0][0];
+  neighborhoodsConverted[i].polygon = polygon; 
+}
+
 const pedCountRaw = require('./data/chicago_ped_count.min.json');
 let pedCountConverted = pedCountRaw;
 for (let i = 0; i < pedCountRaw.pedcount.length; i++) {
@@ -72,6 +79,8 @@ const DATA_URL = {
     // 'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/trips/trips.json', // eslint-disable-line
   PEDESTRIANS: pedCountConverted,
   POTHOLES: potholesConverted,
+  NEIGHBORHOODS: neighborhoodsConverted,
+
 };
 // console.log(animationData)
 
@@ -80,7 +89,7 @@ const INITIAL_VIEW_STATE = {
   latitude: 41.8781,
   zoom: 13.5,
   maxZoom: 15,
-  minZoom: 11,
+  minZoom: 10.5,
   pitch: 60,
   bearing: -20,
 };
@@ -104,8 +113,9 @@ export default class App extends Component {
       showPedestrians: false,
       mapType: 'dark',
       confetti: false,
-      showPedestrians: false,
       showPotholes: false,
+      showNeighborhoods: false,
+      showMap: true,
       buildingsSlice: buildingsConverted,
       yearSlice: 2018,
       selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
@@ -164,7 +174,8 @@ export default class App extends Component {
       trailLength = 480,
       time = this.state.time,
       pedestrians = DATA_URL.PEDESTRIANS,
-      potholes = DATA_URL.POTHOLES
+      potholes = DATA_URL.POTHOLES,
+      neighbohoods = DATA_URL.NEIGHBORHOODS,
     } = this.props;
 
     const layers = [];
@@ -254,6 +265,28 @@ export default class App extends Component {
         })
       )
     }
+    
+    if (controls.showNeighborhoods) {
+      layers.push(
+        new PolygonLayer({
+          id: 'neighborhoods',
+          data: neighbohoods,
+          extruded: false,
+          wireframe: true,
+          fp64: true,
+          opacity: 1,
+          getPolygon: f => f.polygon,
+          getFillColor: [100,100,100, 0],
+          getLineColor: [255, 255, 255],
+          getLineWidth: 3,
+          lightSettings: LIGHT_SETTINGS,
+          autoHighlight: true,
+          highlightColor: [238, 238, 0, 200],
+          pickable: true,
+          onHover: this._onHover,
+        })
+      )
+    }
 
     return layers;
   }
@@ -299,6 +332,16 @@ export default class App extends Component {
         <Tooltip style={{ left: 10, bottom: 35 }}>
           <p>{block_face + ' ' + address}</p>
           <p>Pedestrian Count: {parseInt(count)}</p>
+        </Tooltip>
+      );
+    }
+
+    if (hoveredObject.hasOwnProperty('community')) {
+      const community = hoveredObject.community;
+      return (
+        <Tooltip style={{ left: 10, bottom: 35 }}>
+          <p>Neighborhood:</p>
+          <p>{community}</p>
         </Tooltip>
       );
     }
@@ -362,6 +405,7 @@ export default class App extends Component {
               mapStyle={this.getMapStyle()}
               preventStyleDiffing={true}
               mapboxApiAccessToken={MAPBOX_TOKEN}
+              visible={controls.showMap}
             />
           )}
         </DeckGL>
