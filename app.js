@@ -91,8 +91,8 @@ const elevationScale = {min: .01, max: 1};
 
 const INITIAL_VIEW_STATE = {
   longitude: -87.615,
-  latitude: 41.8781,
-  zoom: 13.5,
+  latitude: 41.8581,
+  zoom: 11,
   maxZoom: 17,
   minZoom: 10.5,
   pitch: 60,
@@ -130,9 +130,9 @@ export default class App extends Component {
       showPedestrians: false,
       mapType: 'dark',
       confetti: false,
-      showPotholes: true,
-      showNeighborhoods: false,
-      showMap: true,
+      showPotholes: false,
+      showNeighborhoods: true,
+      showMap: false,
       buildingsSlice: buildingsConverted,
       yearSlice: 2018,
       selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
@@ -271,62 +271,62 @@ export default class App extends Component {
       )
     }
 
-    layers.push(
-      new PolygonLayer({
-        id: 'potholes',
-        data: potholes.potholeCount,
-        extruded: true,
-        wireframe: false,
-        fp64: false,
-        opacity: .5,
-        getPolygon: f => f.polygon,
-        getElevation: f => f.count,
-        getFillColor: f => [255, 0, 0, 100],
-        lightSettings: LIGHT_SETTINGS,
-        visible: controls.showPotholes
-      })
-    )
-
-    layers.push(
-      new PolygonLayer({
-        id: 'pedestrians',
-        data: pedestrians.pedcount,
-        extruded: true,
-        wireframe: false,
-        fp64: false,
-        opacity: .5,
-        getPolygon: f => f.polygon,
-        getElevation: f => f.adjCount,
-        getFillColor: f => [f.adjCount, 150, 25],
-        lightSettings: LIGHT_SETTINGS,
-        autoHighlight: true,
-        highlightColor: [238, 238, 0, 200],
-        pickable: true,
-        onHover: this._onHover,
-        visible: controls.showPedestrians,
-      })
-    )
-
-    layers.push(
-      new PolygonLayer({
-        id: 'neighborhoods',
-        data: neighbohoods,
-        extruded: false,
-        wireframe: true,
-        fp64: false,
-        opacity: 1,
-        getPolygon: f => f.polygon,
-        getFillColor: [100,100,100, 0],
-        getLineColor: [255, 255, 255],
-        getLineWidth: 4,
-        autoHighlight: true,
-        highlightColor: [40, 125, 238, 200],
-        pickable: true,
-        onHover: this._onHover,
-        visible: controls.showNeighborhoods,
-      })
-    )
-
+      layers.push(
+        new PolygonLayer({
+          id: 'potholes',
+          data: potholes.potholeCount,
+          extruded: true,
+          wireframe: false,
+          fp64: false,
+          opacity: .5,
+          getPolygon: f => f.polygon,
+          getElevation: f => f.count,
+          getFillColor: f => [255, 0, 0, 100],
+          lightSettings: LIGHT_SETTINGS,
+          visible: controls.showPotholes
+        })
+      )
+    
+      layers.push(
+        new PolygonLayer({
+          id: 'pedestrians',
+          data: pedestrians.pedcount,
+          extruded: true,
+          wireframe: false,
+          fp64: false,
+          opacity: .5,
+          getPolygon: f => f.polygon,
+          getElevation: f => f.adjCount,
+          getFillColor: f => [f.adjCount, 150, 25],
+          lightSettings: LIGHT_SETTINGS,
+          autoHighlight: true,
+          highlightColor: [238, 238, 0, 200],
+          pickable: true,
+          onHover: this._onHover,
+          visible: controls.showPedestrians,
+        })
+      )
+    
+      layers.push(
+        new PolygonLayer({
+          id: 'neighborhoods',
+          data: neighbohoods,
+          extruded: false,
+          wireframe: true,
+          fp64: true,
+          opacity: 1,
+          getPolygon: f => f.polygon,
+          getFillColor: f => [100,100,100, 0],
+          getLineColor: f => [255, 255, 255],
+          getLineWidth: f => 4,
+          autoHighlight: true,
+          highlightColor: [40, 125, 238, 100],
+          pickable: true,
+          onHover: this._onHover,
+          visible: controls.showNeighborhoods,
+        })
+      )
+    
     return layers;
   }
 
@@ -501,5 +501,5 @@ export { App, INITIAL_VIEW_STATE };
 if (!window.demoLauncherActive) {
   document.body.style.backgroundColor = '#2a2a2a';
   render(<App />, document.body.appendChild(document.createElement('div')));
-}
+} 
 

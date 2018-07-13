@@ -52,7 +52,7 @@ export default class ControlPanel extends Component {
             {/* <DatSelect label="Map Type " path='mapType' options={['street', 'dark', 'light', 'outdoors', 'satellite', 'satellite-street']}/> */}
             <DatBoolean path='showMap' label='Show Map: ' />
             <DatBoolean path='showNeighborhoods' label='Show Neighborhoods: ' />
-            <DatBoolean path='confetti' label='Confetti? ' />
+            {/* <DatBoolean path='confetti' label='Confetti? ' /> */}
 
           </DatGui>
         }
