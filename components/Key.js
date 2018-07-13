@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-/** @class 
+/** @class
  * @name Key
  * Key UI to provide information on what data is being rendered
- * 
+ *
  * @param {Array} props.keyEntries - what keys to show
  * @param {Object} props.controls - whats shown and hidden
  * @returns {JSX}
@@ -13,6 +13,7 @@ import styled from 'styled-components';
 export default class Key extends Component {
   getEntries = () => {
     let from = '';
+    let middle = '';
     let to = '';
     let display = '';
 
@@ -21,33 +22,38 @@ export default class Key extends Component {
 
       switch(entry){
         case 'Buses':
-          from = '#1AB8C4';
-          to = '#ff884d';
+          from = '#3FFF3F';
+          middle = '#17B8BE';
+          to = '#FF00FF';
           display = this.props.controls.showTrips ? '' : 'hidden';
           break;
         case 'Buildings':
           from = this.props.controls.showBuildingColors ? '#82FF95' : '#3B4046';
+          middle = this.props.controls.showBuildingColors ? '#84CCCA' : '#3B4046';
           to = this.props.controls.showBuildingColors ? '#8598FF' : '#3B4046';
           display = this.props.controls.showBuildings ? '' : 'hidden';
           break;
         case 'Pedestrians':
           from ='#3BC12F';
+          middle = '#7F9B25';
           to = '#C3741B';
           display = this.props.controls.showPedestrians ? '' : 'hidden';
           break;
         case 'Potholes':
           from = '#208BD8';
+          middle = '#208BD8';
           to = '#208BD8';
           display = this.props.controls.showPotholes ? '' : 'hidden';
           break;
         default:
           from = '#fff';
+          middle = '#808080';
           to = '#000';
       }
 
       return (
         <li key={i.toString()} className={display}>
-          {entry}: <Gradient from={from} to={to}></Gradient>
+          {entry}: <Gradient from={from} middle={middle} to={to}></Gradient>
         </li>
       )
     });
@@ -89,7 +95,7 @@ const StyledKey = styled.div`
   width: 18rem;
   z-index: 99;
 
-  
+
   h1 {
     background: linear-gradient(to bottom, #4c5566 0%, #343b47 100%);
     color: #1AB8C4;
@@ -124,7 +130,7 @@ const Gradient = styled.div`
   position: relative;
   height: 10px;
   width: 150px;
-  background: linear-gradient(to right, ${props => props.from} 0%, ${props => props.to} 100%);
+  background: linear-gradient(to right, ${props => props.from} 0%, ${props => props.middle} 50%, ${props => props.to} 100%);
   border-radius: 2px;
   margin-right: 1rem;
   float: right;

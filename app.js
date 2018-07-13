@@ -124,15 +124,15 @@ function rgbStringToArray(rgbString) {
 export default class App extends Component {
   state = {
     controls: {
-      showTrips: false,
+      showTrips: true,
       showBuildingColors: false,
-      showBuildings: false,
+      showBuildings: true,
       showPedestrians: false,
       mapType: 'dark',
       confetti: false,
       showPotholes: false,
       showNeighborhoods: false,
-      showMap: false,
+      showMap: true,
       buildingsSlice: buildingsConverted,
       yearSlice: 2018,
       selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
@@ -263,7 +263,7 @@ export default class App extends Component {
           id: 'trips',
           data: trips,
           getPath: d => d.segments,
-          getColor: getTheColor,
+          getColor: d => getTheColor(d),
           // getColor: d => (d.speed < 20 ? [253, 128, 93] : [23, 184, 190]),
           // getColor: d => (rgbStringToArray(redGreenInterplate(parseInt(d.speed/40)))),
           opacity: 1.0,
@@ -274,62 +274,62 @@ export default class App extends Component {
       )
     }
 
-      layers.push(
-        new PolygonLayer({
-          id: 'potholes',
-          data: potholes.potholeCount,
-          extruded: true,
-          wireframe: false,
-          fp64: false,
-          opacity: .5,
-          getPolygon: f => f.polygon,
-          getElevation: f => f.count,
-          getFillColor: f => [255, 0, 0, 100],
-          lightSettings: LIGHT_SETTINGS,
-          visible: controls.showPotholes
-        })
-      )
-    
-      layers.push(
-        new PolygonLayer({
-          id: 'pedestrians',
-          data: pedestrians.pedcount,
-          extruded: true,
-          wireframe: false,
-          fp64: false,
-          opacity: .5,
-          getPolygon: f => f.polygon,
-          getElevation: f => f.adjCount,
-          getFillColor: f => [f.adjCount, 150, 25],
-          lightSettings: LIGHT_SETTINGS,
-          autoHighlight: true,
-          highlightColor: [238, 238, 0, 200],
-          pickable: true,
-          onHover: this._onHover,
-          visible: controls.showPedestrians,
-        })
-      )
-    
-      layers.push(
-        new PolygonLayer({
-          id: 'neighborhoods',
-          data: neighbohoods,
-          extruded: false,
-          wireframe: true,
-          fp64: false,
-          opacity: 1,
-          getPolygon: f => f.polygon,
-          getFillColor: [100,100,100, 0],
-          getLineColor: [255, 255, 255],
-          getLineWidth: 4,
-          autoHighlight: true,
-          highlightColor: [40, 125, 238, 200],
-          pickable: true,
-          onHover: this._onHover,
-          visible: controls.showNeighborhoods,
-        })
-      )
-    
+    layers.push(
+      new PolygonLayer({
+        id: 'potholes',
+        data: potholes.potholeCount,
+        extruded: true,
+        wireframe: false,
+        fp64: false,
+        opacity: .5,
+        getPolygon: f => f.polygon,
+        getElevation: f => f.count,
+        getFillColor: f => [255, 0, 0, 100],
+        lightSettings: LIGHT_SETTINGS,
+        visible: controls.showPotholes
+      })
+    )
+
+    layers.push(
+      new PolygonLayer({
+        id: 'pedestrians',
+        data: pedestrians.pedcount,
+        extruded: true,
+        wireframe: false,
+        fp64: false,
+        opacity: .5,
+        getPolygon: f => f.polygon,
+        getElevation: f => f.adjCount,
+        getFillColor: f => [f.adjCount, 150, 25],
+        lightSettings: LIGHT_SETTINGS,
+        autoHighlight: true,
+        highlightColor: [238, 238, 0, 200],
+        pickable: true,
+        onHover: this._onHover,
+        visible: controls.showPedestrians,
+      })
+    )
+
+    layers.push(
+      new PolygonLayer({
+        id: 'neighborhoods',
+        data: neighbohoods,
+        extruded: false,
+        wireframe: true,
+        fp64: false,
+        opacity: 1,
+        getPolygon: f => f.polygon,
+        getFillColor: [100,100,100, 0],
+        getLineColor: [255, 255, 255],
+        getLineWidth: 4,
+        autoHighlight: true,
+        highlightColor: [40, 125, 238, 200],
+        pickable: true,
+        onHover: this._onHover,
+        visible: controls.showNeighborhoods,
+      })
+    )
+
     return layers;
   }
 
@@ -376,10 +376,12 @@ export default class App extends Component {
 
     if (hoveredObject.hasOwnProperty('bldg_name1')) {
       const buildingName = hoveredObject.bldg_name1;
+      const buildingName2 = hoveredObject.bldg_name2;
       const yearBuilt = hoveredObject.year_built;
       return (
         <Tooltip style={{ left: 10, bottom: 35 }}>
           <p>{buildingName}</p>
+          {buildingName2 && <p>aka {buildingName2}</p>}
           <p>Built in {yearBuilt}</p>
         </Tooltip>
       );
