@@ -124,13 +124,13 @@ export default class App extends Component {
     controls: {
       showTrips: false,
       showBuildingColors: false,
-      showBuildings: true,
+      showBuildings: false,
       showPedestrians: false,
       mapType: 'dark',
       confetti: false,
       showPotholes: false,
       showNeighborhoods: false,
-      showMap: true,
+      showMap: false,
       buildingsSlice: buildingsConverted,
       yearSlice: 2018,
       selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
@@ -193,7 +193,6 @@ export default class App extends Component {
     } = this.props;
 
     const layers = [];
-    if (controls.showBuildings) {
       layers.push(
         new PolygonLayer({
           id: 'buildings',
@@ -217,9 +216,9 @@ export default class App extends Component {
           highlightColor: [238, 238, 0, 200],
           pickable: true,
           onHover: this._onHover,
+          visible: controls.showBuildings
         })
       )
-    }
 
     if (controls.showTrips) {
       layers.push(
@@ -238,7 +237,6 @@ export default class App extends Component {
       )
     }
 
-    if (controls.showPotholes) {
       layers.push(
         new PolygonLayer({
           id: 'potholes',
@@ -249,13 +247,13 @@ export default class App extends Component {
           opacity: .5,
           getPolygon: f => f.polygon,
           getElevation: f => f.count,
-          getFillColor: f => [f.count, 150, 250],
-          lightSettings: LIGHT_SETTINGS
+          getFillColor: f => [255, 0, 0, 100],
+          lightSettings: LIGHT_SETTINGS,
+          visible: controls.showPotholes
         })
       )
-    }
+    
 
-    if (controls.showPedestrians) {
       layers.push(
         new PolygonLayer({
           id: 'pedestrians',
@@ -272,11 +270,10 @@ export default class App extends Component {
           highlightColor: [238, 238, 0, 200],
           pickable: true,
           onHover: this._onHover,
+          visible: controls.showPedestrians,
         })
       )
-    }
-
-    if (controls.showNeighborhoods) {
+    
       layers.push(
         new PolygonLayer({
           id: 'neighborhoods',
@@ -288,16 +285,15 @@ export default class App extends Component {
           getPolygon: f => f.polygon,
           getFillColor: [100,100,100, 0],
           getLineColor: [255, 255, 255],
-          getLineWidth: 3,
-          lightSettings: LIGHT_SETTINGS,
+          getLineWidth: 4,
           autoHighlight: true,
-          highlightColor: [238, 238, 0, 200],
+          highlightColor: [40, 125, 238, 200],
           pickable: true,
           onHover: this._onHover,
+          visible: controls.showNeighborhoods,
         })
       )
-    }
-
+    
     return layers;
   }
 
