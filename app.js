@@ -122,7 +122,7 @@ function rgbStringToArray(rgbString) {
 export default class App extends Component {
   state = {
     controls: {
-      showTrips: false,
+      showTrips: true,
       showBuildingColors: false,
       showBuildings: false,
       showPedestrians: false,

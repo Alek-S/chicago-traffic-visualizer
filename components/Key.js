@@ -58,6 +58,7 @@ export default class Key extends Component {
       return (
         <li key={i.toString()} className={display}>
           {entry}: <Gradient from={from} to={to}></Gradient>
+          <p>{dataKey[entry.toLowerCase()].description}</p>
         </li>
       )
     });
@@ -100,7 +101,7 @@ const StyledKey = styled.div`
   font-weight: 300;
   position: fixed;
   right: 0rem;
-  bottom: 4rem;
+  bottom: 3rem;
   width: 18rem;
   z-index: 99;
 
@@ -123,10 +124,17 @@ const StyledKey = styled.div`
 
   li {
     list-style: none;
-    line-height: 2.5;
     font-size: 12px;
-    /* padding-left: .25;
-    margin-left: 0; */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+
+    p{
+      margin-top: .1rem;
+      margin-left: .5rem;
+      margin-right: .5rem;
+      font-weight: 300;
+      font-style: italic;
+    }
   }
 
   & .hidden{
@@ -144,5 +152,5 @@ const Gradient = styled.div`
   margin-right: 1rem;
   float: right;
   clear: left;
-  top: 10px;
+  top: 5px;
 `;
