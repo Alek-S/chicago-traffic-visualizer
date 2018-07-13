@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import DatGui, {
   DatBoolean,
   DatButton,
@@ -12,12 +13,12 @@ import DatGui, {
   DatString,
 } from 'react-dat-gui';
 
-/** @class 
+/** @class
  * @name ControlPanel
  * Header and control panel option in upper right
- * 
+ *
  * @param {Object} props.controls - control option state from parent
- * @param {Function} update - parent function to update state
+ * @param {Function} props.update - parent function to update state
  * @returns {JSX}
 */
 export default class ControlPanel extends Component {
@@ -29,24 +30,30 @@ export default class ControlPanel extends Component {
     const { isVisible } = this.state;
     this.setState({ isVisible: !isVisible })
   }
-  
+
   render() {
     const { update, controls, frameTime, date } = this.props;
     const { isVisible } = this.state;
     return (
       <StyledControlPanel>
         <h1>Chicago Traffic Visualizer
-        {/* <FontAwesomeIcon icon="coffee" onClick={this.togglePanel} /> */}
+        <FontAwesomeIcon icon={isVisible ? faCaretUp : faCaretDown} onClick={this.togglePanel} className="caret" />
         </h1>
         <p>Date {date}</p>
         {isVisible &&
+          // <p>frame {Math.floor(frameTime)}</p>
+          // <p>Date {date}</p>
           <DatGui data={controls} onUpdate={update}>
-            <DatBoolean path='showBuildings' label='Show Buildings? ' />
-            {controls.showBuildings && <DatNumber path='yearSlice' label='Built Year ' min={1890} max={2018} step={5} />}
-            <DatBoolean path='showBuildingColors' label='Show Building Colors? ' />
-            <DatBoolean path='showPedestrians' label='Show Pedestrians? ' />
-            <DatSelect label="Map Type " path='mapType' options={['street', 'dark', 'light', 'outdoors', 'satellite', 'satellite-street']}/>
-            <DatBoolean path='confetti' label='Confetti:' />
+            <DatBoolean path='showBuildings' label='Show Buildings: ' />
+            {controls.showBuildings && <DatNumber path='yearSlice' label='Year Built ' min={1890} max={2018} step={5} />}
+            {controls.showBuildings && <DatBoolean path='showBuildingColors' label='Show Building Colors: ' />}
+            <DatBoolean path='showPedestrians' label='Show Pedestrians: ' />
+            <DatBoolean path='showPotholes' label='Show Potholes: ' />
+            {/* <DatSelect label="Map Type " path='mapType' options={['street', 'dark', 'light', 'outdoors', 'satellite', 'satellite-street']}/> */}
+            <DatBoolean path='showMap' label='Show Map: ' />
+            <DatBoolean path='showNeighborhoods' label='Show Neighborhoods: ' />
+            <DatBoolean path='confetti' label='Confetti? ' />
+
           </DatGui>
         }
       </StyledControlPanel>
@@ -54,15 +61,13 @@ export default class ControlPanel extends Component {
   }
 }
 
-// props.controls.mapType
 const StyledControlPanel = styled.div`
-  @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,700');
+
 
   background: rgba(39, 44, 53, 0.85);
   /* border-radius: 6px; */
   box-shadow: 0px 0px 50px rgba(0,0,0,0.4);
   box-sizing: border-box;
-  font-family: 'Quicksand', sans-serif;
   font-weight: 300;
   padding: 0;
   position: fixed;
@@ -72,7 +77,7 @@ const StyledControlPanel = styled.div`
   width: 18rem;
   z-index: 99;
 
-  & .react-dat-gui{
+  & .react-dat-gui {
     position: relative;
     right: 1rem;
   }
@@ -133,8 +138,8 @@ const StyledControlPanel = styled.div`
     position: relative;
     border: 1px solid #1a1a1a;
     border-right-width: 1px;
-    background-color: lighten(#1a1a1a, 8.5%);;
-    background-image: linear-gradient(90deg, #2FA1D6, #2FA1D6);
+    background-color: lighten(#1AB8C4, 8.5%);;
+    background-image: linear-gradient(90deg, #1AB8C4, #1AB8C4);
     background-size: 0% 100%;
     background-repeat: no-repeat;
     cursor: ew-resize;
@@ -171,5 +176,11 @@ const StyledControlPanel = styled.div`
     font-size: .85rem;
     font-weight: 400;
     transition: .5s all;
+  }
+  .caret {
+    padding-left: 20px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
