@@ -13,7 +13,18 @@ import DatGui, {
   DatString,
 } from 'react-dat-gui';
 
-/** @class
+import {interpolateDate} from "d3-interpolate";
+
+let beginDate = new Date(2018, 3, 28, 20, 30, 52); // 04/29/2018 1:30:52 AM
+let endDate = new Date(2018, 4, 3, 7, 1, 30); // 05/03/2018 12:01:30 PM
+
+const interDate = interpolateDate(beginDate, endDate)
+function getDate(d) {
+  const dateString = interDate(d/101000).toString();
+  return dateString.split('GMT')[0]
+}
+
+/** @class 
  * @name ControlPanel
  * Header and control panel option in upper right
  *
@@ -32,18 +43,23 @@ export default class ControlPanel extends Component {
   }
 
   render() {
-    const { update, controls, frameTime, date } = this.props;
+    const { update, controls, frameTime } = this.props;
     const { isVisible } = this.state;
     return (
       <StyledControlPanel>
         <h1>Chicago Data Visualizer
         <FontAwesomeIcon icon={isVisible ? faCaretUp : faCaretDown} onClick={this.togglePanel} className="caret" />
         </h1>
-        <p>Date {date}</p>
+        {/* <p>frame {Math.floor(frameTime)}</p> */}
+        
         {isVisible &&
           // <p>frame {Math.floor(frameTime)}</p>
           // <p>Date {date}</p>
           <DatGui data={controls} onUpdate={update}>
+            <DatBoolean path='showTrips' label='Show Bus Traffic: ' />
+            {controls.showTrips && <p>Date {getDate(Math.floor(frameTime))}</p>}
+            {controls.showTrips && <DatNumber path='playbackSpeed' label='Play Speed ' min={0} max={10} step={1} />}
+            {controls.showTrips && <DatNumber path='playbackPosition' label='Position: ' min={0} max={101000} step={1}/>}
             <DatBoolean path='showBuildings' label='Show Buildings: ' />
             {controls.showBuildings && <DatNumber path='yearSlice' label='Year Built ' min={1890} max={2018} step={5} />}
             {controls.showBuildings && <DatBoolean path='showBuildingColors' label='Show Building Colors: ' />}

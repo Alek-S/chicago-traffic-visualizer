@@ -17,19 +17,13 @@ export default class TripsLayer extends Layer {
     const {gl} = this.context;
     const attributeManager = this.getAttributeManager();
 
-    console.log('starting get model');
-    const timeC = performance.now();
     const model = this.getModel(gl);
-    console.log(`finishing get model after ${performance.now() - timeC}ms`);
 
-    console.log('starting attribute manager');
-    const timeD = performance.now();
     attributeManager.add({
       indices: {size: 1, update: this.calculateIndices, isIndexed: true},
       positions: {size: 3, update: this.calculatePositions},
       colors: {size: 3, update: this.calculateColors}
     });
-    console.log(`finishing attribute manager after ${performance.now() - timeD}ms`);
 
     gl.getExtension('OES_element_index_uint');
     this.setState({model});
@@ -80,10 +74,7 @@ export default class TripsLayer extends Layer {
 
   calculateIndices(attribute) {
     const {data} = this.props;
-    const timeA = performance.now();
-    console.log('starting calc indices');
 
-    console.log(data.length);
     const indicesCount = data.length * 2;
     const indices = new Uint32Array(indicesCount);
 
@@ -101,12 +92,9 @@ export default class TripsLayer extends Layer {
     }
     attribute.value = indices;
     this.state.model.setVertexCount(indicesCount);
-    console.log(`finishing calc indices after ${performance.now() - timeA}ms`);
   }
 
   calculatePositions(attribute) {
-    const timeB = performance.now();
-    console.log('starting calc positions');
     const {data, getPath} = this.props;
     const positions = new Float32Array(data.length * 2 * 3);
 
@@ -121,7 +109,6 @@ export default class TripsLayer extends Layer {
       }
     }
     attribute.value = positions;
-    console.log(`finishing calc positions after ${performance.now() - timeB}ms`);
   }
 
   calculateColors(attribute) {
