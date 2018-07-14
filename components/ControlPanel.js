@@ -94,6 +94,7 @@ const StyledControlPanel = styled.div`
   z-index: 99;
 
   & .react-dat-gui {
+    font-size: 14px;
     position: relative;
     right: 1rem;
   }

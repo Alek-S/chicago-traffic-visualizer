@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import dataKey from '../utils/emums/keyEntries';
+import dataKey from '../utils/enums/keyEntries';
 
 /** @class
  * @name Key
