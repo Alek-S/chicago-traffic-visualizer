@@ -412,7 +412,7 @@ export default class App extends Component {
           getPolygon: f => f.polygon,
           getFillColor: f => {
             if (controls.neighborhoodPopulation) {
-              const popScaled = f.population/360 ;
+              const popScaled = f.population/335000 ;
               return rgbStringToArray(blackTealInterplate(popScaled))
             }
             if (controls.neighborhoodTherm) {
@@ -529,6 +529,9 @@ export default class App extends Component {
         <Tooltip style={{ left: 10, bottom: 35 }}>
           <p>Neighborhood:</p>
           <p>{community}</p>
+          <p>Population: {parseInt(hoveredObject.population)}</p>
+          <p>Thermal: {parseInt(hoveredObject.therm)}</p>
+          <p>KWH: {parseInt(hoveredObject.kwh)}</p>
         </Tooltip>
       );
     }
