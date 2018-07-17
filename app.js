@@ -26,7 +26,7 @@ document.body.appendChild(stats.dom);
 
 const loopLength = 101000;
 const fps = 60;
-
+Modal.defaultStyles.overlay.backgroundColor = 'rgba(0,0,0,0.1)';
 // Set your mapbox token here
 const MAPBOX_TOKEN = process.env.MapboxAccessToken; // eslint-disable-line
 
