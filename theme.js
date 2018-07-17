@@ -32,7 +32,7 @@ const theme = {
         },
     },
     slider: {
-        height: `1.15rem`,
+        height: `1rem`,
     }
 }
 
