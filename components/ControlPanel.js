@@ -72,8 +72,8 @@ export default class ControlPanel extends Component {
             <DatBoolean path='showMap' label='Show Map: ' />
             <DatBoolean path='showNeighborhoods' label='Show Neighborhoods: ' />
             {controls.showNeighborhoods && <DatBoolean path='neighborhoodPopulation' label='Population' />}
-            {controls.showNeighborhoods && <DatBoolean path='neighborhoodTherm' label='Thermal use' />}
-            {controls.showNeighborhoods && <DatBoolean path='neighborhoodKwh' label='KWH use' />}
+            {controls.showNeighborhoods && <DatBoolean path='neighborhoodTherm' label='Thermal Use' />}
+            {controls.showNeighborhoods && <DatBoolean path='neighborhoodKwh' label='Eletric Use' />}
             {/* <DatBoolean path='confetti' label='Confetti? ' /> */}
 
           </DatGui>

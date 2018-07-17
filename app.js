@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import styled from 'styled-components';
 import { StaticMap } from 'react-map-gl';
-import DeckGL, { PolygonLayer, HexagonLayer } from 'deck.gl';
+import DeckGL, { PolygonLayer } from 'deck.gl';
 import { setParameters } from 'luma.gl';
 import Confetti from 'react-confetti';
 import { ThemeProvider } from 'styled-components';
@@ -18,8 +18,6 @@ import animationData from './data/busAnimData.json';
 import {interpolateRgb} from "d3-interpolate";
 import {scalePow} from 'd3-scale';
 import Modal from 'react-modal';
-
-import { format, formatDistance, formatRelative, subDays } from 'date-fns'
 
 const stats = new Stats();
 stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -160,8 +158,8 @@ var introModal = {
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    backgroundColor       : 'rgba(0, 0, 0, 0.7)',
-    color                 : '#fff',
+    backgroundColor       : 'rgba(39, 44, 53, 0.85)',
+    color                 : '#C5C6C7',
     fontFamily            : "'Quicksand', sans-serif",
   }
 };
@@ -186,7 +184,15 @@ export default class App extends Component {
       playbackPosition: 0,
       yearSlice: 2018,
       neighborhoods: DATA_URL.NEIGHBORHOODS,
-      selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
+      selections: [
+        'Buses',
+        'Buildings',
+        'Pedestrians',
+        'Potholes',
+        'Population',
+        'Thermal',
+        'Electricity',
+      ],
     },
     time: 0,
     welcomeModal: true,
