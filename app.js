@@ -185,6 +185,8 @@ export default class App extends Component {
     welcomeModal: true,
     hoveredObject: null,
     elevationScale: .01,
+    elevationPedScale: .01,
+    tooltip: null,
   }
 
   componentDidMount() {
@@ -201,10 +203,18 @@ export default class App extends Component {
     if (this.state.controls.yearSlice === controls.yearSlice) {
       if(this.state.controls.showBuildings === controls.showBuildings || !controls.showBuildings){
         this.setState({ controls });
-      } else {
+      } else if( controls.showBuildings ){
         this._animateBuildings();
-      this.setState({ controls });
+        this.setState({ controls });
+      } 
+      if (this.state.controls.showPedestrians === controls.showPedestrians || !controls.showPedestrians){
+        
+      }else {
+        this._animatePedestrians();
+        this.setState({ controls });
       }
+
+      
     } else {
       let newBuildings = [];
       for (let i = 0; i < buildingsConverted.length; i++) {
@@ -246,28 +256,50 @@ export default class App extends Component {
 
   _animateBuildings() {
     this.setState({elevationScale: .000});
-    this._stopAnimate();
-
-    this._startAnimate();
+    this._stopBuildingAnimate();
+    this._startBuildingAnimate();
   }
 
-  _startAnimate() {
-
-    this.intervalTimer = window.setInterval(this._animateHeight.bind(this), 50);
+  _startBuildingAnimate() {
+    this.intervalTimer = window.setInterval(this._animateBuildingHeight.bind(this), 50);
   }
 
-  _stopAnimate() {
+  _stopBuildingAnimate() {
     window.clearTimeout(this.startAnimationTimer);
     window.clearTimeout(this.intervalTimer);
   }
 
-  _animateHeight() {
+  _animateBuildingHeight() {
     const state = this.state;
     if (state.elevationScale >= elevationScale.max) {
       this.setState({elevationScale: 1});
-      this._stopAnimate();
+      this._stopBuildingAnimate();
     } else {
       this.setState({elevationScale: this.state.elevationScale + .03});
+    }
+  }
+  _animatePedestrians() {
+    this.setState({elevationPedScale: .000});
+    this._stopPedAnimate();
+    this._startPedAnimate();
+  }
+
+  _startPedAnimate() {
+    this.intervalTimerPed = window.setInterval(this._animatePedHeight.bind(this), 50);
+  }
+
+  _stopPedAnimate() {
+    window.clearTimeout(this.startPedAnimationTimer);
+    window.clearTimeout(this.intervalTimerPed);
+  }
+
+  _animatePedHeight() {
+    const state = this.state;
+    if (state.elevationPedScale >= elevationScale.max) {
+      this.setState({elevationPedScale: 1});
+      this._stopPedAnimate();
+    } else {
+      this.setState({elevationPedScale: this.state.elevationPedScale + .03});
     }
   }
 
@@ -280,6 +312,7 @@ export default class App extends Component {
       pedestrians = DATA_URL.PEDESTRIANS,
       potholes = DATA_URL.POTHOLES,
       neighbohoods = DATA_URL.NEIGHBORHOODS,
+      // taxi_data = DATA_URL.TAXI,
     } = this.props;
 
     const layers = [];
@@ -354,6 +387,7 @@ export default class App extends Component {
           opacity: .5,
           getPolygon: f => f.polygon,
           getElevation: f => f.adjCount,
+          elevationScale: this.state.elevationPedScale,
           getFillColor: f => [f.adjCount, 150, 25],
           lightSettings: LIGHT_SETTINGS,
           autoHighlight: true,
@@ -398,6 +432,20 @@ export default class App extends Component {
           visible: controls.showNeighborhoods,
         })
       )
+
+      // taxi Data:
+      // layers.push(
+      //   new ArcLayer({
+      //     id: 'taxi-layer',
+      //     data: taxi_data,
+      //     pickable: false,
+      //     getStrokeWidth: 12,
+      //     getSourcePosition: d => d.from.coordinates,
+      //     getTargetPosition: d => d.to.coordinates,
+      //     getSourceColor: d => [Math.sqrt(d.price), 140, 0],
+      //     getTargetColor: d => [Math.sqrt(d.price), 140, 0],
+      //   })
+      // )
     
     return layers;
   }
@@ -409,12 +457,19 @@ export default class App extends Component {
     });
   }
 
-  _onHover = ({x, y, object}) => {
-    this.setState({x, y, hoveredObject: object});
-    this._renderTooltip();
+  _onHover = ({object}) => {
+    if (object === this.state.hoveredObject){
+      return null;
+    }
+    if (object !== this.state.hoveredObject){
+      this.setState({hoveredObject: object});      
+      this.setState({tooltip: this._renderTooltip()})
+    } if (!object) {
+      this.setState({tooltip: null});
+    }
   }
 
-  _onClick = ({x, y, object}) => {
+  _onClick = ({object}) => {
     this.setState({clickedObject: object});
     if (object.bldg_name1 === "WRIGLEY FIELD") {
       this._runConfetti();
@@ -427,6 +482,7 @@ export default class App extends Component {
     this.setState({ controls });
     window.setTimeout(this._stopConfetti.bind(this), 18000);
   }
+
   _stopConfetti(){
     let { controls } = this.state;
     controls.confetti = false;
@@ -434,7 +490,7 @@ export default class App extends Component {
   }
 
   _renderTooltip() {
-    const {x, y, hoveredObject} = this.state;
+    const {hoveredObject} = this.state;
 
     if (!hoveredObject) {
       return null;
@@ -531,7 +587,7 @@ export default class App extends Component {
             <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={500} gravity={0.08} colors={['#58B9F7', '#ffffff', '#ff0000']} recycle={false}/>}
           </div>
         }
-        {this.state.hoveredObject ? this._renderTooltip() : null}
+        {this.state.tooltip}
         <DeckGL
           layers={this._renderLayers()}
           initialViewState={INITIAL_VIEW_STATE}
@@ -544,7 +600,7 @@ export default class App extends Component {
           {baseMap && MAPBOX_TOKEN && (
             <StaticMap
               reuseMaps
-              mapStyle={this.getMapStyle()}
+              mapStyle={"mapbox://styles/mapbox/dark-v9"}
               preventStyleDiffing={true}
               mapboxApiAccessToken={MAPBOX_TOKEN}
               visible={controls.showMap}
