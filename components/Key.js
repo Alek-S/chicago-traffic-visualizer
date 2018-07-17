@@ -20,6 +20,10 @@ export default class Key extends Component {
       showBuildings,
       showPedestrians,
       showPotholes,
+      showNeighborhoods,
+      neighborhoodPopulation,
+      neighborhoodTherm,
+      neighborhoodKwh,
     } = this.props.controls;
 
     let from = '';
@@ -54,6 +58,24 @@ export default class Key extends Component {
           middle = dataKey.potholes.middleColor;
           to = dataKey.potholes.toColor;
           display = showPotholes ? '' : 'hidden';
+          break;
+        case dataKey.population.name:
+          from = dataKey.population.fromColor;
+          middle = dataKey.population.middleColor;
+          to = dataKey.population.toColor;
+          display = showNeighborhoods && neighborhoodPopulation ? '' : 'hidden';
+          break;
+        case dataKey.thermal.name:
+          from = dataKey.thermal.fromColor;
+          middle = dataKey.thermal.middleColor;
+          to = dataKey.thermal.toColor;
+          display = showNeighborhoods && neighborhoodTherm ? '' : 'hidden';
+          break;
+        case dataKey.electricity.name:
+          from = dataKey.electricity.fromColor;
+          middle = dataKey.electricity.middleColor;
+          to = dataKey.electricity.toColor;
+          display = showNeighborhoods && neighborhoodKwh ? '' : 'hidden';
           break;
         default:
           from = '#fff';
@@ -99,7 +121,10 @@ Key.defaultProps = {
     dataKey.buses.name,
     dataKey.buildings.name,
     dataKey.pedestrians.name,
-    dataKey.potholes.name
+    dataKey.potholes.name,
+    dataKey.population.name,
+    dataKey.thermal.name,
+    dataKey.electricity.name,
   ]
 }
 

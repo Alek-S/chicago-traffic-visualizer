@@ -57,9 +57,9 @@ export default class ControlPanel extends Component {
           // <p>Date {date}</p>
           <DatGui data={controls} onUpdate={update}>
             <DatBoolean path='showTrips' label='Show Bus Traffic: ' />
-            {controls.showTrips && <p>Date {getDate(Math.floor(frameTime))}</p>}
+            {controls.showTrips && <p className='date'>Date {getDate(Math.floor(frameTime)).slice(0,21)}</p>}
             {controls.showTrips && <svg height="15">
-              <line x1="0" y1="0" x2={100*(frameTime/1010)/250} y2="0" style={{stroke:'rgb(21,185,196)',strokeWidth:6}} />
+            <line x1="0" y1="0" x2={100 * (frameTime / 1010) / 250} y2="0" style={{ stroke: 'rgb(21,185,196)', strokeWidth: 6,}} />
             </svg>}
             {controls.showTrips && <DatNumber path='playbackSpeed' label='Play Speed ' min={0} max={10} step={1} />}
             {/* {controls.showTrips && <DatNumber path='playbackPosition' label='Position: ' min={0} max={101000} step={1}/>} */}
@@ -72,8 +72,8 @@ export default class ControlPanel extends Component {
             <DatBoolean path='showMap' label='Show Map: ' />
             <DatBoolean path='showNeighborhoods' label='Show Neighborhoods: ' />
             {controls.showNeighborhoods && <DatBoolean path='neighborhoodPopulation' label='Population' />}
-            {controls.showNeighborhoods && <DatBoolean path='neighborhoodTherm' label='Thermal use' />}
-            {controls.showNeighborhoods && <DatBoolean path='neighborhoodKwh' label='KWH use' />}
+            {controls.showNeighborhoods && <DatBoolean path='neighborhoodTherm' label='Thermal Use' />}
+            {controls.showNeighborhoods && <DatBoolean path='neighborhoodKwh' label='Electric Use' />}
             {/* <DatBoolean path='confetti' label='Confetti? ' /> */}
 
           </DatGui>
@@ -103,6 +103,14 @@ const StyledControlPanel = styled.div`
     right: 1rem;
   }
 
+  & .date {
+    font-size: ${props => props.theme.font.size.small};
+    font-style: italic;
+    margin-top: 0;
+    margin-left: 2rem;
+    margin-bottom: .1rem;
+  }
+
   h1, h2, h3, p, span, ul, li {
     color: ${props => props.theme.font.color.main};
     font-weight: 100;
@@ -120,7 +128,7 @@ const StyledControlPanel = styled.div`
   li{
     font-size: ${props => props.theme.font.size.main};
     list-style: none;
-    line-height: 2.5;
+    line-height: 2.2;
     margin: 0;
     padding-left: .25rem;
     padding-right: .25rem;
