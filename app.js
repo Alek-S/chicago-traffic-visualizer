@@ -536,7 +536,7 @@ const StyledContainer = styled.div`
   h1, h2, h3, h4, h5, h6, p, ul, li, span {
   font-family: ${props => props.theme.font.main};
   }
-  cursor: crosshair;
+  cursor: grab;
 `;
 
 const Tooltip = styled.div`
@@ -552,7 +552,7 @@ const Tooltip = styled.div`
   z-index: 9;
 
   h1 {
-    background: linear-gradient(to bottom, #4c5566 0%, #343b47 100%);
+    background: ${props => props.theme.panel.headerGradient};
     color: ${props => props.theme.font.color.header};
     font-size: ${props => props.theme.font.size.subheader};
     letter-spacing: 1px;
