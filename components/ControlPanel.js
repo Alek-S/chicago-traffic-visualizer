@@ -57,9 +57,9 @@ export default class ControlPanel extends Component {
           // <p>Date {date}</p>
           <DatGui data={controls} onUpdate={update}>
             <DatBoolean path='showTrips' label='Show Bus Traffic: ' />
-            {controls.showTrips && <p>Date {getDate(Math.floor(frameTime))}</p>}
+            {controls.showTrips && <p className='date'>Date {getDate(Math.floor(frameTime)).slice(0,21)}</p>}
             {controls.showTrips && <svg height="15">
-              <line x1="0" y1="0" x2={100*(frameTime/1010)/250} y2="0" style={{stroke:'rgb(21,185,196)',strokeWidth:6}} />
+            <line x1="0" y1="0" x2={100 * (frameTime / 1010) / 250} y2="0" style={{ stroke: 'rgb(21,185,196)', strokeWidth: 6,}} />
             </svg>}
             {controls.showTrips && <DatNumber path='playbackSpeed' label='Play Speed ' min={0} max={10} step={1} />}
             {/* {controls.showTrips && <DatNumber path='playbackPosition' label='Position: ' min={0} max={101000} step={1}/>} */}
@@ -72,8 +72,8 @@ export default class ControlPanel extends Component {
             <DatBoolean path='showMap' label='Show Map: ' />
             <DatBoolean path='showNeighborhoods' label='Show Neighborhoods: ' />
             {controls.showNeighborhoods && <DatBoolean path='neighborhoodPopulation' label='Population' />}
-            {controls.showNeighborhoods && <DatBoolean path='neighborhoodTherm' label='Thermal use' />}
-            {controls.showNeighborhoods && <DatBoolean path='neighborhoodKwh' label='KWH use' />}
+            {controls.showNeighborhoods && <DatBoolean path='neighborhoodTherm' label='Thermal Use' />}
+            {controls.showNeighborhoods && <DatBoolean path='neighborhoodKwh' label='Electric Use' />}
             {/* <DatBoolean path='confetti' label='Confetti? ' /> */}
 
           </DatGui>
@@ -84,46 +84,51 @@ export default class ControlPanel extends Component {
 }
 
 const StyledControlPanel = styled.div`
-
-
-  background: rgba(39, 44, 53, 0.85);
-  /* border-radius: 6px; */
-  box-shadow: 0px 0px 50px rgba(0,0,0,0.4);
+  background: ${props => props.theme.panel.background};
+  box-shadow: ${props => props.theme.panel.boxShadow};
   box-sizing: border-box;
-  font-weight: 300;
+  cursor: default;
+  font-weight: ${props => props.theme.font.weight.main};
   padding: 0;
   position: fixed;
   right: 0rem;
   top: 0rem;
   height: fit-content;
-  width: 18rem;
+  width: ${props => props.theme.panel.width};
   z-index: 99;
 
   & .react-dat-gui {
-    font-size: 14px;
+    font-size: ${props => props.theme.font.size.main};
     position: relative;
     right: 1rem;
   }
 
+  & .date {
+    font-size: ${props => props.theme.font.size.small};
+    font-style: italic;
+    margin-top: 0;
+    margin-left: 2rem;
+    margin-bottom: .1rem;
+  }
+
   h1, h2, h3, p, span, ul, li {
-    color: #C5C6C7;
+    color: ${props => props.theme.font.color.main};
     font-weight: 100;
     letter-spacing: 1px;
   }
   h1 {
-    background: linear-gradient(to bottom, #4c5566 0%, #343b47 100%);
-    color: #1AB8C4;
-    font-size: 18px;
+    background: ${props => props.theme.panel.headerGradient};
+    color: ${props => props.theme.font.color.header};
+    font-size: ${props => props.theme.font.size.header};
     margin: 0;
     padding: 1rem 0 1rem 0;
     text-align: center;
   }
 
-
   li{
-    font-size: 14px;
+    font-size: ${props => props.theme.font.size.main};
     list-style: none;
-    line-height: 2.5;
+    line-height: 2.2;
     margin: 0;
     padding-left: .25rem;
     padding-right: .25rem;
@@ -135,19 +140,19 @@ const StyledControlPanel = styled.div`
     padding-right: .5rem;
   }
   li:hover{
-    color: #1AB8C4;
-    background-color: #343b47;
+  color: ${props => props.theme.font.color.header};
+    background-color: ${props => props.theme.panel.color.dark};
     box-shadow: 0px 0px 20px 0px rgba(114,124,140,0.2);
 
     select {
-      background-color: #505a6d;
+      background-color: ${props => props.theme.panel.color.select};
     }
   }
 
 
   div {
     height: fit-content;
-    transition: height: 1s linear;
+    transition: height 1s linear;
   }
 
   li.number{
@@ -161,47 +166,40 @@ const StyledControlPanel = styled.div`
   .slider {
     display: block;
     position: relative;
-    border: 1px solid #1a1a1a;
+    border: 1px solid ${props => props.theme.panel.color.dark};
     border-right-width: 1px;
-    background-color: lighten(#1AB8C4, 8.5%);;
+    background-color: lighten(${props => props.theme.font.color.header}, 8.5%);
     background-image: linear-gradient(90deg, #1AB8C4, #1AB8C4);
     background-size: 0% 100%;
     background-repeat: no-repeat;
     cursor: ew-resize;
-    height: 1.5625rem;
+    height: ${props => props.theme.slider.height};
+    border-radius: 5px 0 0 5px;
   }
   input[type=text], input[type=number] {
-    background: #1a1a1a;
+    background: ${props => props.theme.panel.color.dark};
     border: none;
-    border-radius: 0;
+    border-radius: 0 5px 5px 0;
     margin: 0;
-    height: 1.5625rem;
+    height: ${props => props.theme.slider.height};
     outline: none;
-    font-size: .75rem;
-    color: #eee;
+    font-size: .7rem;
+    color: ${props => props.theme.font.color.header};
     text-align: right;
+    transition: .5s all;
+
     &:hover {
-      background: lighten(#1a1a1a, 5%);
+      background: ${props => props.theme.panel.color.select};
     }
     &:focus {
-      background: lighten(#1a1a1a, 10%);
-      color: #fff;
+      background: ${props => props.theme.panel.color.select};
+      color: ${props => props.theme.font.color.header};
     }
     &::-ms-clear {
       display: none;
     }
   }
 
-  select{
-    outline: none;
-    background-color: #343b47;
-    border: none;
-    color: #1AB8C4;
-    font-family: 'Quicksand', sans-serif;
-    font-size: .85rem;
-    font-weight: 400;
-    transition: .5s all;
-  }
   .caret {
     padding-left: 20px;
     &:hover {

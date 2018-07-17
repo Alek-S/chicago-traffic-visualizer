@@ -20,6 +20,10 @@ export default class Key extends Component {
       showBuildings,
       showPedestrians,
       showPotholes,
+      showNeighborhoods,
+      neighborhoodPopulation,
+      neighborhoodTherm,
+      neighborhoodKwh,
     } = this.props.controls;
 
     let from = '';
@@ -54,6 +58,24 @@ export default class Key extends Component {
           middle = dataKey.potholes.middleColor;
           to = dataKey.potholes.toColor;
           display = showPotholes ? '' : 'hidden';
+          break;
+        case dataKey.population.name:
+          from = dataKey.population.fromColor;
+          middle = dataKey.population.middleColor;
+          to = dataKey.population.toColor;
+          display = showNeighborhoods && neighborhoodPopulation ? '' : 'hidden';
+          break;
+        case dataKey.thermal.name:
+          from = dataKey.thermal.fromColor;
+          middle = dataKey.thermal.middleColor;
+          to = dataKey.thermal.toColor;
+          display = showNeighborhoods && neighborhoodTherm ? '' : 'hidden';
+          break;
+        case dataKey.electricity.name:
+          from = dataKey.electricity.fromColor;
+          middle = dataKey.electricity.middleColor;
+          to = dataKey.electricity.toColor;
+          display = showNeighborhoods && neighborhoodKwh ? '' : 'hidden';
           break;
         default:
           from = '#fff';
@@ -99,30 +121,34 @@ Key.defaultProps = {
     dataKey.buses.name,
     dataKey.buildings.name,
     dataKey.pedestrians.name,
-    dataKey.potholes.name
+    dataKey.potholes.name,
+    dataKey.population.name,
+    dataKey.thermal.name,
+    dataKey.electricity.name,
   ]
 }
 
 const StyledKey = styled.div`
-  background: rgba(39, 44, 53, 0.85);
-  box-shadow: 0px 0px 50px rgba(0,0,0,0.4);
+  background: ${props => props.theme.panel.background};
+  box-shadow: ${props => props.theme.panel.boxShadow};
   box-sizing: border-box;
-  color: #C5C6C7;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 300;
+  color: ${props => props.theme.font.color.main};
+  cursor: default;
+  font-family: ${props => props.theme.font.main};
+  font-weight: ${props => props.theme.font.weight.main};
   position: fixed;
   right: 0rem;
   bottom: 2.5rem;
-  width: 18rem;
-  z-index: 99;
+  width: ${props => props.theme.panel.width};
+  z-index: 9;
 
 
   h1 {
-    background: linear-gradient(to bottom, #4c5566 0%, #343b47 100%);
-    color: #1AB8C4;
-    font-size: 15px;
+    background: ${props => props.theme.panel.headerGradient};
+    color: ${props => props.theme.font.color.header};
+    font-size: ${props => props.theme.font.size.subheader};
     letter-spacing: 1px;
-    font-weight: 300;
+    font-weight: ${props => props.theme.font.weight.main};
     margin: 0;
     padding: .3rem;
     width: 18rem;
@@ -136,8 +162,8 @@ const StyledKey = styled.div`
     position: relative;
     top: 15px;
     font-size: 11px;
-    font-weight: 300;
-    color: #1AB8C4;
+    font-weight: ${props => props.theme.font.weight.main};
+    color: ${props => props.theme.font.color.header};
     font-style: italic;
   }
 
@@ -149,14 +175,14 @@ const StyledKey = styled.div`
   li {
     list-style: none;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: ${props => props.theme.font.weight.strong};
     margin-bottom: 1.5rem;
 
     p{
       margin-top: .1rem;
       margin-left: .5rem;
       margin-right: .5rem;
-      font-weight: 300;
+      font-weight: ${props => props.theme.font.weight.main};
       font-style: italic;
     }
   }
@@ -167,31 +193,30 @@ const StyledKey = styled.div`
 `;
 
 const Gradient = styled.div`
-  /* display: inline-block; */
-  position: relative;
-  height: 10px;
-  width: 150px;
   background: linear-gradient(to right, ${props => props.from} 0%, ${props => props.middle} 60%, ${props => props.to} 100%);
   border-radius: 2px;
-  margin-right: 1rem;
-  float: right;
   clear: left;
+  float: right;
+  height: 10px;
+  margin-right: 1rem;
+  position: relative;
+  border-radius: 10px;
   top: 5px;
+  width: 150px;
 `;
 
 const Scale= styled.div`
-  position: relative;
-  top: -15px;
-  font-size: 9px;
-  font-style: italic;
-  margin-top: 1rem;
-  /* margin-bottom: 1rem; */
-  margin-left: 7.5rem;
   background: linear-gradient(to right, #343b47 0%, #4c5566 100%);
   border-radius: 10px;
+  color: ${props => props.theme.font.color.header};
+  font-size: 9px;
+  font-style: italic;
   height: 13px;
+  margin-top: 1rem;
+  margin-left: 7.5rem;
+  position: relative;
+  top: -15px;
   width: 150px;
-  color: #1AB8C4;
 
 
   span{
@@ -208,6 +233,6 @@ const Scale= styled.div`
 `;
 
 const Divider = styled.div`
-  border-bottom: 1px solid #343b47;
+  border-bottom: 1px solid ${props => props.theme.panel.color.dark};
   margin-bottom: 1rem;
 `
