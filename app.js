@@ -6,6 +6,8 @@ import { StaticMap } from 'react-map-gl';
 import DeckGL, { PolygonLayer, HexagonLayer } from 'deck.gl';
 import { setParameters } from 'luma.gl';
 import Confetti from 'react-confetti';
+import { ThemeProvider } from 'styled-components';
+import theme from './theme';
 
 import TripsLayer from './webgl/trips-layer';
 import ControlPanel from './components/ControlPanel';
@@ -442,8 +444,9 @@ export default class App extends Component {
       const buildingName2 = hoveredObject.bldg_name2;
       const yearBuilt = hoveredObject.year_built;
       return (
-        <Tooltip style={{ left: 10, bottom: 35 }}>
-          <p>{buildingName}</p>
+        <Tooltip style={{ left: 10, bottom: 40 }}>
+          <h1>Building</h1>
+          <p><strong>{buildingName}</strong></p>
           {buildingName2 && <p>aka {buildingName2}</p>}
           <p>Built in {yearBuilt}</p>
         </Tooltip>
@@ -455,9 +458,10 @@ export default class App extends Component {
       const count = hoveredObject.count;
       const block_face = hoveredObject.block_face
       return (
-        <Tooltip style={{ left: 10, bottom: 35 }}>
-          <p>{block_face + ' ' + address}</p>
-          <p>Pedestrian Count: {parseInt(count)}</p>
+        <Tooltip style={{ left: 10, bottom: 40 }}>
+          <h1>Pedestrians</h1>
+          <p><strong>Location:</strong>{block_face + ' ' + address}</p>
+          <p><strong>Count:</strong> {parseInt(count)}</p>
         </Tooltip>
       );
     }
@@ -465,8 +469,8 @@ export default class App extends Component {
     if (hoveredObject.hasOwnProperty('community')) {
       const community = hoveredObject.community;
       return (
-        <Tooltip style={{ left: 10, bottom: 35 }}>
-          <p>Neighborhood:</p>
+        <Tooltip style={{ left: 10, bottom: 40 }}>
+          <h1>Neighborhood</h1>
           <p>{community}</p>
         </Tooltip>
       );
@@ -483,66 +487,90 @@ export default class App extends Component {
     const { controls } = this.state;
 
     return (
-      <StyledContainer onContextMenu={this.handleRightClick}>
-        <ControlPanel
-          viewState={viewState}
-          controls={controls}
-          update={this.update}
-          frameTime={this.state.time}
-          date={this.currentDate}
-        />
-        {controls.confetti &&
-          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-            <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={500} gravity={0.08} colors={['#58B9F7', '#ffffff', '#ff0000']} recycle={false}/>}
-          </div>
-        }
-        {this.state.tooltip}
-        <DeckGL
-          layers={this._renderLayers()}
-          initialViewState={INITIAL_VIEW_STATE}
-          viewState={viewState}
-          controller={controller}
-          onWebGLInitialized={this._onWebGLInitialized.bind(this)}
-          onContextMenu={this.handleRightClick}
-          onHover={this._onHover.bind(this)}
-        >
-          {baseMap && MAPBOX_TOKEN && (
-            <StaticMap
-              reuseMaps
-              mapStyle={"mapbox://styles/mapbox/dark-v9"}
-              preventStyleDiffing={true}
-              mapboxApiAccessToken={MAPBOX_TOKEN}
-              visible={controls.showMap}
-            />
-          )}
-        </DeckGL>
-        <Key
-          keyEntries={this.state.selections}
-          controls={this.state.controls}
-        />
-      </StyledContainer>
+      <ThemeProvider theme={theme}>
+        <StyledContainer onContextMenu={this.handleRightClick}>
+          <ControlPanel
+            viewState={viewState}
+            controls={controls}
+            update={this.update}
+            frameTime={this.state.time}
+            date={this.currentDate}
+          />
+          {controls.confetti &&
+            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+              <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={500} gravity={0.08} colors={['#58B9F7', '#ffffff', '#ff0000']} recycle={false}/>}
+            </div>
+          }
+          {this.state.tooltip}
+          <DeckGL
+            layers={this._renderLayers()}
+            initialViewState={INITIAL_VIEW_STATE}
+            viewState={viewState}
+            controller={controller}
+            onWebGLInitialized={this._onWebGLInitialized.bind(this)}
+            onContextMenu={this.handleRightClick}
+            onHover={this._onHover.bind(this)}
+          >
+            {baseMap && MAPBOX_TOKEN && (
+              <StaticMap
+                reuseMaps
+                mapStyle={"mapbox://styles/mapbox/dark-v9"}
+                preventStyleDiffing={true}
+                mapboxApiAccessToken={MAPBOX_TOKEN}
+                visible={controls.showMap}
+              />
+            )}
+          </DeckGL>
+          <Key
+            keyEntries={this.state.selections}
+            controls={this.state.controls}
+          />
+        </StyledContainer>
+      </ThemeProvider>
     );
   }
 }
 
 const StyledContainer = styled.div`
-  @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,700');
+  @import url('https://fonts.googleapis.com/css?family=Quicksand:300,700');
   h1, h2, h3, h4, h5, h6, p, ul, li, span {
-    font-family: 'Quicksand', sans-serif;
+  font-family: ${props => props.theme.font.main};
   }
   cursor: crosshair;
 `;
 
 const Tooltip = styled.div`
-  z-index: 9;
+  background-color: ${props => props.theme.panel.background};
+  box-shadow: ${props => props.theme.panel.boxShadow};
+  color: ${props => props.theme.font.color.main};
+  font-family: ${props => props.theme.font.main};
+  font-weight: ${props => props.theme.font.weight.main};
+  margin-left: 0px;
+  padding: 0;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 6px;
-  padding: 0px 20px;
-  color: #fff;
-  font-family: 'Quicksand', sans-serif;
+  width: ${props => props.theme.panel.width};
+  z-index: 9;
+
+  h1 {
+    background: linear-gradient(to bottom, #4c5566 0%, #343b47 100%);
+    color: ${props => props.theme.font.color.header};
+    font-size: ${props => props.theme.font.size.subheader};
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin: 0;
+    padding: .3rem;
+    text-align: center;
+  }
+
   p {
+    font-size: ${props => props.theme.font.size.main};
     line-height: 1em;
+    text-align: center;
+  }
+  strong {
+    font-size: ${props => props.theme.font.size.main};
+    font-weight: ${props => props.theme.font.weight.strong};
+    margin-right: .4rem;
   }
 `;
 

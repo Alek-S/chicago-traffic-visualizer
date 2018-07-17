@@ -81,7 +81,6 @@ const StyledControlPanel = styled.div`
 
 
   background: rgba(39, 44, 53, 0.85);
-  /* border-radius: 6px; */
   box-shadow: 0px 0px 50px rgba(0,0,0,0.4);
   box-sizing: border-box;
   font-weight: 300;
