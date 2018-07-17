@@ -14,6 +14,7 @@ import Stats from './components/Stats.js';
 import { LIGHT_SETTINGS } from './webgl/lights.js';
 import animationData from './data/busAnimData.json';
 import {interpolateRgb} from "d3-interpolate";
+import {scalePow} from 'd3-scale';
 import Modal from 'react-modal';
 
 import { format, formatDistance, formatRelative, subDays } from 'date-fns'
@@ -124,6 +125,9 @@ const blackTealInterplate = interpolateRgb('black', 'teal')
 const blackFuchsiaInterplate = interpolateRgb('black', '#FF00FF')
 const blackCharInterplate = interpolateRgb('black', '#DFFF00')
 
+const thermScale = scalePow().domain([0, 155153]).exponent(0.5)
+const kwhScale = scalePow().domain([0, 6183509]).exponent(0.5)
+
 function getTheColor(d) {
   let color = [253, 128, 253];
   if (d.speed < 10) {
@@ -172,13 +176,14 @@ export default class App extends Component {
       showPotholes: false,
       showNeighborhoods: true,
       neighborhoodPopulation: false,
-      neighborhoodTherm: true,
+      neighborhoodTherm: false,
       neighborhoodKwh: false,
       showMap: false,
       buildingsSlice: buildingsConverted,
       playbackSpeed: 5,
       playbackPosition: 0,
       yearSlice: 2018,
+      neighborhoods: DATA_URL.NEIGHBORHOODS,
       selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
     },
     time: 0,
@@ -311,7 +316,6 @@ export default class App extends Component {
       time = this.state.time,
       pedestrians = DATA_URL.PEDESTRIANS,
       potholes = DATA_URL.POTHOLES,
-      neighbohoods = DATA_URL.NEIGHBORHOODS,
       // taxi_data = DATA_URL.TAXI,
     } = this.props;
 
@@ -329,7 +333,6 @@ export default class App extends Component {
           getElevation: f => f.height,
           elevationScale: this.state.elevationScale,
           getFillColor: f => {
-            // console.log(1,controls)
             if (controls.showBuildingColors) {
               const yearScaled = f.year_built === "0" ? 30 : (f.year_built - 1870) / 1.5;
               return [20 + yearScaled / 3, 20 + yearScaled / 3, 20 + yearScaled];
@@ -401,24 +404,23 @@ export default class App extends Component {
       layers.push(
         new PolygonLayer({
           id: 'neighborhoods',
-          data: neighbohoods,
+          data: controls.neighborhoods,
           extruded: false,
           wireframe: true,
           fp64: false,
           opacity: 1,
           getPolygon: f => f.polygon,
           getFillColor: f => {
-            // console.log(2,controls)
             if (controls.neighborhoodPopulation) {
               const popScaled = f.population/360 ;
               return rgbStringToArray(blackTealInterplate(popScaled))
             }
             if (controls.neighborhoodTherm) {
-              const popScaled = f.therm/155153 ;
+              const popScaled = thermScale(f.therm);
               return rgbStringToArray(blackFuchsiaInterplate(popScaled))
             }
             if (controls.neighborhoodKwh) {
-              const popScaled = f.kwh/6183509 ;
+              const popScaled = kwhScale(f.kwh) ;
               return rgbStringToArray(blackCharInterplate(popScaled))
             }
             return [100,100,100, 0];
