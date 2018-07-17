@@ -16,6 +16,9 @@ import Stats from './components/Stats.js';
 import { LIGHT_SETTINGS } from './webgl/lights.js';
 import animationData from './data/busAnimData.json';
 import {interpolateRgb} from "d3-interpolate";
+import {scalePow} from 'd3-scale';
+import Modal from 'react-modal';
+
 import { format, formatDistance, formatRelative, subDays } from 'date-fns'
 
 const stats = new Stats();
@@ -47,6 +50,25 @@ let neighborhoodsConverted = neighborhoodsRaw;
 for (let i = 0; i < neighborhoodsRaw.length; i++) {
   const polygon = neighborhoodsRaw[i].polygon.coordinates[0][0];
   neighborhoodsConverted[i].polygon = polygon;
+}
+
+const neighborhoodsEnergyRaw = require('./data/energyData.json');
+for (let i = 0; i < neighborhoodsConverted.length; i++) {
+  let community = neighborhoodsConverted[i].community;
+  if (community === 'LAKE VIEW') {
+    community = 'LAKEVIEW';
+  }
+  if (community === 'OHARE') {
+    community = "O'HARE";
+  }
+  
+  const kwh = neighborhoodsEnergyRaw[community]['kwhMean'];
+  const population = neighborhoodsEnergyRaw[community]['totalPopulation'];
+  const therm = neighborhoodsEnergyRaw[community]['thermMean'];
+
+  neighborhoodsConverted[i].kwh = kwh;
+  neighborhoodsConverted[i].population = population;
+  neighborhoodsConverted[i].therm = therm;
 }
 
 const pedCountRaw = require('./data/chicago_ped_count.min.json');
@@ -101,7 +123,12 @@ const INITIAL_VIEW_STATE = {
   bearing: -20,
 };
 
-const redGreenInterplate = interpolateRgb('red', 'teal')
+const blackTealInterplate = interpolateRgb('black', 'teal')
+const blackFuchsiaInterplate = interpolateRgb('black', '#FF00FF')
+const blackCharInterplate = interpolateRgb('black', '#DFFF00')
+
+const thermScale = scalePow().domain([0, 155153]).exponent(0.5)
+const kwhScale = scalePow().domain([0, 6183509]).exponent(0.5)
 
 function getTheColor(d) {
   let color = [253, 128, 253];
@@ -109,7 +136,7 @@ function getTheColor(d) {
     color = [255, 0, 255];
   } else if (d.speed > 35) {
     color = [63, 255, 63];
-  } else if (d.speed >= 20 && d.speed <= 35) {
+  } else if (d.speed >= 18 && d.speed <= 35) {
     color = [23, 184, 190];
   }
   return color;
@@ -120,8 +147,24 @@ function rgbStringToArray(rgbString) {
   let spliter = rgbString.split('(');
   spliter = spliter[1].split(')');
   spliter = spliter[0].split(',');
-  return spliter.map(x=> parseInt(x))
+  spliter = spliter.map(x=> parseInt(x))
+  spliter.push(100);
+  return spliter;
 }
+
+var introModal = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    backgroundColor       : 'rgba(0, 0, 0, 0.7)',
+    color                 : '#fff',
+    fontFamily            : "'Quicksand', sans-serif",
+  }
+};
 
 export default class App extends Component {
   state = {
@@ -134,14 +177,19 @@ export default class App extends Component {
       confetti: false,
       showPotholes: false,
       showNeighborhoods: true,
+      neighborhoodPopulation: false,
+      neighborhoodTherm: false,
+      neighborhoodKwh: false,
       showMap: false,
       buildingsSlice: buildingsConverted,
       playbackSpeed: 5,
       playbackPosition: 0,
       yearSlice: 2018,
+      neighborhoods: DATA_URL.NEIGHBORHOODS,
       selections: ['Buses', 'Buildings', 'Pedestrians', 'Potholes'],
     },
     time: 0,
+    welcomeModal: true,
     hoveredObject: null,
     elevationScale: .01,
     elevationPedScale: .01,
@@ -195,7 +243,7 @@ export default class App extends Component {
     const { controls, time } = this.state;
 
     let setTime = time;
-    setTime += parseInt(controls.playbackSpeed) * 6;
+    setTime += parseInt(controls.playbackSpeed) * 2;
     if (setTime > loopLength) {
       setTime = 0;
     }
@@ -270,7 +318,6 @@ export default class App extends Component {
       time = this.state.time,
       pedestrians = DATA_URL.PEDESTRIANS,
       potholes = DATA_URL.POTHOLES,
-      neighbohoods = DATA_URL.NEIGHBORHOODS,
       // taxi_data = DATA_URL.TAXI,
     } = this.props;
 
@@ -359,13 +406,27 @@ export default class App extends Component {
       layers.push(
         new PolygonLayer({
           id: 'neighborhoods',
-          data: neighbohoods,
+          data: controls.neighborhoods,
           extruded: false,
           wireframe: true,
-          fp64: true,
+          fp64: false,
           opacity: 1,
           getPolygon: f => f.polygon,
-          getFillColor: f => [100,100,100, 0],
+          getFillColor: f => {
+            if (controls.neighborhoodPopulation) {
+              const popScaled = f.population/360 ;
+              return rgbStringToArray(blackTealInterplate(popScaled))
+            }
+            if (controls.neighborhoodTherm) {
+              const popScaled = thermScale(f.therm);
+              return rgbStringToArray(blackFuchsiaInterplate(popScaled))
+            }
+            if (controls.neighborhoodKwh) {
+              const popScaled = kwhScale(f.kwh) ;
+              return rgbStringToArray(blackCharInterplate(popScaled))
+            }
+            return [100,100,100, 0];
+          },
           getLineColor: f => [255, 255, 255],
           getLineWidth: f => 4,
           autoHighlight: true,
@@ -478,17 +539,49 @@ export default class App extends Component {
 
   }
 
+  getMapStyle = () => {
+    const { controls } = this.state;
+    switch (controls.mapType) {
+      case 'street':
+        return "mapbox://styles/mapbox/streets-v10";
+      case 'dark':
+        return "mapbox://styles/mapbox/dark-v9";
+      case 'light':
+        return "mapbox://styles/mapbox/light-v9";
+      case 'outdoors':
+        return "mapbox://styles/mapbox/outdoors-v10";
+      case 'satellite':
+        return "mapbox://styles/mapbox/satellite-v9";
+      case 'satellite-streets':
+        return "mapbox://styles/mapbox/satellite-streets-v10";
+    }
+  }
+
+  toggleModalVisible = () => {
+    this.setState({
+      welcomeModal: false
+    })
+  }
   handleRightClick = e => {
     e.preventDefault();
   }
 
   render() {
     const { viewState, controller = true, baseMap = true } = this.props;
-    const { controls } = this.state;
-
+    const { controls, welcomeModal } = this.state;
+    // console.log(this.state.welcomeModal)
     return (
       <ThemeProvider theme={theme}>
         <StyledContainer onContextMenu={this.handleRightClick}>
+          <Modal
+            isOpen={welcomeModal}
+            onRequestClose={this.toggleModalVisible}
+            style={introModal}
+          
+            contentLabel="Introduction Help"
+          >
+            Use the controls on the right to explore various Chicago data from <StyledA target="_blank" href="https://data.cityofchicago.org/">https://data.cityofchicago.org/</StyledA>
+          </Modal>
           <ControlPanel
             viewState={viewState}
             controls={controls}
@@ -572,6 +665,10 @@ const Tooltip = styled.div`
     font-weight: ${props => props.theme.font.weight.strong};
     margin-right: .4rem;
   }
+`;
+
+const StyledA = styled.a`
+  color: #15b9c4;
 `;
 
 // NOTE: EXPORTS FOR DECK.GL WEBSITE DEMO LAUNCHER - CAN BE REMOVED IN APPS
