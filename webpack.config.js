@@ -2,6 +2,7 @@
 // delete the local development overrides at the bottom of this file
 
 // avoid destructuring for older Node version support
+const path = require('path');
 const resolve = require('path').resolve;
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -12,7 +13,10 @@ const CONFIG = {
   entry: {
     app: resolve('./app.js')
   },
-
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, './dist'),
+  },
   module: {
     rules: [
       // {

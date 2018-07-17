@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start-local": "webpack-dev-server --env.local --progress --hot --open",
-    "start": "webpack-dev-server --progress --hot --open"
+    "start": "webpack-dev-server --progress --hot --open",
+    "build": "webpack app.js dist/bundle.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
@@ -20,6 +21,7 @@
     "react-dat-gui": "^1.0.2",
     "react-dom": "^16.3.0",
     "react-map-gl": "^3.3.0",
+    "react-modal": "^3.5.1",
     "styled-components": "^3.3.3"
   },
   "devDependencies": {
