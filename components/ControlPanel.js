@@ -148,6 +148,18 @@ const StyledControlPanel = styled.div`
     }
   }
 
+  select{	
+    outline: none;	
+    background-color: #343b47;	
+    border: none;	
+    color: #1AB8C4;	
+    font-family: 'Quicksand', sans-serif;	
+    font-size: .85rem;	
+    font-weight: 400;
+    margin-left: 1rem;	
+    transition: .5s all;	
+  }
+
 
   div {
     height: fit-content;
