@@ -59,7 +59,7 @@ for (let i = 0; i < neighborhoodsConverted.length; i++) {
   if (community === 'OHARE') {
     community = "O'HARE";
   }
-  
+
   const kwh = neighborhoodsEnergyRaw[community]['kwhMean'];
   const population = neighborhoodsEnergyRaw[community]['totalPopulation'];
   const therm = neighborhoodsEnergyRaw[community]['thermMean'];
@@ -172,7 +172,8 @@ export default class App extends Component {
       showBuildings: false,
       showPedestrians: false,
       mapType: 'dark',
-      confetti: false,
+      confettiWrigley: false,
+      confettiComiskey: false,
       showPotholes: false,
       showNeighborhoods: true,
       neighborhoodOverlay: 'none',
@@ -217,15 +218,15 @@ export default class App extends Component {
       } else if( controls.showBuildings ){
         this._animateBuildings();
         this.setState({ controls });
-      } 
+      }
       if (this.state.controls.showPedestrians === controls.showPedestrians || !controls.showPedestrians){
-        
+
       }else {
         this._animatePedestrians();
         this.setState({ controls });
       }
 
-      
+
     } else {
       let newBuildings = [];
       for (let i = 0; i < buildingsConverted.length; i++) {
@@ -385,7 +386,7 @@ export default class App extends Component {
           visible: controls.showPotholes
         })
       )
-    
+
       layers.push(
         new PolygonLayer({
           id: 'pedestrians',
@@ -406,7 +407,7 @@ export default class App extends Component {
           visible: controls.showPedestrians,
         })
       )
-    
+
       layers.push(
         new PolygonLayer({
           id: 'neighborhoods',
@@ -454,7 +455,7 @@ export default class App extends Component {
       //     getTargetColor: d => [Math.sqrt(d.price), 140, 0],
       //   })
       // )
-    
+
     return layers;
   }
 
@@ -470,7 +471,7 @@ export default class App extends Component {
       return null;
     }
     if (object !== this.state.hoveredObject){
-      this.setState({hoveredObject: object});      
+      this.setState({hoveredObject: object});
       this.setState({tooltip: this._renderTooltip()})
     } if (!object) {
       this.setState({tooltip: null});
@@ -480,13 +481,18 @@ export default class App extends Component {
   _onClick = ({object}) => {
     this.setState({clickedObject: object});
     if (object.bldg_name1 === "WRIGLEY FIELD") {
-      this._runConfetti();
+      this._runConfetti('Wrigley');
+    }
+    if (object.bldg_name1 === "COMISKEY PARK") {
+      this._runConfetti('Comiskey');
     }
   }
 
-  _runConfetti(){
+  _runConfetti(park){
     let { controls } = this.state;
-    controls.confetti = true;
+    console.log('park', park)
+    if (park === 'Wrigley') { controls.confettiWrigley = true; }
+    if (park === 'Comiskey') { controls.confettiComiskey = true; }
     this.setState({ controls });
     window.setTimeout(this._stopConfetti.bind(this), 18000);
   }
@@ -584,7 +590,6 @@ export default class App extends Component {
             isOpen={welcomeModal}
             onRequestClose={this.toggleModalVisible}
             style={introModal}
-          
             contentLabel="Introduction Help"
           >
             Use the controls on the right to explore various Chicago data from <StyledA target="_blank" href="https://data.cityofchicago.org/">https://data.cityofchicago.org/</StyledA>
@@ -596,11 +601,10 @@ export default class App extends Component {
             frameTime={this.state.time}
             date={this.currentDate}
           />
-          {controls.confetti &&
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-              <Confetti run={controls.confetti} width='2000px' height='2000px' numberOfPieces={500} gravity={0.08} colors={['#58B9F7', '#ffffff', '#ff0000']} recycle={false}/>}
-            </div>
-          }
+          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+            <Confetti run={controls.confettiWrigley} width='2000px' height='2000px' numberOfPieces={500} gravity={0.12} colors={['#58B9F7', '#ffffff', '#ff0000']} recycle={false}/>}
+            <Confetti run={controls.confettiComiskey} width='2000px' height='2000px' numberOfPieces={500} gravity={0.12} colors={['#fff', '#000', '#888']} recycle={false}/>}
+          </div>
           {this.state.tooltip}
           <DeckGL
             layers={this._renderLayers()}
@@ -684,5 +688,5 @@ export { App, INITIAL_VIEW_STATE };
 if (!window.demoLauncherActive) {
   document.body.style.backgroundColor = '#2a2a2a';
   render(<App />, document.body.appendChild(document.createElement('div')));
-} 
+}
 
