@@ -1,6 +1,5 @@
 # chicago Data Visualizer
-Uses City of Chicago data to create 3D live visualization used Deck.gl
-
+Uses City of Chicago data to create multiple layers of 3D visualizations superimposed on top of a map of the Chicago area utilizing Uber's `deck.gl`.
 
 ## Get Started
 After cloning the repo, run the following commands in your terminal (_For API token, register [here](https://www.mapbox.com/signup/)_):
@@ -14,7 +13,7 @@ After cloning the repo, run the following commands in your terminal (_For API to
 
 ## Primary Libraries/Packages Used
 * [React](https://reactjs.org)
-* [Uber Deck.gl](http://deck.gl/)
+* [Uber deck.gl](http://deck.gl/)
 * [styled-components](https://www.styled-components.com/)
 * [react-dat-gui](https://github.com/claus/react-dat-gui)
 
@@ -27,6 +26,8 @@ After cloning the repo, run the following commands in your terminal (_For API to
 * :file_folder: **generateData**
   * _Data transformation python scripts_
 * :file_folder: **utils**
-  * _helpers and enums_
+  * :file_folder: **enums**
 * :file_folder: **webgl**
   * _layers and shaders for use with webgl/deck.gl_
+* :page_facing_up: `app.js`
+* :page_facing_up: `theme.js`
