@@ -21,9 +21,7 @@ export default class Key extends Component {
       showPedestrians,
       showPotholes,
       showNeighborhoods,
-      neighborhoodPopulation,
-      neighborhoodTherm,
-      neighborhoodKwh,
+      neighborhoodOverlay,
     } = this.props.controls;
 
     let from = '';
@@ -63,19 +61,19 @@ export default class Key extends Component {
           from = dataKey.population.fromColor;
           middle = dataKey.population.middleColor;
           to = dataKey.population.toColor;
-          display = showNeighborhoods && neighborhoodPopulation ? '' : 'hidden';
+          display = showNeighborhoods && neighborhoodOverlay === 'population' ? '' : 'hidden';
           break;
         case dataKey.thermal.name:
           from = dataKey.thermal.fromColor;
           middle = dataKey.thermal.middleColor;
           to = dataKey.thermal.toColor;
-          display = showNeighborhoods && neighborhoodTherm ? '' : 'hidden';
+          display = showNeighborhoods && neighborhoodOverlay === 'thermal' ? '' : 'hidden';
           break;
         case dataKey.electricity.name:
           from = dataKey.electricity.fromColor;
           middle = dataKey.electricity.middleColor;
           to = dataKey.electricity.toColor;
-          display = showNeighborhoods && neighborhoodKwh ? '' : 'hidden';
+          display = showNeighborhoods && neighborhoodOverlay === 'kwh' ? '' : 'hidden';
           break;
         default:
           from = '#fff';

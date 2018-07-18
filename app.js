@@ -125,8 +125,8 @@ const blackTealInterplate = interpolateRgb('black', 'teal')
 const blackFuchsiaInterplate = interpolateRgb('black', '#FF00FF')
 const blackCharInterplate = interpolateRgb('black', '#DFFF00')
 
-const thermScale = scalePow().domain([0, 155153]).exponent(0.5)
-const kwhScale = scalePow().domain([0, 6183509]).exponent(0.5)
+const thermScale = scalePow().domain([0, 22342070]).exponent(1)
+const kwhScale = scalePow().domain([0, 976994525]).exponent(1)
 
 function getTheColor(d) {
   let color = [253, 128, 253];
@@ -175,9 +175,7 @@ export default class App extends Component {
       confetti: false,
       showPotholes: false,
       showNeighborhoods: true,
-      neighborhoodPopulation: false,
-      neighborhoodTherm: false,
-      neighborhoodKwh: false,
+      neighborhoodOverlay: 'none',
       showMap: false,
       buildingsSlice: buildingsConverted,
       playbackSpeed: 5,
@@ -419,15 +417,15 @@ export default class App extends Component {
           opacity: 1,
           getPolygon: f => f.polygon,
           getFillColor: f => {
-            if (controls.neighborhoodPopulation) {
+            if (controls.neighborhoodOverlay === 'population') {
               const popScaled = f.population/335000 ;
               return rgbStringToArray(blackTealInterplate(popScaled))
             }
-            if (controls.neighborhoodTherm) {
+            if (controls.neighborhoodOverlay === 'thermal') {
               const popScaled = thermScale(f.therm);
               return rgbStringToArray(blackFuchsiaInterplate(popScaled))
             }
-            if (controls.neighborhoodKwh) {
+            if (controls.neighborhoodOverlay === 'kwh') {
               const popScaled = kwhScale(f.kwh) ;
               return rgbStringToArray(blackCharInterplate(popScaled))
             }
