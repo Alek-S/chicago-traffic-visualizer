@@ -414,7 +414,7 @@ export default class App extends Component {
           data: controls.neighborhoods,
           extruded: false,
           wireframe: true,
-          fp64: false,
+          fp64: true,
           opacity: 1,
           getPolygon: f => f.polygon,
           getFillColor: f => {
