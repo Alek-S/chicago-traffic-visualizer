@@ -11,7 +11,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "@fortawesome/react-fontawesome": "0.1.0-11",
-    "browserslist": "^4.0.0",
+    "browserslist": "^4.16.5",
     "d3-interpolate": "^1.2.0",
     "d3-scale": "^2.1.0",
     "date-fns": "^1.29.0",
